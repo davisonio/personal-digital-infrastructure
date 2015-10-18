@@ -20,7 +20,7 @@ $ sudo apt-get install ansible
 
 ```
 $ cd ~/i/develop/here
-$ sudo rm unwantedfile
+$ sudo rm unwanted files
 ```
 
 ## 4. Download infrastructure from GitHub
