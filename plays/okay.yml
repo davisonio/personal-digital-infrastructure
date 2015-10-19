@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+  - name: Ping hosts
+    ping:
+
+  - name: Sudo test
+    command: sudo echo hi

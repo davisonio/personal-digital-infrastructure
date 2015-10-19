@@ -1,3 +1,7 @@
+#
+# Hosts organised by project
+#
+
 [davisonio]
 #davisonio-ansible.davison.io
 davisonio-main.davison.io

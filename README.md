@@ -42,21 +42,15 @@ An overview of what's included here and where you can find it.
   - ...
 
 ##### What does 'okay' mean?
-'Okay' means 'check that everything is working correctly'.
 
-For example:
-- I add a host to the okay_nginx group (in inventory/okay)
-- I run okay.yml which then;
-- causes okay_role_nginx.yml to run which then;
-- runs all tasks from the nginx role
-
-Once all the tasks have completed we can consider everything to be `okay` because all tasks have been checked through.
+*'Okay' tasks are idempotent, meaning if you run them again, they will make only the changes they must in order to bring the system to the desired state. This makes it very safe to rerun the same playbook multiple times. They won’t change things unless they have to change things. - Ansible Docs*
 
 ## Usage
 
 - [Setup local development environment](https://github.com/davisonio/infrastructure/blob/master/docs/setup-local-dev-env.md)
 - [Setup Ansible Controller](https://github.com/davisonio/infrastructure/blob/master/docs/setup-controller.md)
 - Adding a new host TODO
+- Travis tests TODO
 
 ## Official Docs
 
