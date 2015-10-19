@@ -43,7 +43,7 @@ An overview of what's included here and where you can find it.
 
 ##### What does 'okay' mean?
 
-*'Okay' tasks are idempotent, meaning if you run them again, they will make only the changes they must in order to bring the system to the desired state. This makes it very safe to rerun the same playbook multiple times. They won’t change things unless they have to change things. - Ansible Docs*
+'Okay' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won’t change things unless they have to change things. - Ansible Docs
 
 ## Usage
 

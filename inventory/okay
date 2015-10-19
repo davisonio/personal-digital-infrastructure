@@ -4,4 +4,7 @@
 
 # This group will be run with plays/okay/common.yml
 # All hosts should probably be in this group because it installs basic things needed for servers e.g. users
-[okay_common]
+
+[okay_base]
+#davisonio-ansible.davison.io
+davisonio-main.davison.io

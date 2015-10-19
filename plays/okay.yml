@@ -1,8 +1,5 @@
 ---
-- hosts: all
-  tasks:
-  - name: Ping hosts
-    ping:
+- name: Initiate all 'okay' playbooks
+  hosts: all
 
-  - name: Sudo test
-    command: sudo echo hi
+- include: okay/base.yml
