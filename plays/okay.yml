@@ -1,5 +1,9 @@
 ---
-- name: Initiate all 'okay' playbooks
+- name: Check that everything's 'okay'
   hosts: all
-
-- include: okay/base.yml
+  roles:
+    #
+    # okay_base
+    #
+    - role: ping
+      when: "inventory_hostname in groups['okay_base']"

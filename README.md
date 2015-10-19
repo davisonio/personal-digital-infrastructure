@@ -6,6 +6,7 @@ Ansible roles, playbooks, scripts and other things powering [davison.io](http://
 
 An overview of what's included here and where you can find it.
 
+- **docs/** - Documentation
 - **group_vars/** - `Variables which are set for specific groups (defined in inventory)`
   - **example_group/**
     - **main.yml** - `Main, public variables`
@@ -20,9 +21,8 @@ An overview of what's included here and where you can find it.
   - **project** - `Hosts organised by project (e.g. groups here are davisonio-project1, davisonio-project2)`
   - **okay** - `Hosts organised by 'okay' (e.g. groups here are okay_nginx, okay_common)`
 - **plays/** - `Playbooks`
-  - **okay/** - `Automatically run by okay.yml but can be run individually.`
-  - **other/** - `Seperate playbooks that have to be run manually`
-  - **okay.yml** - `Master playbook which check that everything is 'okay' on all hosts (runs all playbooks in okay/ folder)`
+  - **other/** - `Other playbooks that have to be run manually`
+  - **okay.yml** - `Master playbook which check that everything is 'okay' on all hosts (see definition below)`
 - **roles/** - `Roles`
   - **example**
     - defaults/
@@ -34,7 +34,7 @@ An overview of what's included here and where you can find it.
       - example.j2 - `Example template used in tasks`
     - tasks/
       - main.yml - `The main task file which in run first`
-      - okay.yml - `Another task file. Only run when, for example, okay tag is specified.`
+      - another.yml - `Another task file which isn't run automatically when specifying the role.`
     - handlers/
       - main.yml - `Mostly used to restart services using 'notify:'`
     - meta/

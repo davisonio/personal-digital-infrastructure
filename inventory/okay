@@ -1,9 +1,8 @@
 #
 # Hosts organised by what 'okay' tasks we want to run
 #
-
-# This group will be run with plays/okay/common.yml
-# All hosts should probably be in this group because it installs basic things needed for servers e.g. users
+# See what happens with these hosts at plays/okay.yml
+#
 
 [okay_base]
 #davisonio-ansible.davison.io

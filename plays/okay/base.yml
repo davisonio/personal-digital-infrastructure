@@ -1,6 +1,0 @@
----
-- name: Initiate 'okay' tasks on roles required by 'base' hosts
-  hosts: okay_base
-  roles:
-    - role: ping
-      tags: okay
