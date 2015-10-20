@@ -1,9 +1,5 @@
 ---
-- name: Check that everything's 'okay'
-  hosts: all
+- name: Check that everything's 'okay' in 'okay_base' hosts
+  hosts: okay_base
   roles:
-    #
-    # okay_base
-    #
-    - role: ping
-      when: "inventory_hostname in groups['okay_base']"
+    - ping

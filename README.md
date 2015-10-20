@@ -51,6 +51,7 @@ An overview of what's included here and where you can find it.
 - [Setup Ansible Controller](https://github.com/davisonio/infrastructure/blob/master/docs/setup-controller.md)
 - Adding a new host TODO
 - Travis tests TODO
+- when: "inventory_hostname in groups['okay_base']"
 
 ## Official Docs
 
