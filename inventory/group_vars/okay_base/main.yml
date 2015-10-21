@@ -1,3 +1,6 @@
 ---
 
 ping_enabled: yes
+
+
+timezone_enabled: yes

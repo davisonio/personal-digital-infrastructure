@@ -7,8 +7,6 @@ Ansible roles, playbooks, scripts and other things powering [davison.io](http://
 An overview of what's included here and where you can find it.
 
 - **docs/** - Documentation
-
-
 - **inventory/** - `List of hosts managed by ansible with variables`
   - **group_vars/** - `Variables which are set for specific groups (defined in inventory)`
     - **example_group/**
