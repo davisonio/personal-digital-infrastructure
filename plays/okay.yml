@@ -4,3 +4,4 @@
   roles:
     - ping
     - timezone
+    - ntp
