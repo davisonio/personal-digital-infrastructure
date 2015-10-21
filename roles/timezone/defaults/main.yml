@@ -1,5 +1,5 @@
 ---
 
-timezone_enabled: yes                   # The role is enabled
+timezone_enabled: no                   # The role is enabled
 timezone_timezone: Europe/London              # Set timezone
 timezone_dependent_services: []
