@@ -1,3 +1,4 @@
 ---
-- name: Ping
-  ping:
+
+- include: ping.yml
+  when: ping_enabled

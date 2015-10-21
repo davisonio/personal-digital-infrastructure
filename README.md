@@ -7,17 +7,19 @@ Ansible roles, playbooks, scripts and other things powering [davison.io](http://
 An overview of what's included here and where you can find it.
 
 - **docs/** - Documentation
-- **group_vars/** - `Variables which are set for specific groups (defined in inventory)`
-  - **example_group/**
-    - **main.yml** - `Main, public variables`
-    - **secrets.yml** - `Secret, private variables which are encrypted using ansible-vault`
-  - ...
-- **host_vars/** - `Variables which are set for specific hosts (defined in inventory)`
-  - **davisonio-example.davison.io/**
-    - **main.yml** - `Main, public variables`
-    - **secrets.yml** - `Secret, private variables which are encrypted using ansible-vault`
-  - ...
-- **inventory/** - `List of hosts managed by ansible`
+
+
+- **inventory/** - `List of hosts managed by ansible with variables`
+  - **group_vars/** - `Variables which are set for specific groups (defined in inventory)`
+    - **example_group/**
+      - **main.yml** - `Main, public variables`
+      - **secrets.yml** - `Secret, private variables which are encrypted using ansible-vault`
+    - ...
+  - **host_vars/** - `Variables which are set for specific hosts (defined in inventory)`
+    - **davisonio-example.davison.io/**
+      - **main.yml** - `Main, public variables`
+      - **secrets.yml** - `Secret, private variables which are encrypted using ansible-vault`
+    - ...
   - **project** - `Hosts organised by project (e.g. groups here are davisonio-project1, davisonio-project2)`
   - **okay** - `Hosts organised by 'okay' (e.g. groups here are okay_nginx, okay_common)`
 - **plays/** - `Playbooks`

@@ -1,7 +1,7 @@
 #
 # Hosts organised by what 'okay' tasks we want to run
 #
-# See what happens with these hosts at plays/okay.yml
+# See what happens with these hosts at plays/okay.yml and group_vars/okay_*
 #
 
 [okay_base]
