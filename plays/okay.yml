@@ -2,4 +2,4 @@
 - name: Check that everything's 'okay' in 'okay_base' hosts
   hosts: okay_base
   roles:
-    - ping
+    - role: ping
