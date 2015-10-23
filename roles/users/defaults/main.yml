@@ -1,5 +1,7 @@
 ---
 
+include: secrets.yml
+
 users_enabled: no              # The role is enabled
 
 users_groups:
@@ -14,16 +16,11 @@ users_groups:
                                 #       system: yes
                                 #     - name: name2
 
-users_users: []                 # Create users
-                                # Simple syntax:
-                                #   users_users: [name1, name2]
-                                # Complex syntax:
-                                #   users_users:
-                                #     - name: name1
-                                #       groups: admin,sudo
-                                #       shell: /bin/zsh
-
-users_ssh_keys: []              # Assign allowed keys to users
+users_ssh_keys:
+  - name: craig
+    authorized:
+      - https://github.com/CraigyDavi.keys
+              # Assign allowed keys to users
                                 #   users_ssh_keys:
                                 #   - name: username1
                                 #     authorized:
