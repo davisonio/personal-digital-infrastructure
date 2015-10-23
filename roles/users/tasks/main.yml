@@ -1,0 +1,5 @@
+---
+
+- include: users.yml
+  when: users_enabled
+  tags: [users]

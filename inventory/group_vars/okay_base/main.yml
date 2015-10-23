@@ -7,3 +7,6 @@ timezone_enabled: yes
 
 
 ntp_enabled: yes
+
+
+users_enabled: yes
