@@ -10,3 +10,6 @@ ntp_enabled: yes
 
 
 users_enabled: yes
+
+
+sudo_enabled: yes

@@ -6,3 +6,4 @@
     - timezone
     - ntp
     - users
+    - sudo
