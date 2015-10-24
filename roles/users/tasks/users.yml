@@ -1,42 +1,50 @@
 ---
 
-- name: Ensure the groups are present
-  group: name={{item.name|default(item)}} system={{item.system|default("no")}}
+- name: Make sure all groups are present
+  group:
+    name: "{{ item.name }}"
+    system: "{{ item.system | default(omit) }}"
+    gid: "{{ item.gid | default(omit) }}"
+    state: present
   with_items: users_groups
 
-- name: Ensure the removed groups are not present
-  group: name={{item}} state=absent
-  with_items: users_remove_groups
-
-- name: Create groups defined in user list
-  group: name={{item.group|default(item.name|default(item))}}
-  when: not users_to_install or item.name|default(item) in users_to_install
+- name: Create groups defined in users
+  group:
+    name: "{{ item.group | default(item.name) }}"
   with_items: users_users
 
-- name: Ensure the users are present
+- name: Make sure the users are present
   user:
-      name: "{{item.name|default(item)}}"
-      comment: "{{item.comment|default('')}}"
-      createhome: "{{item.createhome|default('yes')}}"
-      group: "{{item.group|default(item.name|default(item))}}"
-      groups: "{{item.groups|default('')}}"
-      home: "{{item.home|default('/home/' + item.name|default(item))}}"
-      move_home: "{{item.move_home|default('no')}}"
-      non_unique: "{{item.non_unique|default('no')}}"
-      password: "{{item.password|default('')}}"
-      shell: "{{item.shell|default(users_shell)}}"
-      system: "{{item.system|default('no')}}"
-      update_password: "{{item.update_password|default('always')}}"
-  when: not users_to_install or item.name|default(item) in users_to_install
+    name: "{{ item.name }}"
+    group: "{{ item.group | default(item.name) }}"
+    groups: "{{ ','.join(item.groups) }}"
+    append: "{{ item.append | default(omit) }}"
+    password: "{{ item.pass | default(omit) }}"
+    comment: "{{ item.comment | default(omit) }}"
+    shell: "{{ item.shell | default(omit) }}"
+    uid: "{{ item.uid | default(omit) }}"
+    home: "{{ item.home | default(omit) }}"
+    system: "{{ item.system | default(omit) }}"
+    state: present
   with_items: users_users
 
-- name: Ensure the removed users are not present
-  user: name={{item}} state=absent remove=yes
-  with_items: users_remove_users
-
-- name: Ensure the users ssh keys are present
-  authorized_key: "user={{item.0.name}} key='{{item.1}}'"
-  when: not users_to_install or item.0.name in users_to_install
+- name: Install the ssh keys for the users
+  authorized_key:
+    user: "{{item.0.name}}"
+    key: "{{item.1}}"
   with_subelements:
-    - users_ssh_keys
-    - authorized
+    - users_users
+    - ssh_keys
+
+- name: Make sure all removed users are not present
+  user:
+    name: "{{item.name}}"
+    state: absent
+    remove: yes
+  with_items: users_users_removed
+
+- name: Make sure all removed groups are not present
+  group:
+    name: "{{ item.name }}"
+    state: absent
+  with_items: users_groups_removed

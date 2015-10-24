@@ -1,11 +1,10 @@
----
-
-dependencies: []
+# file: generic-users/meta/main.yml
 
 galaxy_info:
-  author: klen
-  company: Stouts
-  description: Ansible role which manage users and groups
+  author: pjan vandaele
+  company: ANXS
+  description: Manage users
+  min_ansible_version: 1.8
   license: MIT
   platforms:
   - name: Ubuntu
@@ -13,3 +12,5 @@ galaxy_info:
     - all
   categories:
   - system
+
+dependencies: []
