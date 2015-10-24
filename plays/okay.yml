@@ -7,3 +7,4 @@
     - ntp
     - users
     - sudo
+    - hostname

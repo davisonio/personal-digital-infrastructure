@@ -13,3 +13,6 @@ users_enabled: yes
 
 
 sudo_enabled: yes
+
+
+hostname_enabled: yes
