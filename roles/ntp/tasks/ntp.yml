@@ -1,14 +1,71 @@
 ---
 
-- include_vars: "{{ansible_os_family}}.yml"
+- name: Make sure the dependencies are installed
+  apt:
+    pkg: "{{item}}"
+    state: present
+  with_items:
+    - ntp
+    - ntpdate
 
-- name: Install NTP (Debian)
-  apt: name=ntp state=installed
-  when: ansible_os_family == 'Debian'
+- name: Check for apparmor
+  command: "dpkg -s apparmor"
+  ignore_errors: True
+  register: apparmor_check
+  changed_when: False
 
-- name: Install NTP (RedHat)
-  yum: name=ntp state=installed
-  when: ansible_os_family == 'RedHat'
+- name: Update apparmor for leapseconds
+  lineinfile:
+    dest: "/etc/apparmor.d/usr.sbin.ntpd"
+    line: "  /etc/ntp.leapseconds r,"
+    regexp: ".+ntp.leapseconds.+"
+    insertafter: ".+ntp.conf.+"
+  when: apparmor_check.rc == 0
+  notify:
+    - reload ntp apparmor
+    - restart ntp
 
-- name: Ensure NTP is running and enabled at system start.
-  service: name={{ ntp_daemon }} state=started enabled=yes
+- name: Fetch leapseconds file
+  get_url:
+    url: "{{ntp_leapurl}}"
+    dest: "/etc/ntp.leapseconds"
+    owner: "root"
+    group: "root"
+    mode: "0660"
+  notify:
+    - restart ntp
+
+- name: Configure ntp (/etc/ntp.conf)
+  template:
+    src: etc_ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify:
+    - restart ntp
+
+- name: Copy auto-ntpdate script
+  copy:
+    src: auto-ntpdate.sh
+    dest: /usr/local/sbin/auto-ntpdate
+    mode: 0770
+  when: auto_ntpdate
+
+- name: Generate auto-ntpdate cron
+  cron:
+    name: "ANXS auto-ntpdate"
+    hour: "*/{{auto_ntpdate_hour}}"
+    minute: "0"
+    state: present
+    job: "/usr/local/sbin/auto-ntpdate"
+  when: auto_ntpdate
+
+- name: Remove auto-ntpdate script
+  cron:
+    name: "ANXS auto-ntpdate"
+    state: absent
+  when: not auto_ntpdate
+
+- name: Remove auto-ntpdate files
+  file:
+    path: /usr/local/sbin/auto-ntpdate
+    state: absent
+  when: not auto_ntpdate

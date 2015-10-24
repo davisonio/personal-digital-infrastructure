@@ -1,21 +1,16 @@
----
-
-dependencies: []
+# file: xxx/meta/main.yml
 
 galaxy_info:
-  author: klen
-  company: Stouts
-  description: Ansible role to install NTP
+  author: pjan vandaele
+  company: ANXS
+  description: install and configure ntp
+  min_ansible_version: 1.3
   license: MIT
   platforms:
   - name: Ubuntu
     versions:
     - all
-  - name: Debian
-    versions:
-    - all
-  - name: EL
-    versions:
-    - all
   categories:
   - system
+
+dependencies: []

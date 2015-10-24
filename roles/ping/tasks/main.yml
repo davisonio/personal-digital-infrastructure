@@ -2,4 +2,3 @@
 
 - include: ping.yml
   when: ping_enabled
-  tags: [ping]

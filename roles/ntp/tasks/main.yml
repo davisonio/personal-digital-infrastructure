@@ -2,4 +2,3 @@
 
 - include: ntp.yml
   when: ntp_enabled
-  tags: [ntp]
