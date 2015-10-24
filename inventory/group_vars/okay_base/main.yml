@@ -16,3 +16,6 @@ sudo_enabled: yes
 
 
 hostname_enabled: yes
+
+
+apt_enabled: yes

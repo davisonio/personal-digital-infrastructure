@@ -8,22 +8,22 @@
     - ntp
     - ntpdate
 
-- name: Check for apparmor
-  command: "dpkg -s apparmor"
-  ignore_errors: True
-  register: apparmor_check
-  changed_when: False
+#- name: Check for apparmor
+#  command: "dpkg -s apparmor"
+#  ignore_errors: True
+#  register: apparmor_check
+#  changed_when: False
 
-- name: Update apparmor for leapseconds
-  lineinfile:
-    dest: "/etc/apparmor.d/usr.sbin.ntpd"
-    line: "  /etc/ntp.leapseconds r,"
-    regexp: ".+ntp.leapseconds.+"
-    insertafter: ".+ntp.conf.+"
-  when: apparmor_check.rc == 0
-  notify:
-    - reload ntp apparmor
-    - restart ntp
+#- name: Update apparmor for leapseconds
+#  lineinfile:
+#    dest: "/etc/apparmor.d/usr.sbin.ntpd"
+#    line: "  /etc/ntp.leapseconds r,"
+#    regexp: ".+ntp.leapseconds.+"
+#    insertafter: ".+ntp.conf.+"
+#  when: apparmor_check.rc == 0
+#  notify:
+#    - reload ntp apparmor
+#    - restart ntp
 
 - name: Fetch leapseconds file
   get_url:
