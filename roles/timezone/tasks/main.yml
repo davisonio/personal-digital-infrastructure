@@ -2,4 +2,3 @@
 
 - include: timezone.yml
   when: timezone_enabled
-  tags: [timezone]

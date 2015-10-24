@@ -1,21 +1,16 @@
----
-
-dependencies: []
+# file: timezone/meta/main.yml
 
 galaxy_info:
-  author: klen
-  company: Stouts
-  description: Manage timezone
+  author: pjan vandaele
+  company: ANXS
+  description: set/update the timezone
+  min_ansible_version: 1.2
   license: MIT
   platforms:
   - name: Ubuntu
     versions:
     - all
-  - name: RedHat
-    versions:
-    - all
-  - name: CentOS
-    versions:
-    - all
   categories:
   - system
+
+dependencies: []
