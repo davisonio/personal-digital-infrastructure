@@ -1,0 +1,13 @@
+---
+
+openssh_enabled: no
+
+#
+# SSH Server Settings
+#
+
+openssh_server_permitrootlogin: "no"
+
+#
+# SSH Client Settings
+#

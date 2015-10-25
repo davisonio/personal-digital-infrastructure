@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+PermitRootLogin {{ openssh_server_permitrootlogin }}
+ChallengeResponseAuthentication no
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UsePAM yes
