@@ -49,7 +49,7 @@ An overview of what's included here and where you can find it.
 
 - [Setup local development environment](https://github.com/davisonio/infrastructure/blob/master/docs/setup-local-dev-env.md)
 - [Setup Ansible Controller](https://github.com/davisonio/infrastructure/blob/master/docs/setup-controller.md)
-- Adding a new host TODO
+- [Add a new host](https://github.com/davisonio/infrastructure/blob/master/docs/add-new-host.md)
 - Travis tests TODO
 - when: "inventory_hostname in groups['okay_base']"
 - when: "'ping' in {{ role_names}}"
