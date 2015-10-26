@@ -28,7 +28,7 @@
     state: present
   with_items: users_users
 
-- name: Install the ssh keys for the users
+- name: Install the authroized keys for the users
   authorized_key:
     user: "{{item.0.name}}"
     key: "{{item.1}}"

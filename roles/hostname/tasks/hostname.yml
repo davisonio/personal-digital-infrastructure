@@ -1,31 +1,24 @@
 ---
 
-- name: Update the hostname (pt. 1) - hostname cmd
+- name: Update the hostname (hostname cmd)
   hostname:
     name: "{{inventory_hostname}}"
 
-- name: Update the hostname (pt. 2) - (/etc/hostname)
-  copy:
-    content: "{{inventory_hostname}}{{'\n'}}"
+- name: Update the hostname (/etc/hostname)
+  template:
+    src: hostname.j2
     dest: /etc/hostname
-    owner: root
-    group: root
-    mode: 0644
 
-- name: Update the IPv4 hostname (pt. 3) - (/etc/hosts)
+- name: Update the IPv4 hostname (/etc/hosts)
   lineinfile:
     dest: /etc/hosts
     regexp: "^127.0.0.1"
     line: "127.0.0.1 {{inventory_hostname}} {{inventory_hostname_short}} localhost"
     state: present
 
-- name: Update the IPv6 hostname (pt. 3) - (/etc/hosts)
+- name: Update the IPv6 hostname (/etc/hosts)
   lineinfile:
     dest: /etc/hosts
     regexp: "^::1"
     line: "::1 {{inventory_hostname}} {{inventory_hostname_short}} localhost ip6-localhost ip6-loopback"
     state: present
-
-- name: Install MDNS Components
-  apt: pkg=avahi-daemon,libnss-mdns state=latest
-  when: "'{{ansible_os_family}}' == 'Debian' and {{hostname_avahi}}"

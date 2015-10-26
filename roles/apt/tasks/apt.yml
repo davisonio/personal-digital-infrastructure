@@ -1,26 +1,26 @@
 ---
 
-- name: Update the apt cache.
+- name: Update the apt cache
   apt:
     cache_valid_time="{{ apt_cache_valid_time }}"
     update_cache=yes
   when: apt_update
 
-- name: Install dependencies.
+- name: Install dependencies
   apt:
     pkg="{{ item }}"
     state=present
   with_items: apt_dependencies
   when: apt_dependencies
 
-- name: Install repositories.
+- name: Install repositories
   apt_repository:
     repo="{{ item }}"
     update_cache=yes
   with_items: apt_install_repositories
   when: apt_install_repositories
 
-- name: Remove repositories.
+- name: Remove repositories
   apt_repository:
     repo="{{ item }}"
     state=absent
@@ -28,20 +28,20 @@
   with_items: apt_remove_repositories
   when: apt_remove_repositories
 
-- name: Upgrade all packages.
+- name: Upgrade all packages
   apt:
     upgrade={{ apt_upgrade_type }}
     update_cache=yes
   when: apt_upgrade
 
-- name: Install packages.
+- name: Install packages
   apt:
     pkg="{{ item }}"
     state=present
   with_items: apt_install
   when: apt_install
 
-- name: Remove packages.
+- name: Remove packages
   apt:
     pkg="{{ item }}"
     state=absent

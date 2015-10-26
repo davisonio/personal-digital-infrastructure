@@ -4,15 +4,17 @@ ntp_enabled: no
 
 ntp_driftfile: "/var/lib/ntp/ntp.drift"
 ntp_statsdir: "/var/log/ntpstats/"
-ntp_leapfile: "/etc/ntp.leapseconds"
 ntp_leapurl: "http://www.ietf.org/timezones/data/leap-seconds.list"
-ntp_servers: ["0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org", "3.pool.ntp.org"]
+ntp_leapfile: "/etc/ntp.leapseconds"
+
+ntp_servers:
+  - "0.pool.ntp.org"
+  - "1.pool.ntp.org"
+  - "2.pool.ntp.org"
+  - "3.pool.ntp.org"
 
 ntp_restricts:
   - "restrict -4 default kod notrap nomodify nopeer noquery"
   - "restrict -6 default kod notrap nomodify nopeer noquery"
   - "restrict 127.0.0.1"
   - "restrict ::1"
-
-auto_ntpdate: no
-auto_ntpdate_hour: 12

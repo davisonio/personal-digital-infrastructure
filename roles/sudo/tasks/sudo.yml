@@ -2,10 +2,14 @@
 
 - name: Make sure sudo is installed
   apt:
-    pkg: "{{item}}"
+    name: sudo
     state: present
-  with_items:
-    - sudo
 
 - name: Update sudoers
-  template: src=sudoers.j2 dest=/etc/sudoers owner=root group=root mode=0440
+  template:
+    src: sudoers.j2
+    dest: /etc/sudoers
+    owner: root
+    group: root
+    mode: 0440
+    validate: "/usr/sbin/visudo -cf %s"

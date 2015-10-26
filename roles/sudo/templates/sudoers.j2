@@ -3,19 +3,16 @@
 {% for defaults in sudo_defaults %}
 Defaults      {{ defaults }}
 {% endfor -%}
-{%- if sudo_agent_forwarding %}
-Defaults      env_keep+=SSH_AUTH_SOCK
-{% endif %}
 
 # User privilege specification
 root ALL=(ALL:ALL) ALL
 {% for user in sudo_users -%}
-{{ user }} ALL=(ALL:ALL) {% if user in sudo_passwordless %}NOPASSWD:{% endif %}ALL
+{{ user }} ALL=(ALL:ALL) {% if user in sudo_user_nopasswd %}NOPASSWD:{% endif %}ALL
 {% endfor %}
 
+# Group privilege specification
 {% for group in sudo_groups -%}
-# Members of the group '{{ group }}' may gain root privileges
-%{{ group }} ALL=(ALL:ALL) {% if group in sudo_passwordless %}NOPASSWD:{% endif %}ALL
+%{{ group }} ALL=(ALL:ALL) {% if group in sudo_group_nopasswd %}NOPASSWD:{% endif %}ALL
 {% endfor %}
 
-{% if sudo_include_sudoersd %}#includedir /etc/sudoers.d{% endif %}
+#includedir /etc/sudoers.d

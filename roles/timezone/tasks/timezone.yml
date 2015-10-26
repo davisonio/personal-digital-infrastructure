@@ -2,23 +2,21 @@
 
 - name: Make sure tzdata is installed
   apt:
-    pkg: tzdata
+    name: tzdata
     state: present
 
-# This will always write /etc/localtime
-- name: Update the hardware clock
-  command: dpkg-reconfigure -f noninteractive tzdata
-  changed_when: false
+- name: Update /etc/timezone
+  template:
+    src: timezone.j2
+    dest: /etc/timezone
 
-# So we always need to delete it
-- name: Symlink the correct localtime - pt.1
+- name: Delete /etc/localtime so we can symlink
   file:
     path: /etc/localtime
     state: absent
-  changed_when: false
+  changed_when: False
 
-# Then re-symlink it to the correct location
-- name: Symlink the correct localtime - pt.2 (/etc/localtime)
+- name: Symlink the correct localtime
   file:
     src: /usr/share/zoneinfo/{{timezone_zone}}
     dest: /etc/localtime
@@ -27,4 +25,5 @@
     group: root
     mode: 0644
     force: yes
-  changed_when: false
+  changed_when: False
+  notify: update timezone
