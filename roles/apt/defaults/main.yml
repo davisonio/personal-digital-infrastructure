@@ -15,8 +15,8 @@ apt_dependencies:
   - apt-utils
 
 apt_install:
-  - update-manager-core
   - rsync
+  - curl
 
 apt_install_repositories: false
 
