@@ -17,6 +17,8 @@ apt_dependencies:
 apt_install:
   - rsync
   - curl
+  - git
+  - python
 
 apt_install_repositories: false
 

@@ -1,0 +1,14 @@
+---
+
+minetest_enabled: no
+
+minetest_conf_location: /etc/minetest/
+minetest_game_location: /usr/share/games/minetest/games/
+minetest_systemd_location: /lib/systemd/system/
+
+minetest_games_to_install:
+  - name: "Craig-Server_game"
+    url: "https://github.com/CraigyDavi/Craig-Server_game"
+
+minetest_instances:
+  - name: server

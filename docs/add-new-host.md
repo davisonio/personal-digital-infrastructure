@@ -10,13 +10,21 @@ You should be connecting using the **root** user with a **password**.
 
 The password doesn't have to be secure because we will be removing it later.
 
-## 2. Add host to inventory and set up DNS
+## 2. Install python
+
+Python is required to be on the host so that Ansible can run.
+
+``
+$ apt-get install python
+``
+
+## 3. Add host to inventory and set up DNS
 
 Add the host to the inventory files required **except the okay inventory file**, we will do that later.
 
 If you'd like to add a nice looking .davison.io hostname instead of the IP address you'll need to set up the DNS too.
 
-## 3. Run the add-new-host playbook
+## 4. Run the add-new-host playbook
 
 Firstly, make sure that you have an active SSH connection (root) as shown above. This is so that if Ansible screws up we can fix things using this connection.
 
@@ -30,7 +38,7 @@ $ ansible-playbook plays/other/add-new-host.yml -l davisonio-example.davison.io 
 
 This playbook will lock down the root user and then run the user and openssh roles.
 
-## 4. Check everything's okay
+## 5. Check everything's okay
 
 Add this host to okay_base and any under any other headings for what we want to add to this host. Then run the 'okay' playbook and hopefully everything should be 'okay' on all hosts including the new one you added:
 ```

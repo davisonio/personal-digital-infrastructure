@@ -21,7 +21,7 @@
     append: "{{ item.append | default(omit) }}"
     password: "{{ item.pass | default(omit) }}"
     comment: "{{ item.comment | default(omit) }}"
-    shell: "{{ item.shell | default(/bin/bash) }}"
+    shell: "{{ item.shell if item.shell is defined else '/bin/bash' }}"
     uid: "{{ item.uid | default(omit) }}"
     home: "{{ item.home | default(omit) }}"
     system: "{{ item.system | default(omit) }}"
