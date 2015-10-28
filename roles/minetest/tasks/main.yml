@@ -1,4 +1,3 @@
 ---
 
 - include: minetest.yml
-  when: minetest_enabled

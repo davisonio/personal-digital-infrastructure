@@ -1,7 +1,5 @@
 ---
 
-minetest_enabled: no
-
 minetest_conf_location: /etc/minetest/
 minetest_game_location: /usr/share/games/minetest/games/
 minetest_systemd_location: /lib/systemd/system/

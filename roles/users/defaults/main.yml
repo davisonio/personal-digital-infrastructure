@@ -1,7 +1,5 @@
 ---
 
-users_enabled: no
-
 users_groups:
   - name: sudo
     system: yes

@@ -3,4 +3,3 @@
 - include_vars: secrets.yml
 
 - include: users.yml
-  when: users_enabled

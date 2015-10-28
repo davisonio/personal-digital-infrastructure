@@ -1,6 +1,6 @@
 ---
-- name: Check that everything's 'okay'
-  hosts: all
+- name: Check that everything's 'okay' on okay_base
+  hosts: okay_base
   roles:
     - ping
     - timezone
@@ -10,4 +10,9 @@
     - hostname
     - apt
     - openssh
+
+---
+- name: Check that everything's 'okay' on okay_minetest
+  hosts: okay_minetest
+  roles:
     - minetest

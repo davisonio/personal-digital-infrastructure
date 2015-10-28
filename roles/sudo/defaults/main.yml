@@ -1,6 +1,5 @@
 ---
 
-sudo_enabled: no
 sudo_users: []
 sudo_user_nopasswd: []
 sudo_groups: [admin, sudo]

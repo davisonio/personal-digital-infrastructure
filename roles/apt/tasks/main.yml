@@ -1,4 +1,3 @@
 ---
 
 - include: apt.yml
-  when: apt_enabled

@@ -2,9 +2,6 @@
 - name: Add new host to be managed by ansible
   hosts: all
   remote_user: root
-  vars:
-    users_enabled: yes
-    openssh_enabled: yes
   vars_prompt:
     - name: proceed
       prompt: "Did you specify the hosts to run this on (using ansible-playbook -l)? IF YOU DIDN'T - THIS PLAYBOOK WILL RUN ON ALL HOSTS. [Enter]"

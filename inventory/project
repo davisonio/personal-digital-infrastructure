@@ -1,6 +1,8 @@
 #
 # Hosts organised by project
 #
+# See what happens with these hosts at plays/ and group_vars/
+#
 
 [davisonio]
 #davisonio-controller.davison.io

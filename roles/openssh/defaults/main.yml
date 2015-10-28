@@ -1,7 +1,5 @@
 ---
 
-openssh_enabled: no
-
 #
 # SSH Server Settings
 #

@@ -54,7 +54,6 @@ An overview of what's included here and where you can find it.
 - when: "inventory_hostname in groups['okay_base']"
 - when: "'ping' in {{ role_names}}"
 - update-manager + do-release-upgrade role
-- bootstrap play
 
 ## Official Docs
 

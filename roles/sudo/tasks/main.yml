@@ -1,4 +1,3 @@
 ---
 
 - include: sudo.yml
-  when: sudo_enabled
