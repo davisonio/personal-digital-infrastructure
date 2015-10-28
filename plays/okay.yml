@@ -1,4 +1,5 @@
 ---
+
 - name: Check that everything's 'okay' on okay_base
   hosts: okay_base
   roles:
@@ -11,7 +12,6 @@
     - apt
     - openssh
 
----
 - name: Check that everything's 'okay' on okay_minetest
   hosts: okay_minetest
   roles:
