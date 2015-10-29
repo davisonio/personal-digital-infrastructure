@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 #
 # Server / Singleplayer
 #
@@ -93,3 +94,11 @@ name = CraigyDavi
 #
 
 give_initial_stuff = true
+
+#
+# Secret settings
+#
+
+{% for setting in minetest_secret_settings %}
+{{setting}}
+{% endfor %}

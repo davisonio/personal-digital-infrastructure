@@ -1,0 +1,15 @@
+{% for item in minetest_instances %}
+[Unit]
+Description=Minetest multiplayer server minetest-{{ item.name }}.conf server config
+Documentation=man:minetestserver(6)
+After=network.target
+
+[Service]
+Restart=on-failure
+User=Debian-minetest
+Group=games
+ExecStart=/usr/lib/minetest/minetestserver --config /etc/minetest/minetest-{{ item.name }}.conf --logfile /var/log/minetest/minetest-{{ item.name }}.log
+
+[Install]
+WantedBy=multi-user.target
+{% endfor -%}

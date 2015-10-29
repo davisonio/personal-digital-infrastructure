@@ -7,3 +7,7 @@
 [okay_base]
 #davisonio-controller.davison.io
 davisonio-main.davison.io
+davisonio-minetest-srv1.davison.io
+
+[okay_minetest]
+davisonio-minetest-srv1.davison.io
