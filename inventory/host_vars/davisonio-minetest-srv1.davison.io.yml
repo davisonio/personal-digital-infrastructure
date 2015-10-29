@@ -1,0 +1,4 @@
+---
+
+apt_install_host:
+  - lua-socket

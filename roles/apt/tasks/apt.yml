@@ -6,12 +6,15 @@
     update_cache=yes
   when: apt_update
 
-- name: Install dependencies
+- name: Make sure apt is installed
   apt:
     pkg="{{ item }}"
     state=present
-  with_items: apt_dependencies
-  when: apt_dependencies
+  with_items:
+    - python-apt
+    - aptitude
+    - apt
+    - apt-utils
 
 - name: Install repositories
   apt_repository:
@@ -38,8 +41,9 @@
   apt:
     pkg="{{ item }}"
     state=present
-  with_items: apt_install
-  when: apt_install
+  with_flattened:
+    - apt_install
+    - apt_install_host
 
 - name: Remove packages
   apt:

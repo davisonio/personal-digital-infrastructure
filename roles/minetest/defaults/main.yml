@@ -1,7 +1,7 @@
 ---
 
-minetest_conf_location: /etc/minetest/
-minetest_game_location: /usr/share/games/minetest/games/
+minetest_conf_location: /usr/share/minetest/
+minetest_game_location: /usr/share/minetest/games/
 minetest_systemd_location: /lib/systemd/system/
 
 minetest_games_to_install:
@@ -9,4 +9,4 @@ minetest_games_to_install:
     url: "https://github.com/CraigyDavi/Craig-Server_game"
 
 minetest_instances:
-  - name: server
+  - name: server # This name will be the name of the world, config, script etc. Only use lowercase letters!

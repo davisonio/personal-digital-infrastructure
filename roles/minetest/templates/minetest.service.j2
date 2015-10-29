@@ -8,7 +8,7 @@ After=network.target
 Restart=on-failure
 User=Debian-minetest
 Group=games
-ExecStart=/usr/lib/minetest/minetestserver --config /etc/minetest/minetest-{{ item.name }}.conf --logfile /var/log/minetest/minetest-{{ item.name }}.log
+ExecStart=/usr/bin/minetest --server --config {{ minetest_conf_location }}minetest-{{ item.name }}.conf --logfile /var/log/minetest/minetest-{{ item.name }}.log --worldname {{ item.name }}
 
 [Install]
 WantedBy=multi-user.target
