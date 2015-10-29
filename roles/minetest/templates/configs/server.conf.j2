@@ -13,29 +13,41 @@ server_announce = true
 port = 30000
 
 ### Advanced
-max_simultaneous_block_sends_per_client = 2 # (default: 10)
-max_simultaneous_block_sends_server_total = 50 # (default: 40)
-full_block_send_enable_min_time_from_building = 0.1 # How many seconds the block takes to appear as if it is removed. (default: 2.0)
-max_packets_per_iteration = 512 # (default: 1024)
+# (default: 10)
+max_simultaneous_block_sends_per_client = 2
+# (default: 40)
+max_simultaneous_block_sends_server_total = 50
+# How many seconds the block takes to appear as if it is removed. (default: 2.0)
+full_block_send_enable_min_time_from_building = 0.1
+# (default: 1024)
+max_packets_per_iteration = 512
 
 ## Game
 motd = Welcome to Craig's Server! || Type /welcome for more information.
-max_users = 20 (default: 15)
+# (default: 15)
+max_users = 20
 map-dir = /usr/share/games/minetest/worlds/server
 default_privs = shout, fast
 static_spawnpoint = 0, 5, 0
 disallow_empty_password = true
-disable_anticheat = true # Causes some issues when set to true
+# Causes some issues when set to true
+disable_anticheat = true
 enable_rollback_recording = true
 kick_msg_shutdown = Server shutting down. We will be back soon.
 kick_msg_crash = Server has crashed. Please try rejoining.
 ask_reconnect_on_crash = true
-active_object_send_range_blocks = 2 # (default: 3)
-active_block_range = 1 # (default: 2)
-max_block_send_distance = 5 # (default: 10)
-max_forceloaded_blocks = 10 # (default: 16)
-time_send_interval = 5 # (default: 5)
-server_map_save_interval = 15.3 # (default: 5.3)
+# (default: 3)
+active_object_send_range_blocks = 2
+# (default: 2)
+active_block_range = 1
+# (default: 10)
+max_block_send_distance = 5
+# (default: 16)
+max_forceloaded_blocks = 10
+# (default: 5)
+time_send_interval = 5
+# (default: 5.3)
+server_map_save_interval = 15.3
 
 ### Physics (from Carbone)
 # Decreased acceleration compared to minetest_game.
@@ -69,14 +81,19 @@ movement_liquid_fluidity = 1.6
 movement_gravity = 9.5
 
 ### Advanced
-server_unload_unused_data_timeout = 20 # (default: 29)
-max_objects_per_block = 40 # (default: 49)
-sqlite_synchronous = 0 # (default: 2)
-dedicated_server_step = 0.5 # (default: 0.1)
+# (default: 29)
+server_unload_unused_data_timeout = 20
+# (default: 49)
+max_objects_per_block = 40
+# (default: 2)
+sqlite_synchronous = 0
+# (default: 0.1)
+dedicated_server_step = 0.5
 
 ## Mapgen
 mg_name = v6
-max_block_generate_distance = 4 # (default: 6)
+# (default: 6)
+max_block_generate_distance = 4
 mg_flags = trees,caves,dungeons,light
 
 ### Advanced
