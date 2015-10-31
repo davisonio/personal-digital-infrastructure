@@ -11,6 +11,7 @@ apt_install:
   - curl
   - git
   - python
+  - nano-tiny
 
 apt_install_host: []
 
