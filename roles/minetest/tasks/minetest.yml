@@ -23,6 +23,11 @@
     dest: "{{ minetest_conf_location }}minetest-{{item.name}}.conf"
   with_items: minetest_instances
 
+- name: Create logging directory
+  file:
+    path: /var/log/minetest
+    state: directory
+
 - name: Ensure systemd settings are present
   template:
     src: "minetest.service.j2"
