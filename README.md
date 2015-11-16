@@ -1,63 +1,43 @@
-# davison.io's Infrastructure
+# davison.io DevOps
 
-Ansible roles, playbooks, scripts and other things powering [davison.io](http://davison.io)
+Development operations & infrastructure managing [davison.io](http://davison.io) and related sites. Powered by Ansible.
 
-## Project structure
+## 'Always' tasks
 
-An overview of what's included here and where you can find it.
+'Always' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won’t change things unless they have to change things. - Ansible Docs
 
-- **docs/** - Documentation
-- **production/** - `List of hosts managed by ansible in production with variables`
-  - **group_vars/** - `Variables which are set for specific groups (defined in inventory)`
-    - **example_group/**
-      - **main.yml** - `Main, public variables`
-      - **secrets.yml** - `Secret, private variables which are encrypted using ansible-vault`
-    - ...
-  - **host_vars/** - `Variables which are set for specific hosts (defined in inventory)`
-    - **davisonio-example.davison.io/**
-      - **main.yml** - `Main, public variables`
-      - **secrets.yml** - `Secret, private variables which are encrypted using ansible-vault`
-    - ...
-  - **project** - `Hosts organised by project (e.g. groups here are davisonio-project1, davisonio-project2)`
-  - **okay** - `Hosts organised by 'okay' (e.g. groups here are okay_nginx, okay_common)`
-- **plays/** - `Playbooks`
-  - **other/** - `Other playbooks that have to be run manually`
-  - **okay.yml** - `Master playbook which check that everything is 'okay' on all hosts (see definition below)`
-- **roles/** - `Roles`
-  - **example**
-    - defaults/
-      - main.yml - `Variables use on hosts by default`
-      - secrets.yml - `Secret variables used on hosts by default, encrypted using ansible-vault`
-    - files/
-      - example.conf - `Example file used in tasks`
-    - templates/
-      - example.j2 - `Example template used in tasks`
-    - tasks/
-      - main.yml - `The main task file which in run first`
-      - another.yml - `Another task file which isn't run automatically when specifying the role.`
-    - handlers/
-      - main.yml - `Mostly used to restart services using 'notify:'`
-    - meta/
-      - main.yml - `Dependencies, etc.`
-  - ...
-
-##### What does 'okay' mean?
-
-'Okay' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won’t change things unless they have to change things. - Ansible Docs
+- **inventory/always** defines which hosts use 'always' tasks
+- **always.yml** is a playbook which runs all always tasks on all hosts. You can consider this the root/main playbook which does everything.
 
 ## Usage
-
-- [Setup local development environment](https://github.com/davisonio/infrastructure/blob/master/docs/setup-local-dev-env.md)
-- [Setup Ansible Controller](https://github.com/davisonio/infrastructure/blob/master/docs/setup-controller.md)
-- [Add a new host](https://github.com/davisonio/infrastructure/blob/master/docs/add-new-host.md)
+- [Add a new host](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-host.md)
+- [Setup Ansible Controller](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-controller.md)
+- [Setup local development environment](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-local-dev-env.md)
 - Travis tests TODO
-- when: "inventory_hostname in groups['okay_base']"
-- when: "'ping' in {{ role_names}}"
-- update-manager + do-release-upgrade role
+- when: "inventory_hostname in groups['okay_base']" TODO
+- when: "'ping' in {{ role_names}}" TODO
+- update-manager + do-release-upgrade role TODO
 
-## Official Docs
+## Further reading
 
-- [Ansible Documentation](https://docs.ansible.com/ansible/index.html)
+### Articles
+
+- [Official Ansible Documentation](https://docs.ansible.com/ansible/index.html)
+- [Ansible Best Practices](https://docs.ansible.com/ansible/playbooks_best_practices.html)
+- [6 practices for super smooth Ansible experience](http://hakunin.com/six-ansible-practices)
+- [Ansible (Real Life) Good Practices](https://www.reinteractive.net/posts/167-ansible-real-life-good-practices)
+- [A short tutorial on how to use Vault in your Ansible workflow](https://gist.github.com/tristanfisher/e5a306144a637dc739e7)
+
+### Inspiration
+
+- [webmat/devopsmtl.com](https://github.com/webmat/devopsmtl.com)
+- [openaustralia/infrastructure](https://github.com/openaustralia/infrastructure)
+- [CenterForOpenScience/cos-ansible-base](https://github.com/CenterForOpenScience/cos-ansible-base)
+- [henrysher/fedora-infra-ansible](https://github.com/henrysher/fedora-infra-ansible)
+- [galaxyproject/usegalaxy-playbook](https://github.com/galaxyproject/usegalaxy-playbook)
+- [ceph/ceph-cm-ansible](https://github.com/ceph/ceph-cm-ansible)
+- [Orain/ansible-playbook](https://github.com/Orain/ansible-playbook)
+- [edunham/ansible-rust-infra](https://github.com/edunham/ansible-rust-infra)
 
 ## License
 

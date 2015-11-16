@@ -1,5 +1,5 @@
 ---
-- name: Add new host to be managed by ansible
+- name: Setup host to be managed by ansible
   hosts: all
   remote_user: root
   vars_prompt:

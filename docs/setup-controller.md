@@ -1,18 +1,13 @@
 # Setup Ansible Controller
 
-The Ansible Controller is the main machine which is used to coordinate the tasks for all hosts in its inventory. Setting up the Ansible Controller using Ansible wouldn't be possible without another Ansible Controller so you'll have to do a few steps here manually :)
-
-See also: *[setup-local-dev-env.md](https://github.com/davisonio/infrastructure/blob/master/docs/setup-local-dev-env.md)*
+The Ansible Controller is the main machine which is used to coordinate the tasks for all hosts in its inventory.
 
 ## 1. Prerequisites
 
 - You should be logged into the controller via SSH
-- Python 2.6 or 2.7 should be installed
-- Have git installed
+- Python and git should be installed
 
 ## 2. Get Latest Release
-
-**Ubuntu APT:**
 
 ```
 $ sudo apt-get install software-properties-common
@@ -28,11 +23,11 @@ $ cd /etc/ansible
 $ sudo rm ansible.cfg hosts
 ```
 
-## 4. Download infrastructure from GitHub
+## 4. Download devops infrastructure from GitHub
 
 ```
-$ git clone https://github.com/davisonio/infrastructure
-$ cd infrastructure
+$ git clone https://github.com/CraigyDavi/davison.io-devops
+$ cd davison.io-devops
 ```
 ## 5. Final steps TODO
 - SSH keys

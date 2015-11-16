@@ -1,6 +1,6 @@
 ---
 
-- name: Check that everything's 'okay' on okay_base
+- name: Run 'always' tasks on always_base
   hosts: okay_base
   roles:
     - ping
@@ -12,7 +12,7 @@
     - apt
     - openssh
 
-- name: Check that everything's 'okay' on okay_minetest
+- name: Run 'always' tasks on always_minetest
   hosts: okay_minetest
   roles:
     - minetest

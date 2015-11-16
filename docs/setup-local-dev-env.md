@@ -1,4 +1,4 @@
-# Setup local development environment
+# Setup Local Development Environment
 
 ## 1. Prerequisites
 

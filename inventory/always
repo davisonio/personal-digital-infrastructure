@@ -1,10 +1,11 @@
 #
-# Hosts organised by what 'okay' tasks we want to run
+# Hosts organised by what 'always' tasks we want to run
 #
-# See what happens with these hosts at plays/okay.yml and group_vars/okay_*
+# See what happens with these hosts at always.yml and group_vars/always_*
 #
 
-[okay_base]
+[always_base]
+#srv-*.davison.io
 #davisonio-controller.davison.io
 davisonio-main.davison.io
 davisonio-minetest-srv1.davison.io
