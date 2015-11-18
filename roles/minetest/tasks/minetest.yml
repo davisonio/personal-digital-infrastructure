@@ -35,11 +35,7 @@
   with_items: minetest_instances
   notify: reload systemd
 
-- name: Ensure services are started (try 1)
-  shell: "systemctl start minetest-server-{{item.name}}.service"
-  with_items: minetest_instances
-
-- name: Ensure services are started (try 2)
+- name: Ensure services are started
   service:
     name: "minetest-server-{{item.name}}"
     state: started
