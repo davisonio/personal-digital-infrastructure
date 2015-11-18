@@ -1,11 +1,5 @@
 ---
 
-- name: Update the apt cache
-  apt:
-    cache_valid_time="{{ apt_cache_valid_time }}"
-    update_cache=yes
-  when: apt_update
-
 - name: Make sure apt is installed
   apt:
     pkg="{{ item }}"
@@ -16,12 +10,15 @@
     - apt
     - apt-utils
 
+- name: Update the apt cache
+  apt:
+    update_cache=yes
+
 - name: Install repositories
   apt_repository:
     repo="{{ item }}"
     update_cache=yes
   with_items: apt_install_repositories
-  when: apt_install_repositories
 
 - name: Remove repositories
   apt_repository:
@@ -29,13 +26,11 @@
     state=absent
     update_cache=yes
   with_items: apt_remove_repositories
-  when: apt_remove_repositories
 
 - name: Upgrade all packages
   apt:
     upgrade={{ apt_upgrade_type }}
     update_cache=yes
-  when: apt_upgrade
 
 - name: Install packages
   apt:
@@ -49,5 +44,6 @@
   apt:
     pkg="{{ item }}"
     state=absent
-  with_items: apt_remove
-  when: apt_remove
+  with_flattened:
+    - apt_remove
+    - apt_remove_host

@@ -5,8 +5,11 @@
 #
 
 [always_base]
-minetest.srv1.prd.davison.io
-web1.prd.davison.io
+#minetest.srv1.prd.davison.io
+46.101.16.242
+#web1.prd.davison.io
+198.20.126.220
 
 [always_minetest]
-minetest.srv1.prd.davison.io
+#minetest.srv1.prd.davison.io
+46.101.16.242

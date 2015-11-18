@@ -1,9 +1,10 @@
 ---
 
-apt_cache_valid_time: 3600
-apt_update: true
+apt_install_repositories:
+  - "ppa:minetestdevs/daily-builds"
 
-apt_upgrade: true
+apt_remove_repositories: []
+
 apt_upgrade_type: safe          # safe, full or dist
 
 apt_install:
@@ -15,9 +16,6 @@ apt_install:
 
 apt_install_host: []
 
-apt_install_repositories:
-  - "ppa:minetestdevs/daily-builds"
+apt_remove: []
 
-apt_remove_repositories: false
-
-apt_remove: false
+apt_remove_host: []
