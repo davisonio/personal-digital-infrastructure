@@ -1,5 +1,10 @@
 ---
 
+- name: Make sure minetest repository is installed
+  apt_repository:
+    repo: "ppa:minetestdevs/daily-builds"
+  with_items: apt_install_repositories
+
 - name: Make sure minetest is installed
   apt:
     name: "{{item}}"

@@ -1,7 +1,6 @@
 ---
 
-apt_install_repositories:
-  - "ppa:minetestdevs/daily-builds"
+apt_install_repositories: []
 
 apt_remove_repositories: []
 
