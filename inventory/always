@@ -1,15 +1,12 @@
 #
 # Hosts organised by what 'always' tasks we want to run
 #
-# See what happens with these hosts at always.yml and group_vars/always_*
+# See main hosts file for host naming scheme
 #
 
 [always_base]
-#srv-*.davison.io
-#davisonio-controller.davison.io
-davisonio-main.davison.io
-davisonio-minetest-srv1.davison.io
-davisonio-general.davison.io
+minetest.srv1.prd.davison.io
+web1.prd.davison.io
 
-[okay_minetest]
-davisonio-minetest-srv1.davison.io
+[always_minetest]
+minetest.srv1.prd.davison.io

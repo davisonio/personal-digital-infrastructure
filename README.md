@@ -12,9 +12,8 @@ Development operations & infrastructure managing [davison.io](http://davison.io)
 ## Usage
 - [Add a new host](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-host.md)
 - [Setup Ansible Controller](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-controller.md)
-- [Setup local development environment](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-local-dev-env.md)
 - Travis tests TODO
-- when: "inventory_hostname in groups['okay_base']" TODO
+- when: "inventory_hostname in groups['olways_base']" TODO
 - when: "'ping' in {{ role_names}}" TODO
 - update-manager + do-release-upgrade role TODO
 

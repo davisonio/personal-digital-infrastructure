@@ -1,9 +1,20 @@
 #
 # Main hosts file
 #
+# Host naming scheme:
+# <(optional) sub project>.<server type><incremental number>.<environment>.<domain>.<tld>
+#
+# Server types in current use:
+# srv = server
+# web = web server (e.g. nginx or apache)
+#
+# Environment types in current use:
+# dev = development
+# tst = testing
+# stg = staging
+# prd = production
+#
 
 [davisonio]
-#davisonio-controller.davison.io
-davisonio-main.davison.io
-davisonio-minetest-srv1.davison.io
-davisonio-general.davison.io
+web1.prd.davison.io
+minetest.srv1.prd.davison.io
