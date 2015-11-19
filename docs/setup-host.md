@@ -32,7 +32,7 @@ Firstly, make sure that you have an active SSH connection (root) as shown above.
 On *Ansible Controller* run the required playbook on the host you added in step 2:
 
 ```
-$ ansible-playbook plays/setup-host.yml -l davisonio-example.davison.io --ask-pass
+$ ansible-playbook plays/setup-host.yml -e "hosts=myserver.example.com" --ask-pass
 ```
 - Enter the **root user password**
 - Enter the **root user password** (again for the sudo password)

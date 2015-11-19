@@ -1,10 +1,7 @@
 ---
 - name: Setup host to be managed by ansible
-  hosts: all
+  hosts: {{hosts}}
   remote_user: root
-  vars_prompt:
-    - name: proceed
-      prompt: "Did you specify the hosts to run this on (using ansible-playbook -l)? IF YOU DIDN'T - THIS PLAYBOOK WILL RUN ON ALL HOSTS. [Enter]"
   pre_tasks:
     - name: Lock down root user (suicide!)
       user:
