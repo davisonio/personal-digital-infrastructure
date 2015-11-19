@@ -16,7 +16,5 @@
 #
 
 [davisonio]
-#web1.prd.davison.io
-198.20.126.220
-#minetest.srv1.prd.davison.io
-46.101.16.242
+web1.prd.davison.io
+minetest.srv1.prd.davison.io
