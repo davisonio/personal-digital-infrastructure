@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+
+# Redirect www. to the main domain
+server {
+  listen 80;
+  listen [::]:80;
+  server_name www.davison.io;
+
+  return 301 http://davison.io$request_uri;
+}
+
+server {
+  listen 80;
+  listen [::]:80;
+  server_name davison.io;
+
+  root /var/www/davisonio;
+}

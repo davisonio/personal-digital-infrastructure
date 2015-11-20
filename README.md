@@ -16,6 +16,7 @@ Development operations & infrastructure managing [davison.io](http://davison.io)
 - when: "inventory_hostname in groups['olways_base']" TODO
 - when: "'ping' in {{ role_names}}" TODO
 - update-manager + do-release-upgrade role TODO
+- do check to see if hostname in inventory = /etc/hostname if not fail
 
 ## Further reading
 

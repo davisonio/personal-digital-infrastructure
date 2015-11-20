@@ -1,0 +1,9 @@
+---
+
+nginx_sites:
+  - default
+
+nginx_sites_enabled:
+  - default
+
+nginx_sites_disabled: []

@@ -10,3 +10,6 @@ web1.prd.davison.io
 
 [always_minetest]
 minetest.srv1.prd.davison.io
+
+[always_nginx]
+web1.prd.davison.io

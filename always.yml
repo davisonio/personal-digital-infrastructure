@@ -16,3 +16,8 @@
   hosts: always_minetest
   roles:
     - minetest
+
+- name: Run 'always' tasks on always_nginx
+  hosts: always_nginx
+  roles:
+    - nginx

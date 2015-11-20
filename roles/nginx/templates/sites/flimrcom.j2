@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+
+# Redirect www. to the main domain
+server {
+  listen 80;
+  listen [::]:80;
+  server_name www.flimr.com;
+
+  return 301 http://flimr.com$request_uri;
+}
+
+server {
+  listen 80;
+  listen [::]:80;
+  server_name flimr.com;
+
+  root /var/www/flimrcom;
+}
