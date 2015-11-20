@@ -21,3 +21,8 @@
   hosts: always_nginx
   roles:
     - nginx
+
+- name: Run 'always' tasks on always_backup
+  hosts: always_backup
+  roles:
+    - backup

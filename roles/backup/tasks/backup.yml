@@ -1,0 +1,18 @@
+---
+
+- name: Add b2 script
+  copy:
+    src: b2
+    dest: /usr/local/bin/b2
+    mode: 0755
+  when: backup_b2
+
+#- name: Add backup scripts
+#  copy:
+#    src: {{item}}
+#  with_items:
+#    - backup_scripts
+
+#
+# todo crontab
+#

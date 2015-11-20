@@ -13,3 +13,6 @@ minetest.srv1.prd.davison.io
 
 [always_nginx]
 web1.prd.davison.io
+
+[always_backup]
+web1.prd.davison.io
