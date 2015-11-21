@@ -1,6 +1,6 @@
 ---
 - name: Setup host to be managed by ansible
-  hosts: {{hosts}}
+  hosts: "{{hosts}}"
   remote_user: root
   pre_tasks:
     - name: Lock down root user (suicide!)

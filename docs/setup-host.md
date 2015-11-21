@@ -21,7 +21,6 @@ $ apt-get install python
 ## 3. Add host to inventory and set up DNS
 
 Add the host to any required inventory files.
-**Don't add to the always inventory file, we will do that later.
 
 If you'd like to add a nice looking .davison.io hostname instead of the IP address you'll need to set up the DNS too.
 
