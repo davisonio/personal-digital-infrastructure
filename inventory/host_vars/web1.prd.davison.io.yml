@@ -13,3 +13,5 @@ nginx_sites_enabled:
   - craigydaviukto
   - space2staycom
   - flimrcom
+
+ghost_location: /var/www/davisonio/blog

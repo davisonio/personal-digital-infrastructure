@@ -1,0 +1,9 @@
+---
+
+- name: reload systemd
+  shell: systemctl daemon-reload
+
+- name: restart ghost
+  service:
+    name: ghost
+    state: restarted

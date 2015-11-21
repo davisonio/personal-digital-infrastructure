@@ -11,6 +11,7 @@
     - hostname
     - apt
     - openssh
+    - updates
 
 - name: Run 'always' tasks on always_minetest
   hosts: always_minetest
@@ -26,3 +27,9 @@
   hosts: always_backup
   roles:
     - backup
+
+- name: Run 'always' tasks on always_ghost
+  hosts: always_ghost
+  roles:
+    - nodejs
+    - ghost

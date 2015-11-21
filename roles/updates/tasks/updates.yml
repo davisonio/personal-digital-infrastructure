@@ -1,0 +1,11 @@
+---
+
+- name: Install update manager
+  apt:
+    name: update-manager-core
+    state: present
+
+- name: Add release upgrade settings
+  template:
+    src: "release-upgrades.j2"
+    dest: "/etc/update-manager/release-upgrades"

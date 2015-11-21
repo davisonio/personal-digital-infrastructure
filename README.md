@@ -9,14 +9,11 @@ Development operations & infrastructure managing [davison.io](http://davison.io)
 - **inventory/always** defines which hosts use 'always' tasks
 - **always.yml** is a playbook which runs all always tasks on all hosts. You can consider this the root/main playbook which does everything.
 
+The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed manually and are usually idempotent.
+
 ## Usage
 - [Add a new host](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-host.md)
 - [Setup Ansible Controller](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-controller.md)
-- Travis tests TODO
-- when: "inventory_hostname in groups['olways_base']" TODO
-- when: "'ping' in {{ role_names}}" TODO
-- update-manager + do-release-upgrade role TODO
-- do check to see if hostname in inventory = /etc/hostname if not fail
 
 ## Further reading
 
@@ -38,6 +35,14 @@ Development operations & infrastructure managing [davison.io](http://davison.io)
 - [ceph/ceph-cm-ansible](https://github.com/ceph/ceph-cm-ansible)
 - [Orain/ansible-playbook](https://github.com/Orain/ansible-playbook)
 - [edunham/ansible-rust-infra](https://github.com/edunham/ansible-rust-infra)
+
+## Todo
+- Travis tests TODO
+- when: "inventory_hostname in groups['olways_base']"
+- when: "'ping' in {{ role_names}}"
+- update-manager + do-release-upgrade role
+- do check to see if hostname in inventory = /etc/hostname if not fail
+- sources.list get from digitalocean and sync all hosts
 
 ## License
 
