@@ -12,6 +12,9 @@ apt_install:
   - git
   - python
   - nano-tiny
+  - wget
+  - zip
+  - unzip
 
 apt_install_host: []
 
