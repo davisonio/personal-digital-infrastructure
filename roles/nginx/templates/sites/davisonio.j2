@@ -21,4 +21,40 @@ server {
     proxy_set_header   Host      $http_host;
     proxy_pass         http://127.0.0.1:2368;
   }
+
+  location ^~ /books/gcse-science {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4000;
+  }
+  location ^~ /books/gcse-geography {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4001;
+  }
+  location ^~ /books/gcse-religious-studies {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4002;
+  }
+  location ^~ /books/gcse-mathematics {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4003;
+  }
+  location ^~ /books/gcse-german {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4004;
+  }
+  location ^~ /books/gcse-english {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4005;
+  }
+  location ^~ /books/gcse-computer-science {
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   Host      $http_host;
+    proxy_pass         http://127.0.0.1:4006;
+  }
 }

@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+[Unit]
+Description=GitBook - Modern book format and toolchain using Git and Markdown ({{item.name}})
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory={{item.path}}
+User=root
+Group=root
+ExecStart=/usr/local/bin/gitbook serve --port {{item.port}} --lrport {{item.lrport}} --watch false
+# ExecStop=/usr/local/bin/gitbook serve --port {{item.port}} --lrport {{item.lrport}} --watch false
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

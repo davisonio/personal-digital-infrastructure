@@ -1,0 +1,10 @@
+---
+
+- name: reload systemd
+  shell: systemctl daemon-reload
+
+#- name: restart gitbook books
+#  service:
+#    name: "gitbook-{{item.name}}"
+#    state: restarted
+#  with_items: gitbook_books

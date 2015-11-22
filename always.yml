@@ -1,4 +1,9 @@
 ---
+- name: Run 'always' tasks on always_gitbook
+  hosts: always_gitbook
+  roles:
+    - nodejs
+    - gitbook
 
 - name: Run 'always' tasks on always_base
   hosts: always_base
@@ -33,3 +38,5 @@
   roles:
     - nodejs
     - ghost
+
+
