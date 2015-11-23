@@ -22,40 +22,33 @@ gitbook_books:
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-science
     port: 4000
     lrport: 35729
-    bugfix: gcse-science
   - name: gcsegeography
     path: /var/www/davisonio/books/gcse-geography
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-geography
     port: 4001
     lrport: 35730
-    bugfix: gcse-geography
   - name: gcsereligiousstudies
     path: /var/www/davisonio/books/gcse-religious-studies
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-religious-studies
     port: 4002
     lrport: 35731
-    bugfix: gcse-religious-studies
   - name: gcsemathematics
     path: /var/www/davisonio/books/gcse-mathematics
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-mathematics
     port: 4003
     lrport: 35732
-    bugfix: gcse-mathematics
   - name: gcsegerman
     path: /var/www/davisonio/books/gcse-german
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-german
     port: 4004
     lrport: 35733
-    bugfix: gcse-german
   - name: gcseenglish
     path: /var/www/davisonio/books/gcse-english
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-english
     port: 4005
     lrport: 35734
-    bugfix: gcse-english
   - name: gcsecomputerscience
     path: /var/www/davisonio/books/gcse-computer-science
     repo: ssh://git@gitlab.com:/CraigyDavi/book-gcse-computer-science
     port: 4006
     lrport: 35735
-    bugfix: gcse-computer-science

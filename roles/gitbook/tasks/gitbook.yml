@@ -38,28 +38,47 @@
     enabled: yes
   with_items: gitbook_books
 
-- pause:
-    seconds: 10
+# Temporary fix for web1.prd.davison.io
+# TODO: Permanent fix
 
-# TODO: Fix this rubbish
-
-#- file:
-#    path: "{{item.path}}/_book/books/{{item.bugfix}}"
-#    state: directory
-#  with_items: gitbook_books
-
-- name: Bugfix in gitbook
+- name: Bugfix in gitbook 1
   cron:
     name: gitbook bugfix 1
-    job: "mkdir {{item.path}}/_book/books/{{item.bugfix}} && cp -a {{item.path}}/_book/. {{item.path}}/_book/books/{{item.bugfix}}/"
+    job: "mkdir /var/www/davisonio/books/gcse-science/_book/books && mkdir /var/www/davisonio/books/gcse-science/_book/books/gcse-science && cp -a /var/www/davisonio/books/gcse-science/_book/. /var/www/davisonio/books/gcse-science/_book/books/gcse-science/"
     state: present
-  with_items: gitbook_books
 
-#- command: "mv {{item.path}}/_book/index.html {{item.path}}/_book/books/{{item.bugfix}}/index.html"
-#  with_items: gitbook_books
+- name: Bugfix in gitbook 2
+  cron:
+    name: gitbook bugfix 2
+    job: "mkdir /var/www/davisonio/books/gcse-geography/_book/books && mkdir /var/www/davisonio/books/gcse-geography/_book/books/gcse-geography && cp -a /var/www/davisonio/books/gcse-geography/_book/. /var/www/davisonio/books/gcse-geography/_book/books/gcse-geography/"
+    state: present
 
-#- command: "mv {{item.path}}/_book/gitbook {{item.path}}/_book/books/{{item.bugfix}}/gitbook"
-#  with_items: gitbook_books
+- name: Bugfix in gitbook 3
+  cron:
+    name: gitbook bugfix 3
+    job: "mkdir /var/www/davisonio/books/gcse-religious-studies/_book/books && mkdir /var/www/davisonio/books/gcse-religious-studies/_book/books/gcse-religious-studies && cp -a /var/www/davisonio/books/gcse-religious-studies/_book/. /var/www/davisonio/books/gcse-religious-studies/_book/books/gcse-religious-studies/"
+    state: present
 
-#- command: "mv {{item.path}}/_book/search_index.json {{item.path}}/_book/books/{{item.bugfix}}/search_index.json"
-#  with_items: gitbook_books
+- name: Bugfix in gitbook 4
+  cron:
+    name: gitbook bugfix 4
+    job: "mkdir /var/www/davisonio/books/gcse-mathematics/_book/books && mkdir /var/www/davisonio/books/gcse-mathematics/_book/books/gcse-mathematics && cp -a /var/www/davisonio/books/gcse-mathematics/_book/. /var/www/davisonio/books/gcse-mathematics/_book/books/gcse-mathematics/"
+    state: present
+
+- name: Bugfix in gitbook 5
+  cron:
+    name: gitbook bugfix 5
+    job: "mkdir /var/www/davisonio/books/gcse-german/_book/books && mkdir /var/www/davisonio/books/gcse-german/_book/books/gcse-german && cp -a /var/www/davisonio/books/gcse-german/_book/. /var/www/davisonio/books/gcse-german/_book/books/gcse-german/"
+    state: present
+
+- name: Bugfix in gitbook 6
+  cron:
+    name: gitbook bugfix 6
+    job: "mkdir /var/www/davisonio/books/gcse-english/_book/books && mkdir /var/www/davisonio/books/gcse-english/_book/books/gcse-english && cp -a /var/www/davisonio/books/gcse-english/_book/. /var/www/davisonio/books/gcse-english/_book/books/gcse-english/"
+    state: present
+
+- name: Bugfix in gitbook 7
+  cron:
+    name: gitbook bugfix 7
+    job: "mkdir /var/www/davisonio/books/gcse-computer-science/_book/books && mkdir /var/www/davisonio/books/gcse-computer-science/_book/books/gcse-computer-science && cp -a /var/www/davisonio/books/gcse-computer-science/_book/. /var/www/davisonio/books/gcse-computer-science/_book/books/gcse-computer-science/"
+    state: present
