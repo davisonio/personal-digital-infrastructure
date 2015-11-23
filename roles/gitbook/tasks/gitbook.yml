@@ -42,18 +42,24 @@
     seconds: 10
 
 # TODO: Fix this rubbish
-# Bug workaround in gitbook
 
-- file:
-    path: "{{item.path}}/_book/books/{{item.bugfix}}"
-    state: directory
+#- file:
+#    path: "{{item.path}}/_book/books/{{item.bugfix}}"
+#    state: directory
+#  with_items: gitbook_books
+
+- name: Bugfix in gitbook
+  cron:
+    name: gitbook bugfix 1
+    job: "mkdir {{item.path}}/_book/books/{{item.bugfix}} && cp -a {{item.path}}/_book/. {{item.path}}/_book/books/{{item.bugfix}}/"
+    state: present
   with_items: gitbook_books
 
-- command: "mv {{item.path}}/_book/index.html {{item.path}}/_book/books/{{item.bugfix}}/index.html"
-  with_items: gitbook_books
+#- command: "mv {{item.path}}/_book/index.html {{item.path}}/_book/books/{{item.bugfix}}/index.html"
+#  with_items: gitbook_books
 
-- command: "mv {{item.path}}/_book/gitbook {{item.path}}/_book/books/{{item.bugfix}}/gitbook"
-  with_items: gitbook_books
+#- command: "mv {{item.path}}/_book/gitbook {{item.path}}/_book/books/{{item.bugfix}}/gitbook"
+#  with_items: gitbook_books
 
-- command: "mv {{item.path}}/_book/search_index.json {{item.path}}/_book/books/{{item.bugfix}}/search_index.json"
-  with_items: gitbook_books
+#- command: "mv {{item.path}}/_book/search_index.json {{item.path}}/_book/books/{{item.bugfix}}/search_index.json"
+#  with_items: gitbook_books
