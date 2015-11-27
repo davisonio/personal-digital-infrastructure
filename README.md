@@ -37,12 +37,8 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 - [edunham/ansible-rust-infra](https://github.com/edunham/ansible-rust-infra)
 
 ## Todo
-- Travis tests TODO
-- when: "inventory_hostname in groups['olways_base']"
-- when: "'ping' in {{ role_names}}"
-- update-manager + do-release-upgrade role
-- do check to see if hostname in inventory = /etc/hostname if not fail
-- sources.list get from digitalocean and sync all hosts
+- Travis tests
+- sources.list support in apt
 
 ## License
 
