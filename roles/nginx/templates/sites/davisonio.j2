@@ -14,7 +14,7 @@ server {
   listen [::]:80;
   server_name davison.io;
 
-  root /var/www/davisonio;
+  root /var/www/davisonio/_site;
 
   location ^~ /blog {
     proxy_set_header   X-Real-IP $remote_addr;

@@ -5,8 +5,8 @@
 #
 
 [always_base]
-minetest.srv1.prd.davison.io
 web1.prd.davison.io
+minetest.srv1.prd.davison.io
 
 [always_minetest]
 minetest.srv1.prd.davison.io
@@ -21,4 +21,7 @@ web1.prd.davison.io
 web1.prd.davison.io
 
 [always_gitbook]
+web1.prd.davison.io
+
+[always_jekyll]
 web1.prd.davison.io

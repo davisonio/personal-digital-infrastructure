@@ -1,5 +1,3 @@
----
-
 - name: Run 'always' tasks on always_base
   hosts: always_base
   roles:
@@ -39,3 +37,9 @@
   roles:
     - nodejs
     - gitbook
+
+- name: Run 'always' tasks on always_jekyll
+  hosts: always_jekyll
+  roles:
+    - ruby
+    - jekyll
