@@ -6,7 +6,7 @@ minetest_systemd_location: /lib/systemd/system/
 
 minetest_games_to_install:
   - name: "Craig-Server_game"
-    url: "https://github.com/CraigyDavi/Craig-Server_game"
+    url: "https://github.com/davisonio/Craig-Server_game"
 
 minetest_instances:
   - name: server # This name will be the name of the world, config, script etc. Only use lowercase letters!

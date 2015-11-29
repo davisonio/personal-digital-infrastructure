@@ -1,19 +1,37 @@
 # davison.io DevOps
 
-Development operations & infrastructure managing [davison.io](http://davison.io) and related sites. Powered by Ansible.
+> Development operations & infrastructure managing [davison.io](http://davison.io) and related sites. Powered by [Ansible](http://www.ansible.com/).
 
-## 'Always' tasks
+<p align="center">
+<b><a href="#usage">Usage</a></b>
+·
+<b><a href="#further-reading">Further Reading</a></b>
+·
+<b><a href="#todo">Todo</a></b>
+·
+<b><a href="#authors">Authors</a></b>
+·
+<b><a href="#credits">Credits</a></b>
+</p>
 
-'Always' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won’t change things unless they have to change things. - Ansible Docs
+<p align="center">
+<a href="https://travis-ci.org/davisonio/davison.io-devops"><img src="https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square"/></a>
+</p>
+
+{{introduction}}
+
+## Usage
+- [Add a new host](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host.md)
+- [Setup Ansible Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)
+
+### What are 'Always' tasks?
+
+'Always' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won't change things unless they have to change things. - Ansible Docs
 
 - **inventory/always** defines which hosts use 'always' tasks
 - **always.yml** is a playbook which runs all always tasks on all hosts. You can consider this the root/main playbook which does everything.
 
 The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed manually and are usually idempotent.
-
-## Usage
-- [Add a new host](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-host.md)
-- [Setup Ansible Controller](https://github.com/CraigyDavi/davison.io-devops/blob/master/docs/setup-controller.md)
 
 ## Further reading
 
@@ -37,16 +55,22 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 - [edunham/ansible-rust-infra](https://github.com/edunham/ansible-rust-infra)
 
 ## Todo
-- Travis tests
-- sources.list support in apt
 
-## License
+- [ ] travis tests
+- [ ] apt: sources.list support
+- [ ] add contributing.md
+
+## Authors
+
+**[Craig Davison](http://davison.io)**
+[![GitHub followers](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow)](https://github.com/davisonio)
+
+With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors) :clap:
+
+For details on how to help, see the [Contributing Guidelines](https://github.com/davisonio/davison.io-devops/blob/master/CONTRIBUTING.md).
+
+## Credits
 
 Unless otherwise stated:
-```
-Copyright (c) 2015 Craig Davison <craig@davison.io>
 
-This work is free. You can redistribute it and/or modify it under the
-terms of the Do What The Fuck You Want To Public License, Version 2,
-as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
-```
+- Copyright © 2015+ [Craig Davison](http://davison.io). Released under the [MIT License](http://davisonio.mit-license.org).

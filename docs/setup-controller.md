@@ -26,7 +26,7 @@ $ sudo rm ansible.cfg hosts
 ## 4. Download devops infrastructure from GitHub
 
 ```
-$ git clone https://github.com/CraigyDavi/davison.io-devops
+$ git clone https://github.com/davisonio/davison.io-devops
 $ cd davison.io-devops
 ```
 ## 5. Final steps TODO
