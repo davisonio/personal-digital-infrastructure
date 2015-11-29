@@ -18,13 +18,13 @@
 <a href="https://travis-ci.org/davisonio/davison.io-devops"><img src="https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square"/></a>
 </p>
 
-{{introduction}}
+This contains the roles and things used to deploy and generally check everything is working on davison.io-esque websites.
 
 ## Usage
 - [Add a new host](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host.md)
 - [Setup Ansible Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)
 
-### What are 'Always' tasks?
+#### What are 'Always' tasks?
 
 'Always' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won't change things unless they have to change things. - Ansible Docs
 
@@ -35,7 +35,7 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 
 ## Further reading
 
-### Articles
+#### Articles
 
 - [Official Ansible Documentation](https://docs.ansible.com/ansible/index.html)
 - [Ansible Best Practices](https://docs.ansible.com/ansible/playbooks_best_practices.html)
@@ -43,7 +43,7 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 - [Ansible (Real Life) Good Practices](https://www.reinteractive.net/posts/167-ansible-real-life-good-practices)
 - [A short tutorial on how to use Vault in your Ansible workflow](https://gist.github.com/tristanfisher/e5a306144a637dc739e7)
 
-### Inspiration
+#### Inspiration
 
 - [webmat/devopsmtl.com](https://github.com/webmat/devopsmtl.com)
 - [openaustralia/infrastructure](https://github.com/openaustralia/infrastructure)
