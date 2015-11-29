@@ -63,6 +63,7 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 ## Authors
 
 **[Craig Davison](http://davison.io)**
+
 [![GitHub followers](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow)](https://github.com/davisonio)
 
 With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors) :clap:
