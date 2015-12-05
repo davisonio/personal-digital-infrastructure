@@ -2,17 +2,21 @@
 
 # Redirect www. to the main domain
 server {
-  listen 80;
   listen [::]:80;
+  listen 80;
   server_name www.space2stay.com;
 
   return 301 http://space2stay.com$request_uri;
 }
 
 server {
-  listen 80;
   listen [::]:80;
+  listen 80;
   server_name space2stay.com;
 
-  root /var/www/space2staycom;
+  location / {
+    root /var/www/space2staycom;
+    index index.html;
+    rewrite ^/$ /index.html break;
+  }
 }

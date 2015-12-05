@@ -2,19 +2,27 @@
 
 # Redirect www. to the main domain
 server {
-  listen 80;
   listen [::]:80;
+  listen 80;
   server_name www.davison.io;
 
   return 301 http://davison.io$request_uri;
 }
 
 server {
-  listen 80;
   listen [::]:80;
+  listen 80;
   server_name davison.io;
 
-  root /var/www/davisonio/_site;
+  location / {
+    root /var/www/davisonio/_site;
+    index index.html;
+    rewrite ^/$ /index.html break;
+
+    if ($request_uri ~ ^(.*/)index.html$) {
+      return 301 $1;
+    }
+  }
 
   location ^~ /blog {
     proxy_set_header   X-Real-IP $remote_addr;

@@ -1,7 +1,7 @@
----
-
 nginx_sites:
   - default
+
+nginx_directories: []
 
 nginx_sites_enabled:
   - default

@@ -1,4 +1,3 @@
----
 - name: Install required packages
   apt:
     name: nginx
@@ -33,7 +32,17 @@
   file:
     path: "/var/www/{{item.name}}"
     state: directory
-  with_items: nginx_sites
+  with_flattened:
+    - nginx_sites
+    - nginx_directories
+
+- name: Remove site directories
+  file:
+    path: "/var/www/{{item}}"
+    state: absent
+  with_items:
+    - default
+    - html
 
 - name: Enable sites
   file:

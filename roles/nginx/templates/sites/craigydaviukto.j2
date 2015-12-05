@@ -2,8 +2,8 @@
 
 # Redirect www. to the main domain
 server {
-  listen 80;
   listen [::]:80;
+  listen 80;
   server_name www.craigydavi.uk.to;
 
   return 301 http://craigydavi.uk.to$request_uri;
@@ -11,8 +11,8 @@ server {
 
 # Redirect craigydavi.uk.to -> davison.io
 server {
-  listen 80;
   listen [::]:80;
+  listen 80;
   server_name craigydavi.uk.to;
 
   return 301 http://davison.io$request_uri;
