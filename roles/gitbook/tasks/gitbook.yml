@@ -23,6 +23,7 @@
     accept_hostkey: yes
     key_file: /etc/ssh/ssh_host_rsa_key
   with_items: gitbook_books
+  ignore_errors: yes
 
 - name: Add systemd service
   template:
