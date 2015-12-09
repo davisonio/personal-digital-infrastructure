@@ -2,11 +2,11 @@
 - name: Setup host to be managed by ansible
   hosts: "{{hosts}}"
   remote_user: root
-  pre_tasks:
+  roles:
+    - users
+    - openssh
+  post_tasks:
     - name: Lock down root user (suicide!)
       user:
         name: root
         password: !
-  roles:
-    - users
-    - openssh
