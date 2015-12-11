@@ -7,8 +7,6 @@
 ·
 <b><a href="#further-reading">Further Reading</a></b>
 ·
-<b><a href="#todo">Todo</a></b>
-·
 <b><a href="#authors">Authors</a></b>
 ·
 <b><a href="#credits">Credits</a></b>
@@ -54,17 +52,11 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 - [Orain/ansible-playbook](https://github.com/Orain/ansible-playbook)
 - [edunham/ansible-rust-infra](https://github.com/edunham/ansible-rust-infra)
 
-## Todo
-
-- [ ] travis tests
-- [ ] apt: sources.list support
-- [ ] add contributing.md
-
 ## Authors
 
 **[Craig Davison](http://davison.io)**
 
-[![GitHub followers](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow)](https://github.com/davisonio)
+[![GitHub followers](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![Twitter followers](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
 
 With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors) :clap:
 
