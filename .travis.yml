@@ -1,0 +1,11 @@
+language: python
+
+install:
+  - gem install awesome_bot
+
+script:
+  # Check for link problems
+  - awesome_bot README.md --allow-dupe
+
+notifications:
+  email: false
