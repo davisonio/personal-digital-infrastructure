@@ -1,0 +1,20 @@
+- name: Test all roles
+  hosts: all
+  roles:
+    - apt
+    - backup
+    - ghost
+    - gitbook
+    - hostname
+    - jekyll
+    - minetest
+    - nginx
+    - nodejs
+    - ntp
+    - openssh
+    - ping
+    - ruby
+    - sudo
+    - timezone
+    - updates
+    - users

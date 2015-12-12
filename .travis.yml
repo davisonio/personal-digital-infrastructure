@@ -1,15 +1,14 @@
 language: python
 
-before_install:
-  - rvm get stable
-  - rvm install ruby 2.2.3
+python:
+  - 2.7
 
 install:
-  - gem install awesome_bot
+  - pip install ansible
 
 script:
-  # Check for link problems
-  - awesome_bot README.md --allow-dupe
+  - cd tests
+  - ansible-playbook test.yml --syntax-check
 
 notifications:
   email: false
