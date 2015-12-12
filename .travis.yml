@@ -1,14 +1,19 @@
 language: python
 
 python:
-  - 2.7
+  # Ansible does not support python 3 so we'll be testing on the latest python 2 release
+  - 2.7.11
+
+before_install:
+  # Use latest version of pip because travis usually contains an old release
+  - pip install --upgrade pip
 
 install:
   - pip install ansible
 
 script:
-  - cd tests
-  - ansible-playbook test.yml --syntax-check
+  # Run all our roles to check their syntax
+  - "cd tests && ansible-playbook test.yml --syntax-check"
 
 notifications:
   email: false
