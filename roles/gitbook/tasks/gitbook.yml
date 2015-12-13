@@ -14,7 +14,7 @@
 
 - name: Download books from git
   git:
-    repo: "{{item.repo|default('https://github.com/GitbookIO/documentation')}}"
+    repo: "{{item.repo}}"
     dest: "{{item.path}}"
     recursive: yes
     force: yes
@@ -23,7 +23,6 @@
     accept_hostkey: yes
     key_file: /etc/ssh/ssh_host_rsa_key
   with_items: gitbook_books
-  ignore_errors: yes
 
 - name: Add systemd service
   template:
@@ -32,16 +31,8 @@
   with_items: gitbook_books
   notify: reload systemd
 
-- name: Ensure services are started
-  service:
-    name: "gitbook-{{item.name}}"
-    state: started
-    enabled: yes
-  with_items: gitbook_books
-
 # GitBook doesn't support subdirectories so this is a hacky way of supporting them
 # TODO: Fix this within GitBook itself or make this code below less hacky
-
 - name: Subdirectory bugfix
   cron:
     name: "gitbook subdirectory bugfix {{item.name}}"
@@ -52,3 +43,11 @@
     state: present
   with_items: gitbook_books
   when: item.subdir
+
+
+- name: Ensure services are started
+  service:
+    name: "gitbook-{{item.name}}"
+    state: started
+    enabled: yes
+  with_items: gitbook_books

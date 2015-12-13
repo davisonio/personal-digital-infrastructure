@@ -41,7 +41,6 @@
     path: "/var/www/{{item}}"
     state: absent
   with_items:
-    - default
     - html
 
 - name: Enable sites

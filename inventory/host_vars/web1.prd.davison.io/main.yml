@@ -17,43 +17,43 @@ ghost_location: /var/www/davisonio-blog
 gitbook_books:
   - name: gcsescience
     path: /var/www/davisonio-books-gcse-science
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-science
+    repo: git@bitbucket.org:davisonio/book-gcse-science.git
     port: 4000
     lrport: 35729
     subdir: books/gcse-science
   - name: gcsegeography
     path: /var/www/davisonio-books-gcse-geography
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-geography
+    repo: git@bitbucket.org:davisonio/book-gcse-geography.git
     port: 4001
     lrport: 35730
     subdir: books/gcse-geography
   - name: gcsereligiousstudies
     path: /var/www/davisonio-books-gcse-religious-studies
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-religious-studies
+    repo: git@bitbucket.org:davisonio/book-gcse-religious-studies.git
     port: 4002
     lrport: 35731
     subdir: books/gcse-religious-studies
   - name: gcsemathematics
     path: /var/www/davisonio-books-gcse-mathematics
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-mathematics
+    repo: git@bitbucket.org:davisonio/book-gcse-mathematics.git
     port: 4003
     lrport: 35732
     subdir: books/gcse-mathematics
   - name: gcsegerman
     path: /var/www/davisonio-books-gcse-german
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-german
+    repo: git@bitbucket.org:davisonio/book-gcse-german.git
     port: 4004
     lrport: 35733
     subdir: books/gcse-german
   - name: gcseenglish
     path: /var/www/davisonio-books-gcse-english
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-english
+    repo: git@bitbucket.org:davisonio/book-gcse-english.git
     port: 4005
     lrport: 35734
     subdir: books/gcse-english
   - name: gcsecomputerscience
     path: /var/www/davisonio-books-gcse-computer-science
-    repo: ssh://git@gitlab.com:/davisonio/book-gcse-computer-science
+    repo: git@bitbucket.org:davisonio/book-gcse-computer-science.git
     port: 4006
     lrport: 35735
     subdir: books/gcse-computer-science
