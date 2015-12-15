@@ -1,7 +1,46 @@
+- name: Run 'always' tasks on always_base
+  hosts: always_base
+  roles:
+    - ping
+    - timezone
+    - ntp
+    - users
+    - sudo
+    - hostname
+    - apt
+    - openssh
+    - updates
+
+- name: Run 'always' tasks on always_minetest
+  hosts: always_minetest
+  roles:
+    - minetest
 
 - name: Run 'always' tasks on always_nginx
   hosts: always_nginx
   roles:
-    - apt
     - nginx
     - letsencrypt
+
+- name: Run 'always' tasks on always_backup
+  hosts: always_backup
+  roles:
+    - backup
+
+- name: Run 'always' tasks on always_ghost
+  hosts: always_ghost
+  roles:
+    - nodejs
+    - ghost
+
+- name: Run 'always' tasks on always_gitbook
+  hosts: always_gitbook
+  roles:
+    - nodejs
+    - gitbook
+
+- name: Run 'always' tasks on always_jekyll
+  hosts: always_jekyll
+  roles:
+    - ruby
+    - jekyll
