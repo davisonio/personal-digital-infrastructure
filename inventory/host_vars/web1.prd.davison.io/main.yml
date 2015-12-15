@@ -62,3 +62,6 @@ jekyll_sites:
   - name: davisonio
     path: /var/www/davisonio
     repo: https://github.com/davisonio/davison.io
+
+letsencrypt_sites:
+  - davison.io

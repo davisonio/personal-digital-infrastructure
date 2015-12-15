@@ -1,6 +1,7 @@
 ---
 
-apt_install_repositories: []
+apt_install_repositories:
+  - "ppa:nginx/stable"
 
 apt_remove_repositories: []
 
