@@ -1,0 +1,52 @@
+- name: Create install directory
+  file:
+    path: /etc/letsencrypt/letsencrypt
+    state: directory
+
+- name: Download letsencrypt from git
+  git:
+    repo: https://github.com/letsencrypt/letsencrypt
+    dest: /etc/letsencrypt/letsencrypt
+    recursive: yes
+    force: yes
+    update: yes
+    clone: yes
+    accept_hostkey: yes
+    key_file: /etc/ssh/ssh_host_rsa_key
+
+- name: Create nginx ssl directory
+  file:
+    path: /etc/nginx/ssl
+    state: directory
+
+- name: Check if ticket.key exists
+  stat:
+    path: /etc/nginx/ssl/ticket.key
+  register: ticketkey
+
+- name: Generate ticket.key
+  command: openssl rand 48 -out /etc/nginx/ssl/ticket.key
+  when: not ticketkey.stat.exists
+
+- name: Check if dhparam.pem exists
+  stat:
+    path: /etc/nginx/ssl/dhparam.pem
+  register: dhparampem
+
+- name: Generate dhparam.pem
+  command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
+  when: not dhparampem.stat.exists
+
+- name: Add configurations (cli.ini)
+  template:
+    src: "cli-{{item}}.ini"
+    dest: "/etc/letsencrypt/cli-{{item}}.ini"
+  with_items: letsencrypt_sites
+
+- name: Add cronjob for renewing the certificates
+  cron:
+    name: "letsencrypt-renew-{{item}}"
+    job: "cd /etc/letsencrypt/letsencrypt && service nginx stop && ./letsencrypt-auto certonly --standalone -c /etc/letsencrypt/cli-{{item}}.ini && service nginx start"
+    special_time: monthly
+    state: present
+  with_items: letsencrypt_sites
