@@ -15,8 +15,8 @@ server {
 
   ssl on;
 
-  # Cache certificate for one year, connect exclusively using HTTPS and include subdomains
-  add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+  # Cache certificate for one year, connect exclusively using HTTPS
+  add_header Strict-Transport-Security "max-age=31536000;";
 
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
   add_header X-Frame-Options DENY;
@@ -60,8 +60,8 @@ server {
 
   ssl on;
 
-  # Cache certificate for one year, connect exclusively using HTTPS and include subdomains
-  add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+  # Cache certificate for one year, connect exclusively using HTTPS
+  add_header Strict-Transport-Security "max-age=31536000;";
 
   # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
   add_header X-Frame-Options DENY;
