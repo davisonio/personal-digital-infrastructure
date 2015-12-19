@@ -27,12 +27,6 @@
   roles:
     - backup
 
-- name: Run 'always' tasks on always_ghost
-  hosts: always_ghost
-  roles:
-    - nodejs
-    - ghost
-
 - name: Run 'always' tasks on always_gitbook
   hosts: always_gitbook
   roles:

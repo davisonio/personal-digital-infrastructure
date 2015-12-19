@@ -17,9 +17,6 @@ web1.prd.davison.io
 [always_backup]
 web1.prd.davison.io
 
-[always_ghost]
-web1.prd.davison.io
-
 [always_gitbook]
 web1.prd.davison.io
 

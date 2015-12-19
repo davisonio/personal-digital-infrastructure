@@ -1,5 +1,0 @@
----
-
-- include_vars: secrets.yml
-
-- include: ghost.yml
