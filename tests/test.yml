@@ -3,7 +3,6 @@
   roles:
     - apt
     - backup
-    - ghost
     - gitbook
     - hostname
     - jekyll
