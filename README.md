@@ -1,26 +1,29 @@
-# davison.io DevOps
+# davison.io DevOps [![](https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square)](https://travis-ci.org/davisonio/davison.io-devops)
 
-> Development operations & infrastructure managing [davison.io](http://davison.io) and related sites. Powered by [Ansible](http://www.ansible.com/).
+> Development operations & infrastructure managing [davison.io](https://davison.io) and related sites. Powered by [Ansible](http://www.ansible.com).
 
 <p align="center">
-<b><a href="#usage">Usage</a></b>
+<b><a href="#install">Install</a></b>
+·
+<b><a href="#use">Use</a></b>
 ·
 <b><a href="#further-reading">Further Reading</a></b>
 ·
 <b><a href="#authors">Authors</a></b>
 ·
-<b><a href="#credits">Credits</a></b>
-</p>
-
-<p align="center">
-<a href="https://travis-ci.org/davisonio/davison.io-devops"><img src="https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square"/></a>
+<b><a href="#license--credits">Credits</a></b>
 </p>
 
 This contains the roles and things used to deploy and generally check everything is working on davison.io-esque websites.
 
-## Usage
-- [Add a new host](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host.md)
-- [Setup Ansible Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)
+## Install
+
+*[See Setup Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)*
+
+## Use
+
+- [Setup Host](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host.md)
+- [Setup Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)
 
 #### What are 'Always' tasks?
 
@@ -54,16 +57,16 @@ The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed 
 
 ## Authors
 
-**[Craig Davison](http://davison.io)**
+**[Craig Davison](https://davison.io)**
 
-[![GitHub followers](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![Twitter followers](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
+[![](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
 
 With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors) :clap:
 
-For details on how to help, see the [Contributing Guidelines](https://github.com/davisonio/davison.io-devops/blob/master/CONTRIBUTING.md).
+**Contributions are welcome!** Check out the [Contributing Guidelines](https://github.com/davisonio/dotfiles/blob/master/CONTRIBUTING.md) :raised_hands:
 
-## Credits
+## License & Credits
 
 Unless otherwise stated:
 
-- Copyright © 2015+ [Craig Davison](http://davison.io). Released under the [MIT License](http://davisonio.mit-license.org).
+- Copyright © 2015+ [Craig Davison](https://davison.io). Released under the [MIT License](http://davisonio.mit-license.org/2015).
