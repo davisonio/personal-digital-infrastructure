@@ -1,6 +1,6 @@
 # Setup Ansible Controller
 
-The Ansible Controller is the main machine which is used to coordinate the tasks for all hosts in its inventory.
+This guide will show you how to setup an Ansible Controller.
 
 ## 1. Requirements
 
