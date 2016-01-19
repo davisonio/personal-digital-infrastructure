@@ -1,4 +1,4 @@
-# Setup Ansible Controller
+# Setup Controller
 
 This guide will show you how to setup an Ansible Controller.
 
