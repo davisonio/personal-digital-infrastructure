@@ -1,4 +1,4 @@
-- name: Test all roles
+- name: Run all roles
   hosts: all
   roles:
     - apt
