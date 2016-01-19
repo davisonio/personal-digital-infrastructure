@@ -1,51 +1,38 @@
 # Setup Host
 
-Follow this guide to setup a new host to be controlled by Ansible
+This guide will show you how to setup a host so that it can be controlled by an Ansible Controller.
 
-## 1. Connect to the host over SSH
+## 1. Requirements
 
-Follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh) to find out how to do so.
+- Logged in via SSH - [instructions](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh) (using **root** user with a **password**)
+- [Python](https://www.python.org)
 
-You should be connecting using the **root** user with a **password**.
+## 3. Set up DNS
 
-The password doesn't have to be secure because we will be removing it later.
+Set up an A record following the format shown in the [main inventory file](https://github.com/davisonio/davison.io-devops/blob/master/inventory/main) and pointing to the IP address of the host.
 
-## 2. Install python
+## 4. Add to inventory
 
-Python is required to be on the host so that Ansible can run.
+Add the hostname you created in the previous step to any required locations in the inventory files.
 
-``
-$ apt-get install python
-``
+## 4. Run setup-host.yml
 
-## 3. Add host to inventory and set up DNS
-
-Add the host to any required inventory files.
-
-If you'd like to add a nice looking .davison.io hostname instead of the IP address you'll need to set up the DNS too.
-
-## 4. Run the setup-host playbook
-
-Firstly, make sure that you have an active SSH connection (root) as shown above. This is so that if something goes wrong we can fix things using this connection.
-
-On *Ansible Controller* run the required playbook on the host you added in step 2:
+Run the setup-host playbook on the hostname:
 
 ```
-$ ansible-playbook plays/setup-host.yml -e "hosts=myserver.example.com" --ask-pass
+$ ansible-playbook plays/setup-host.yml -e "hosts=example.davison.io" --ask-pass
 ```
+
 - Enter the **root user password**
-- Enter the **root user password** (again for the sudo password)
+- Enter the **root user password** again
 - Enter the vault password
 
-This playbook will lock down the root user and then run the user and openssh roles.
+This playbook runs the user role, runs the openssh role and then locks down root user.
 
-## 5. Run always playbook
+## 5. Run always.yml
 
-You can now add this host to the always inventory file.
+Run the always playbook and hopefully everything should be working on all hosts including the new one you added:
 
-Add the host under the headings for what 'always' tasks we want to run on the host. You almost definitely want to add the host under the 'always_base' header to make sure that base operations are always carried out.
-
-Then run the 'always' playbook and hopefully everything should be working on all hosts including the new one you added:
 ```
 $ ansible-playbook always.yml
 ```
