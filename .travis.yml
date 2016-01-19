@@ -1,12 +1,7 @@
 language: python
 
 python:
-  # Ansible does not support python 3 so we'll be testing on a reasonably recent python 2 version
   - 2.7
-
-before_install:
-  # Use latest version of pip because travis usually contains an old release
-  - pip install --upgrade pip
 
 install:
   - pip install ansible
