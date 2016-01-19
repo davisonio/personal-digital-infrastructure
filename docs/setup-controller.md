@@ -2,34 +2,21 @@
 
 The Ansible Controller is the main machine which is used to coordinate the tasks for all hosts in its inventory.
 
-## 1. Prerequisites
+## 1. Requirements
 
-- You should be logged into the controller via SSH
-- Python and git should be installed
+- Logged in via SSH
+- [Python](https://www.python.org) + [pip](https://pypi.python.org/pypi/pip)
+- [Git](https://git-scm.com)
 
-## 2. Get Latest Release
-
-```
-$ sudo apt-get install software-properties-common
-$ sudo apt-add-repository ppa:ansible/ansible
-$ sudo apt-get update
-$ sudo apt-get install ansible
-```
-
-## 3. Prepare operating location (/etc/ansible recommended)
+## 2. Get Ansible
 
 ```
-$ cd /etc/ansible
-$ sudo rm ansible.cfg hosts
+$ sudo pip install ansible
 ```
 
-## 4. Download devops infrastructure from GitHub
+## 4. Get davison.io DevOps
 
 ```
 $ git clone https://github.com/davisonio/davison.io-devops
 $ cd davison.io-devops
 ```
-## 5. Final steps TODO
-- SSH keys
-- DNS check in inventory
-- vault
