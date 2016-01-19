@@ -11,7 +11,7 @@
 ·
 <b><a href="#authors">Authors</a></b>
 ·
-<b><a href="#license--credits">Credits</a></b>
+<b><a href="#license--credits">License & Credits</a></b>
 </p>
 
 This contains the roles and things used to deploy and generally check everything is working on davison.io-esque websites.
