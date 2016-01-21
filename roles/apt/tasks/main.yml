@@ -1,3 +1,37 @@
----
+- name: Install apt
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - apt
+    - apt-utils
+    - python-apt
+    - aptitude
 
-- include: apt.yml
+- name: Install repositories
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items: apt_install_repositories
+
+- name: Remove repositories
+  apt_repository:
+    repo: "{{ item }}"
+    state: absent
+  with_items: apt_remove_repositories
+
+- name: Upgrade packages
+  apt:
+    upgrade: yes
+
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_dict: "apt_install|combine(apt_install_host)"
+
+- name: Remove packages
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_dict: "apt_remove|combine(apt_remove_host)"

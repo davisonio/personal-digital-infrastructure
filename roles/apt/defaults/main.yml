@@ -16,8 +16,8 @@ apt_install:
   - zip
   - unzip
 
-apt_remove: []
-
 apt_install_host: []
+
+apt_remove: []
 
 apt_remove_host: []
