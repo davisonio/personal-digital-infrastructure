@@ -2,6 +2,7 @@
   npm:
     name: gitbook-cli
     global: yes
+    state: latest
 
 - name: Create install path
   file:
