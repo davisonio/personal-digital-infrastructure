@@ -1,5 +1,43 @@
----
+- name: Install minetest daily repository
+  apt_repository:
+    repo: ppa:minetestdevs/daily-builds
 
-- include_vars: secrets.yml
+- name: Install minetest
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - minetest
 
-- include: minetest.yml
+- name: Install games
+  git:
+    repo: "{{ item.url }}"
+    dest: "{{ minetest_location }}games/{{ item.name }}"
+    force: yes
+    accept_hostkey: yes
+  with_items: minetest_games
+
+- name: Add configs
+  template:
+    src: "configs/{{item.name}}.conf.j2"
+    dest: "{{ minetest_location }}minetest-{{item.name}}.conf"
+  with_items: minetest_instances
+
+- name: Create logging directory
+  file:
+    path: /var/log/minetest
+    state: directory
+
+- name: Add systemd services
+  template:
+    src: "minetest.service.j2"
+    dest: "/etc/systemd/system/minetest-server-{{item.name}}.service"
+  with_items: minetest_instances
+  notify: reload systemd
+
+- name: Start services
+  service:
+    name: "minetest-server-{{item.name}}"
+    state: started
+    enabled: yes
+  with_items: minetest_instances
