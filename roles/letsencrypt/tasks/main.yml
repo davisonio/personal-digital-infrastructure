@@ -3,16 +3,12 @@
     path: /etc/letsencrypt/letsencrypt
     state: directory
 
-- name: Download letsencrypt from git
+- name: Download letsencrypt
   git:
     repo: https://github.com/letsencrypt/letsencrypt
     dest: /etc/letsencrypt/letsencrypt
-    recursive: yes
     force: yes
-    update: yes
-    clone: yes
     accept_hostkey: yes
-    key_file: /etc/ssh/ssh_host_rsa_key
 
 - name: Create nginx ssl directory
   file:
@@ -37,13 +33,13 @@
   command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
   when: not dhparampem.stat.exists
 
-- name: Add configurations (cli.ini)
+- name: Add site configurations
   template:
-    src: "cli-{{item}}.ini"
+    src: "sites/cli-{{item}}.ini"
     dest: "/etc/letsencrypt/cli-{{item}}.ini"
   with_items: letsencrypt_sites
 
-- name: Add cronjob for renewing the certificates
+- name: Add renew cronjob
   cron:
     name: "letsencrypt-renew-{{item}}"
     job: "cd /etc/letsencrypt/letsencrypt && service nginx stop && ./letsencrypt-auto certonly --standalone -c /etc/letsencrypt/cli-{{item}}.ini && service nginx start"
