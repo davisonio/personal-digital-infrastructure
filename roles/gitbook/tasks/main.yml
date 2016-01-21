@@ -1,3 +1,50 @@
----
+- name: Install gitbook
+  npm:
+    name: gitbook-cli
+    global: yes
 
-- include: gitbook.yml
+- name: Create install path
+  file:
+    path: "{{item.path}}"
+    state: directory
+  with_items: gitbook_books
+
+- name: Download books from git
+  git:
+    repo: "{{item.repo}}"
+    dest: "{{item.path}}"
+    recursive: yes
+    force: yes
+    update: yes
+    clone: yes
+    accept_hostkey: yes
+    key_file: /etc/ssh/ssh_host_rsa_key
+  with_items: gitbook_books
+
+- name: Add systemd service
+  template:
+    src: "gitbook.service.j2"
+    dest: "/etc/systemd/system/gitbook-{{item.name}}.service"
+  with_items: gitbook_books
+  notify: reload systemd
+
+# GitBook doesn't support subdirectories so this is a hacky way of supporting them
+# TODO: Fix this within GitBook itself or make this code below less hacky
+#- name: Subdirectory bugfix
+#  cron:
+#    name: "gitbook subdirectory bugfix {{item.name}}"
+#    # 1. Creates the subdirectory
+#    # 2. Copies all files from the root to the subdirectory
+#    # 3. Clean up stuff so we're not left with endless directories
+#    job: "mkdir -p {{item.path}}/_book/{{item.subdir}} && cp -a {{item.path}}/_book/. {{item.path}}/_book/{{item.subdir}}/ && rm -rf {{item.path}}/_book/{{item.subdir}}/{{item.subdir}}/"
+#    state: present
+#  with_items: gitbook_books
+#  when: item.subdir
+
+
+- name: Ensure services are started
+  service:
+    name: "gitbook-{{item.name}}"
+    state: started
+    enabled: yes
+  with_items: gitbook_books

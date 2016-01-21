@@ -1,3 +1,17 @@
----
+- name: Update hostname
+  hostname:
+    name: "{{inventory_hostname}}"
 
-- include: hostname.yml
+- name: Update IPv4 hostname
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "^127.0.0.1"
+    line: "127.0.0.1 {{inventory_hostname}} {{inventory_hostname_short}} localhost"
+    state: present
+
+- name: Update IPv6 hostname
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "^::1"
+    line: "::1 {{inventory_hostname}} {{inventory_hostname_short}} ip6-localhost ip6-loopback"
+    state: present

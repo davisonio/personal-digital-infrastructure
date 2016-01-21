@@ -1,5 +1,3 @@
----
-
 gitbook_books:
   - name: gitbook
     path: /var/www/gitbook
