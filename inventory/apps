@@ -4,21 +4,21 @@
 # See projects file for host naming scheme
 #
 
-[app:base]
+[app-base]
 web1.prd.davison.io
 minetest.srv1.prd.davison.io
 
-[app:minetest]
+[app-minetest]
 minetest.srv1.prd.davison.io
 
-[app:nginx]
+[app-nginx]
 web1.prd.davison.io
 
-[app:duplicity]
+[app-duplicity]
 web1.prd.davison.io
 
-[app:gitbook]
+[app-gitbook]
 web1.prd.davison.io
 
-[app:jekyll]
+[app-jekyll]
 web1.prd.davison.io

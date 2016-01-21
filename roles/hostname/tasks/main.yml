@@ -10,6 +10,7 @@
     state: present
 
 - name: Update IPv6 hostname
+  become: yes
   lineinfile:
     dest: /etc/hosts
     regexp: "^::1"

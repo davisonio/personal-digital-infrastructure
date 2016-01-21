@@ -4,8 +4,6 @@ apt_install_repositories: []
 
 apt_remove_repositories: []
 
-apt_upgrade_type: safe          # safe, full or dist
-
 apt_install:
   - rsync
   - curl

@@ -1,39 +1,39 @@
 - name: Apply base tasks
-  hosts: app:base
+  hosts: app-base
   roles:
     - timezone
     - ntp
-    - users
-    - sudo
+    #- users
+    #- sudo
     - hostname
     - apt
     - openssh
     - updates
 
 - name: Apply minetest tasks
-  hosts: app:minetest
+  hosts: app-minetest
   roles:
     - minetest
 
 - name: Apply nginx tasks
-  hosts: app:nginx
+  hosts: app-nginx
   roles:
     - nginx
     - letsencrypt
 
 - name: Apply duplicity tasks
-  hosts: app:duplicity
+  hosts: app-duplicity
   roles:
     - duplicity
 
 - name: Apply gitbook tasks
-  hosts: app:gitbook
+  hosts: app-gitbook
   roles:
     - nodejs
 #    - gitbook
 
 - name: Apply jekyll tasks
-  hosts: app:jekyll
+  hosts: app-jekyll
   roles:
     - ruby
     - jekyll
