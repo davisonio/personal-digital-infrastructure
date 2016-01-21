@@ -14,6 +14,6 @@
 - name: Configure ntp
   template:
     src: ntp.j2
-    dest: /etc/ntp.conf
+    dest: "/etc/ntp.conf"
   notify:
     - restart ntp

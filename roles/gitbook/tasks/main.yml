@@ -1,8 +1,8 @@
-#- name: Install gitbook
-#  npm:
-#    name: gitbook-cli
-#    global: yes
-#    state: latest
+- name: Install gitbook
+  npm:
+    name: gitbook-cli
+    global: yes
+    state: latest
 
 - name: Create install path
   file:
