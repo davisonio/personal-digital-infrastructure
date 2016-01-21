@@ -12,7 +12,6 @@
     - ntp
     - openssh
     - ruby
-    - sudo
     - timezone
     - updates
     - users

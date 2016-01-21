@@ -1,5 +1,0 @@
-sudo_users: []
-sudo_user_nopasswd: []
-sudo_groups: [admin, sudo]
-sudo_group_nopasswd: []
-sudo_defaults: ["env_reset", "lecture=once", "insults"]
