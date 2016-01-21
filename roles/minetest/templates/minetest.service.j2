@@ -9,7 +9,7 @@ After=network.target
 Restart=on-failure
 User=root
 Group=games
-ExecStart=/usr/bin/minetest --server --config {{ minetest_conf_location }}minetest-{{ item.name }}.conf --logfile /var/log/minetest/minetest-{{ item.name }}.log --world /usr/share/minetest/worlds/{{ item.name }} &
+ExecStart=/usr/bin/minetest --server --config {{ minetest_location }}minetest-{{ item.name }}.conf --logfile /var/log/minetest/minetest-{{ item.name }}.log --world /usr/share/minetest/worlds/{{ item.name }} &
 
 [Install]
 WantedBy=multi-user.target

@@ -1,8 +1,8 @@
 minetest_location: /usr/share/minetest/
 
 minetest_games:
-  - name: "Craig-Server_game"
-    url: "https://github.com/davisonio/Craig-Server_game"
+  - name: craig-server_game
+    url: https://github.com/davisonio/craig-server_game
 
 minetest_instances:
   - name: server
