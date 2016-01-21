@@ -14,7 +14,7 @@ minetest.srv1.prd.davison.io
 [app:nginx]
 web1.prd.davison.io
 
-[app:backup]
+[app:duplicity]
 web1.prd.davison.io
 
 [app:gitbook]

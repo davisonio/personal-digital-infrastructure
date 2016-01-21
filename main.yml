@@ -21,10 +21,10 @@
     - nginx
     - letsencrypt
 
-- name: Apply backup tasks
-  hosts: app:backup
+- name: Apply duplicity tasks
+  hosts: app:duplicity
   roles:
-    - backup
+    - duplicity
 
 - name: Apply gitbook tasks
   hosts: app:gitbook

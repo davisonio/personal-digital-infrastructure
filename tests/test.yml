@@ -2,7 +2,7 @@
   hosts: all
   roles:
     - apt
-    - backup
+    - duplicity
     - gitbook
     - hostname
     - jekyll
