@@ -1,0 +1,24 @@
+#
+# Hosts organised by application
+#
+# See projects file for host naming scheme
+#
+
+[app:base]
+web1.prd.davison.io
+minetest.srv1.prd.davison.io
+
+[app:minetest]
+minetest.srv1.prd.davison.io
+
+[app:nginx]
+web1.prd.davison.io
+
+[app:backup]
+web1.prd.davison.io
+
+[app:gitbook]
+web1.prd.davison.io
+
+[app:jekyll]
+web1.prd.davison.io

@@ -1,0 +1,25 @@
+#
+# Hosts organised by project
+#
+# Host naming scheme:
+#
+# <sub project>.<type>.<environment>.<domain>.<tld>
+#
+# Sub projects:
+# - minetest
+#
+# Types:
+# - srv = server
+# - web = web server (e.g. nginx or apache)
+#
+# Environments:
+# - lcl = local
+# - dev = development
+# - tst = testing
+# - stg = staging
+# - prd = production
+#
+
+[davison.io]
+web1.prd.davison.io
+minetest.srv1.prd.davison.io

@@ -29,10 +29,10 @@ $ ansible-playbook plays/setup-host.yml -e "hosts=example.davison.io" --ask-pass
 
 This playbook runs the user role, runs the openssh role and then locks down root user.
 
-## 5. Run always.yml
+## 5. Run main.yml
 
-Run the always playbook and hopefully everything should be working on all hosts including the new one you added:
+Run the main playbook and hopefully everything should be working on all hosts including the new one you added:
 
 ```
-$ ansible-playbook always.yml
+$ ansible-playbook main.yml
 ```

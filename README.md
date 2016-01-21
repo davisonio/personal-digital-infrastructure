@@ -25,15 +25,6 @@ This contains the roles and things used to deploy and generally check everything
 - [Setup Host](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host.md)
 - [Setup Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)
 
-#### What are 'Always' tasks?
-
-'Always' tasks are idempotent, meaning if you run them again, **they will make only the changes they must in order to bring the system to the desired state**. This makes it very safe to rerun the same playbook multiple times. They won't change things unless they have to change things. - Ansible Docs
-
-- **inventory/always** defines which hosts use 'always' tasks
-- **always.yml** is a playbook which runs all always tasks on all hosts. You can consider this the root/main playbook which does everything.
-
-The opposite of 'Always' tasks are 'one-off' tasks. One-off tasks are performed manually and are usually idempotent.
-
 ## Further reading
 
 #### Articles
