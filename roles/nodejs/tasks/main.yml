@@ -1,3 +1,9 @@
----
-
-- include: nodejs.yml
+- name: Install nodejs + npm
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - nodejs
+    - npm
+    # https://stackoverflow.com/questions/26320901/cannot-install-nodejs-usr-bin-env-node-no-such-file-or-directory
+    - nodejs-legacy

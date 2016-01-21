@@ -1,5 +1,3 @@
----
-
 users_groups:
   - name: sudo
     system: yes

@@ -1,18 +1,16 @@
 nginx_sites:
-  - name: davisonio
+  - name: davison.io
   - name: default
-  - name: craigydaviukto
-  - name: space2staycom
-  - name: flimrcom
+  - name: craigydavi.uk.to
+  - name: space2stay.com
+  - name: flimr.com
 
 nginx_sites_enabled:
   - default
-  - davisonio
-  - craigydaviukto
-  - space2staycom
-  - flimrcom
-
-ghost_location: /var/www/davisonio-blog
+  - davison.io
+  - craigydavi.uk.to
+  - space2stay.com
+  - flimr.com
 
 gitbook_books:
   - name: gcsescience

@@ -1,3 +1,19 @@
----
+- name: Install ntp
+  apt:
+    name: ntp
+    state: latest
 
-- include: ntp.yml
+- name: Fetch leapseconds file
+  get_url:
+    url: "{{ntp_leapurl}}"
+    dest: "/etc/ntp.leapseconds"
+    owner: "root"
+    group: "root"
+    mode: "0660"
+
+- name: Configure ntp
+  template:
+    src: ntp.j2
+    dest: /etc/ntp.conf
+  notify:
+    - restart ntp

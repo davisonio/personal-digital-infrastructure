@@ -1,5 +1,3 @@
----
-
 ntp_driftfile: "/var/lib/ntp/ntp.drift"
 ntp_statsdir: "/var/log/ntpstats/"
 ntp_leapurl: "http://www.ietf.org/timezones/data/leap-seconds.list"
