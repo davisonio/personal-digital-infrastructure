@@ -1,7 +1,6 @@
 - name: Run 'always' tasks on always_base
   hosts: always_base
   roles:
-    - ping
     - timezone
     - ntp
     - users
