@@ -21,7 +21,6 @@
   with_items: apt_remove_repositories
 
 - name: Upgrade packages
-  become: yes
   apt:
     upgrade: safe
 
