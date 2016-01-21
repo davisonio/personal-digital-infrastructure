@@ -30,7 +30,7 @@
   hosts: app-gitbook
   roles:
     - nodejs
-#    - gitbook
+    - gitbook
 
 - name: Apply jekyll tasks
   hosts: app-jekyll

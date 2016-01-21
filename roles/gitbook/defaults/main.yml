@@ -1,6 +1,1 @@
-gitbook_books:
-  - name: gitbook
-    path: /var/www/gitbook
-    repo: https://github.com/GitbookIO/documentation
-    port: 4000
-    lrport: 35729
+gitbook_books: []
