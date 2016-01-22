@@ -28,12 +28,14 @@
   apt:
     name: "{{ item }}"
     state: latest
-#  with_dict: "apt_install|combine(apt_install_host)"
-  with_items: apt_install
+  with_items:
+    - apt_install
+    - apt_install_host
 
 - name: Remove packages
   apt:
     name: "{{ item }}"
     state: absent
-#  with_dict: "apt_remove|combine(apt_remove_host)"
-  with_items: apt_remove
+  with_items:
+    - apt_remove
+    - apt_remove_host
