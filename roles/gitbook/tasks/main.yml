@@ -42,8 +42,7 @@
 #  with_items: gitbook_books
 #  when: item.subdir
 
-
-- name: Ensure services are started
+- name: Start services
   service:
     name: "gitbook-{{item.name}}"
     state: started
