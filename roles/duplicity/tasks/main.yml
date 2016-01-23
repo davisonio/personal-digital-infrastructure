@@ -1,0 +1,56 @@
+- name: Install duplicity repository
+  apt_repository:
+    repo: ppa:duplicity-team/ppa
+    state: present
+
+- name: Install duplicity
+  apt:
+    name: duplicity
+    state: latest
+
+- name: Create duplicity profile directories
+  file:
+    path: "/etc/duplicity/{{item.name}}"
+    state: directory
+  with_items: duplicity_profiles
+
+- name: Add profile duplicity script
+  template:
+    src: duplicity.sh.j2
+    dest: "/etc/duplicity/{{item.name}}/duplicity.sh"
+    mode: 0770
+  with_items: duplicity_profiles
+
+- name: Add profile includes
+  template:
+    src: include.j2
+    dest: "/etc/duplicity/{{item.name}}/include"
+  with_items: duplicity_profiles
+
+- name: Add profile pre tasks
+  template:
+    src: "pre/{{item.1}}.sh.j2"
+    dest: "/etc/duplicity/{{item.0.name}}/pre.sh"
+    mode: 0770
+  with_subelements:
+    - duplicity_profiles
+    - pre_tasks
+    - skip_missing: yes
+
+- name: Add profile post tasks
+  template:
+    src: "post/{{item.1}}.sh.2"
+    dest: "/etc/duplicity/{{item.0.name}}/post.sh"
+    mode: 0770
+  with_subelements:
+    - duplicity_profiles
+    - post_tasks
+    - skip_missing: yes
+
+- name: Add cronjobs
+  cron:
+    name: "duplicity {{item.name}}"
+    job: "/bin/bash /etc/duplicity/{{item.name}}/duplicity.sh"
+    special_time: "{{duplicity_special_time}}"
+    state: present
+  with_items: duplicity_profiles

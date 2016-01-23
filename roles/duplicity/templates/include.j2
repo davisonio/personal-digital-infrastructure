@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+
+{% for include in duplicity_includes %}
++ {{ include }}
+{% endfor %}
+{% for exclude in duplicity_excludes %}
+- {{ exclude }}
+{% endfor %}

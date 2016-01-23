@@ -63,3 +63,11 @@ jekyll_sites:
 
 letsencrypt_sites:
   - davison.io
+
+duplicity_profiles:
+  - name: main
+
+duplicity_includes:
+  - /etc/duplicity
+  - /etc/letsencrypt
+  - /var/www

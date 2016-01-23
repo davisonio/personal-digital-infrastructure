@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+# Run pre tasks
+bash pre.sh
+
+# Run duplicity with our passphrase
+
+PASSPHRASE="{{duplicity_passphrase}}" duplicity {% for option in duplicity_options %}{{ option }} {% endfor %}
+
+
+# Run post tasks
+bash post.sh
