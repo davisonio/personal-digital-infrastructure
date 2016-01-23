@@ -1,10 +1,10 @@
 - name: Gather initial information
   hosts: app-base
   tasks:
-    - name: Ansible environment: sudo user
+    - name: Ansible environment - sudo user
       debug:
         var: ansible_env.SUDO_USER
-    - name: Ansible environment: user
+    - name: Ansible environment - user
       debug:
         var: ansible_env.USER
 
