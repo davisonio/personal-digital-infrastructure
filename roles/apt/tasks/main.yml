@@ -28,7 +28,7 @@
   apt:
     name: "{{ item }}"
     state: latest
-  with_items:
+  with_flattened:
     - apt_install
     - apt_install_host
 
@@ -36,6 +36,6 @@
   apt:
     name: "{{ item }}"
     state: absent
-  with_items:
+  with_flattened:
     - apt_remove
     - apt_remove_host
