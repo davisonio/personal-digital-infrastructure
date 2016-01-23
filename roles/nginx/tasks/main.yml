@@ -28,19 +28,28 @@
   with_items: nginx_sites
   notify: reload nginx
 
+- name: Remove sites
+  file:
+    path: "/etc/nginx/sites-available/{{item.name}}"
+    state: absent
+  with_items: nginx_sites_remove
+  notify: reload nginx
+
 - name: Add site directories
   file:
     path: "/var/www/{{item.name}}"
     state: directory
   with_flattened:
     - nginx_sites
+    - nginx_directories
 
 - name: Remove site directories
   file:
     path: "/var/www/{{item}}"
     state: absent
   with_items:
-    - html
+    - nginx_sites_remove
+    - nginx_directories_remove
 
 - name: Enable sites
   file:

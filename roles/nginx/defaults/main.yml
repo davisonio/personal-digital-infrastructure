@@ -1,9 +1,16 @@
 nginx_sites:
   - default
 
+nginx_sites_remove: []
+
 nginx_sites_enabled:
   - default
 
 nginx_sites_disabled: []
+
+nginx_directories: []
+
+nginx_directories_remove:
+  - html
 
 nginx_htpasswd: []
