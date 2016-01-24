@@ -1,4 +1,5 @@
----
-
 apt_install_host:
   - lua-socket
+
+minetest_instances:
+  - name: server
