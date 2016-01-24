@@ -1,0 +1,6 @@
+# {{ ansible_managed }}
+
+# Start minetest servers
+{% for item in minetest_instances %}
+systemctl start minetest-server-{{item.name}}
+{% endfor -%}
