@@ -11,6 +11,7 @@ apt_install:
   - wget
   - zip
   - unzip
+  - screen
 
 apt_install_host: []
 
