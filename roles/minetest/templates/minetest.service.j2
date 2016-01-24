@@ -8,7 +8,7 @@ After=network.target
 [Service]
 Restart=on-failure
 User=root
-Group=games
+Group=root
 ExecStart=/usr/bin/minetest --server --config {{ minetest_location }}minetest-{{ item.name }}.conf --logfile /var/log/minetest/minetest-{{ item.name }}.log --world /usr/share/minetest/worlds/{{ item.name }} &
 
 [Install]
