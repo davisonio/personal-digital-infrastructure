@@ -16,6 +16,7 @@ web1.prd.davison.io
 
 [app-duplicity]
 web1.prd.davison.io
+minetest.srv1.prd.davison.io
 
 [app-gitbook]
 web1.prd.davison.io
