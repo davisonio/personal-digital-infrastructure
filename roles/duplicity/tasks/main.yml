@@ -27,30 +27,31 @@
     dest: "/etc/duplicity/{{item.name}}/include"
   with_items: duplicity_profiles
 
-- name: Add profile pre tasks
+- name: Add profile pre task
   template:
-    src: "pre/{{item.1}}.sh.j2"
-    dest: "/etc/duplicity/{{item.0.name}}/pre.sh"
+    src: "pre/{{item.pre_task}}.sh.j2"
+    dest: "/etc/duplicity/{{item.name}}/pre.sh"
     mode: 0770
-  with_subelements:
-    - duplicity_profiles
-    - pre_tasks
-    - skip_missing: yes
-
-- name: Add profile post tasks
-  template:
-    src: "post/{{item.1}}.sh.2"
-    dest: "/etc/duplicity/{{item.0.name}}/post.sh"
-    mode: 0770
-  with_subelements:
-    - duplicity_profiles
-    - post_tasks
-    - skip_missing: yes
-
-- name: Add cronjobs
-  cron:
-    name: "duplicity {{item.name}}"
-    job: "/bin/bash /etc/duplicity/{{item.name}}/duplicity.sh"
-    special_time: "{{duplicity_special_time}}"
-    state: present
+  when: item.pre_task is defined
   with_items: duplicity_profiles
+
+- name: Add profile post task
+  template:
+    src: "post/{{item.post_task}}.sh.2"
+    dest: "/etc/duplicity/{{item.name}}/post.sh"
+    mode: 0770
+  when: item.post_task is defined
+  with_items: duplicity_profiles
+
+#- name: Add cronjobs
+#  cron:
+#    name: "duplicity {{item.name}}"
+#    job: "/bin/bash /etc/duplicity/{{item.name}}/duplicity.sh"
+#    special_time: "{{item.special_time}}"
+#    state: present
+#  with_items: duplicity_profiles
+
+- name: Add b2backend (bugfix)
+  template:
+    src: b2backend.py.j2
+    dest: /usr/lib/python2.7/dist-packages/duplicity/backends/b2backend.py

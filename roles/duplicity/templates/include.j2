@@ -1,8 +1,11 @@
 # {{ ansible_managed }}
+{% for item in duplicity_profiles %}
 
-{% for include in duplicity_includes %}
+{% for include in item.includes %}
 + {{ include }}
 {% endfor %}
-{% for exclude in duplicity_excludes %}
+{% for exclude in item.excludes %}
 - {{ exclude }}
+{% endfor %}
+
 {% endfor %}

@@ -66,8 +66,3 @@ letsencrypt_sites:
 
 duplicity_profiles:
   - name: main
-
-duplicity_includes:
-  - /etc/duplicity
-  - /etc/letsencrypt
-  - /var/www

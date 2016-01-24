@@ -4,7 +4,6 @@ minetest_games:
   - name: craig-server_game
     url: https://github.com/davisonio/craig-server_game
 
-minetest_instances:
-  - name: server
+minetest_instances: []
 
 minetest_secret_settings: []

@@ -1,12 +1,1 @@
 duplicity_profiles: []
-
-duplicity_includes: []
-
-duplicity_excludes:
-  - "**"
-
-duplicity_options: []
-
-duplicity_special_time: daily
-
-duplicity_passphrase: []
