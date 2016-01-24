@@ -1,18 +1,23 @@
 # {{ ansible_managed }}
+
 #
 # Server / Singleplayer
 #
 
 server_name = Craig's Server
-server_description = Come and join us! :)
+server_description = Well-built, reliable and popular world for for new or experienced builders. Come and join us! :)
 server_address = minetest.davison.io
-server_url = https://forum.minetest.net/viewtopic.php?t=7010
+server_url = https://davison.io/minetest/craig-server/
 server_announce = true
 
+
 ## Network
+
 port = 30000
 
+
 ### Advanced
+
 # (default: 10)
 max_simultaneous_block_sends_per_client = 5
 # (default: 40)
@@ -20,9 +25,10 @@ max_simultaneous_block_sends_server_total = 100
 # (default: 1024)
 max_packets_per_iteration = 4096
 
+
 ## Game
-motd = Welcome to Craig's Server! || Type /welcome for more information.
-# (default: 15)
+
+motd = Welcome to Craig's Server! Visit https://davison.io/minetest/craig-server for more information.
 max_users = 30
 map-dir = /usr/share/games/minetest/worlds/server
 default_privs = shout, fast
@@ -31,7 +37,7 @@ disallow_empty_password = true
 # Causes some issues when set to true
 disable_anticheat = true
 enable_rollback_recording = true
-kick_msg_shutdown = Server shutting down. We will be back soon.
+kick_msg_shutdown = Server shutting down. We'll be back soon.
 kick_msg_crash = Server has crashed. Please try rejoining.
 ask_reconnect_on_crash = true
 # (default: 3)
@@ -45,7 +51,9 @@ time_send_interval = 20
 # (default: 5.3)
 server_map_save_interval = 30
 
+
 ### Physics (from Carbone)
+
 # Decreased acceleration compared to minetest_game.
 movement_acceleration_default = 2.4
 movement_acceleration_air = 1.2
@@ -76,7 +84,9 @@ movement_liquid_fluidity = 1.6
 # Slightly less gravity.
 movement_gravity = 9.5
 
+
 ### Advanced
+
 # https://forum.minetest.net/viewtopic.php?p=132064#p132064 (default: 29)
 server_unload_unused_data_timeout = 10
 # Make a step (change/update) every X seconds https://forum.minetest.net/viewtopic.php?id=1825 (default: 0.1)
@@ -84,15 +94,21 @@ dedicated_server_step = 0.5
 # Prevent high CPU from liquids http://irc.minetest.ru/minetest-dev/2013-10-24#i_3390268 (default: 10000)
 liquid_loop_max = 750
 
+
 ## Mapgen
+
 mg_name = v6
 # (default: 6)
 max_block_generate_distance = 4
 mg_flags = trees,caves,dungeons,light
 
+
 ### Advanced
+
 #### Mapgen v6
+
 mgv6_spflags = jungles,biomeblend,mudflow,snowbiomes
+
 
 #
 # Client and Server
