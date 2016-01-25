@@ -58,7 +58,7 @@ gitbook_books:
 
 jekyll_sites:
   - name: davisonio
-    path: /var/www/davisonio
+    path: /var/www/davison.io
     repo: https://github.com/davisonio/davison.io
 
 letsencrypt_sites:
