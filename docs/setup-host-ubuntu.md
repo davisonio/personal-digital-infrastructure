@@ -1,9 +1,10 @@
-# Setup Host
+# Setup Host on Ubuntu
 
-This guide will show you how to setup a host so that it can be controlled by an Ansible Controller.
+This guide will show you how to setup a host on Ubuntu so that it can be controlled by an Ansible Controller.
 
 ## 1. Requirements
 
+- [Ubuntu Server](http://www.ubuntu.com/server) >= **14.04**
 - Logged in via SSH - [instructions](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh) (using **root** user with a **password**)
 - [Python](https://www.python.org)
 

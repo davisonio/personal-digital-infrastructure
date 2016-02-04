@@ -22,8 +22,8 @@ This contains the roles and things used to deploy and generally check everything
 
 ## Use
 
-- [Setup Host](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host.md)
-- [Setup Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)
+- [Setup Host on Ubuntu](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host-ubuntu.md)
+- [Setup Controller on Ubuntu](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller-ubuntu.md)
 
 ## Further reading
 
