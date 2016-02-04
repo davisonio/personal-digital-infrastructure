@@ -18,7 +18,7 @@ This contains the roles and things used to deploy and generally check everything
 
 ## Install
 
-*[See Setup Controller](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller.md)*
+*[See Setup Controller on Ubuntu](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller-ubuntu.md)*
 
 ## Use
 
