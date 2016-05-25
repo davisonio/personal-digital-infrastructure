@@ -1,4 +1,8 @@
+# todo: don't get the script if pip is already installed
+- name: Get pip installation script
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp/get-pip.py
+
 - name: Install pip
-  easy_install:
-    name: pip
-    state: latest
+  command: python /tmp/get-pip.py
