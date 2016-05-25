@@ -18,8 +18,5 @@ web1.prd.davison.io
 web1.prd.davison.io
 minetest.srv1.prd.davison.io
 
-[app-gitbook]
-web1.prd.davison.io
-
 [app-jekyll]
 web1.prd.davison.io

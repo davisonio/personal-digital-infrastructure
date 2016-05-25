@@ -4,7 +4,6 @@
     - apt
     - dns
     - duplicity
-    - gitbook
     - hostname
     - jekyll
     - minetest

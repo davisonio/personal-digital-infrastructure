@@ -36,12 +36,6 @@
   roles:
     - duplicity
 
-#- name: Apply gitbook tasks
-#  hosts: app-gitbook
-#  roles:
-#    - nodejs
-#    - gitbook
-
 - name: Apply jekyll tasks
   hosts: app-jekyll
   roles:
