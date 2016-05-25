@@ -5,6 +5,7 @@
     - dns
     - duplicity
     - hostname
+    - instabot
     - jekyll
     - minetest
     - nginx

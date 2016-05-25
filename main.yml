@@ -41,3 +41,9 @@
   roles:
     - ruby
     - jekyll
+
+- name: Apply instabot tasks
+  hosts: app-instabot
+  roles:
+    - python
+    - instabot

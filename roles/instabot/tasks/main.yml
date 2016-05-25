@@ -1,0 +1,32 @@
+- name: Install dependancies
+  pip:
+    name: requests
+    state: latest
+
+- name: Create directory
+  file:
+    path: /etc/instabot
+    state: directory
+
+- name: Install InstaBot
+  git:
+    repo: https://github.com/LevPasha/instabot.py
+    dest: /etc/instabot
+    force: yes
+    accept_hostkey: yes
+
+- name: Add configs
+  template:
+    src: script.py.j2
+    dest: "/etc/instabot/{{item.login}}.py"
+  with_items: instabot_scripts
+  notify:
+    - stop scripts
+    - start scripts
+
+- name: Set script to run on startup
+  cron:
+    name: "instabot {{item.login}}"
+    job: "python /etc/instabot/{{item.login}}.py"
+    special_time: reboot
+  with_items: instabot_scripts

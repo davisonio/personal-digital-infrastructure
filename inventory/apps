@@ -20,3 +20,6 @@ minetest.srv1.prd.davison.io
 
 [app-jekyll]
 web1.prd.davison.io
+
+[app-instabot]
+web1.prd.davison.io

@@ -1,0 +1,15 @@
+# {{ ansible_managed }}
+{% for item in instabot_scripts %}
+from instabot import InstaBot
+
+bot = InstaBot(login="{{ item.login }}", password="{{ item.password }}",
+    tag_list={{ item.tag_list }},
+    like_per_day={{ item.like_per_day }},
+    max_like_for_one_tag={{ item.max_like_for_one_tag }},
+    follow_per_day={{ item.follow_per_day }},
+    follow_time={{ item.follow_time }},
+    log_mod=1)
+
+bot.new_auto_mod()
+
+{% endfor -%}
