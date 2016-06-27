@@ -8,6 +8,7 @@ bot = InstaBot(login="{{ item.login }}", password="{{ item.password }}",
     max_like_for_one_tag={{ item.max_like_for_one_tag }},
     follow_per_day={{ item.follow_per_day }},
     follow_time={{ item.follow_time }},
+    media_max_like={{ item.media_max_like }},
     log_mod=1)
 
 bot.new_auto_mod()
