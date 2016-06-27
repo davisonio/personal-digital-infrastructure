@@ -1,6 +1,6 @@
-# davison.io DevOps [![](https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square)](https://travis-ci.org/davisonio/davison.io-devops)
+# [davison.io Devops](https://davison.io/davison.io-devops/) :computer: [![](https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square)](https://travis-ci.org/davisonio/davison.io-devops)
 
-> Development operations & infrastructure managing [davison.io](https://davison.io) and related sites. Powered by [Ansible](http://www.ansible.com).
+> [Ansible](https://www.ansible.com)-powered DevOps and deployment for [davison.io](https://davison.io) and related sites
 
 <p align="center">
 <b><a href="#install">Install</a></b>
@@ -15,6 +15,8 @@
 </p>
 
 This contains the roles and things used to deploy and generally check everything is working on davison.io-esque websites.
+
+![](https://davison.io/assets/img/davison-io-devops-logo.png)
 
 ## Install
 
@@ -52,9 +54,9 @@ This contains the roles and things used to deploy and generally check everything
 
 [![](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
 
-With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors) :clap:
+With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors). :clap:
 
-**Contributions are welcome!** Check out the [Contributing Guidelines](https://github.com/davisonio/dotfiles/blob/master/CONTRIBUTING.md) :raised_hands:
+**Contributions are welcome!** Check out the [Contributing Guidelines](https://github.com/davisonio/davison.io-devops/blob/master/CONTRIBUTING.md). :raised_hands:
 
 ## License & Credits
 
