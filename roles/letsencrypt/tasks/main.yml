@@ -5,7 +5,7 @@
 
 - name: Download letsencrypt
   git:
-    repo: https://github.com/letsencrypt/letsencrypt
+    repo: https://github.com/certbot/certbot
     dest: /etc/letsencrypt/letsencrypt
     force: yes
     accept_hostkey: yes
