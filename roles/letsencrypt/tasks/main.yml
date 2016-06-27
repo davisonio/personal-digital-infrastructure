@@ -35,14 +35,14 @@
 
 - name: Add site configurations
   template:
-    src: "sites/cli-{{item.name}}.ini"
-    dest: "/etc/letsencrypt/cli-{{item.name}}.ini"
+    src: "sites/cli-{{item}}.ini"
+    dest: "/etc/letsencrypt/cli-{{item}}.ini"
   with_items: letsencrypt_sites
 
 - name: Add renew cronjob
   cron:
-    name: "letsencrypt-renew-{{item.name}}"
-    job: "cd /etc/letsencrypt/letsencrypt ./certbot-auto certonly -c /etc/letsencrypt/cli-{{item.name}}.ini"
+    name: "letsencrypt-renew-{{item}}"
+    job: "cd /etc/letsencrypt/letsencrypt ./certbot-auto certonly -c /etc/letsencrypt/cli-{{item}}.ini"
     special_time: monthly
     state: present
   with_items: letsencrypt_sites
