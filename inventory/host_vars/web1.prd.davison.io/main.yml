@@ -17,6 +17,8 @@ jekyll_sites:
 
 letsencrypt_sites:
   - davison.io
+  - flimr.com
+  - space2stay.com
 
 duplicity_profiles:
   - name: main
