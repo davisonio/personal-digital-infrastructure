@@ -1,14 +1,12 @@
 nginx_sites:
   - name: davison.io
   - name: default
-  - name: craigydavi.uk.to
   - name: space2stay.com
   - name: flimr.com
 
 nginx_sites_enabled:
   - default
   - davison.io
-  - craigydavi.uk.to
   - space2stay.com
   - flimr.com
 
