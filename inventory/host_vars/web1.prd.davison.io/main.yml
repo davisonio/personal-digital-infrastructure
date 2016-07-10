@@ -3,22 +3,28 @@ nginx_sites:
   - name: default
   - name: space2stay.com
   - name: flimr.com
+  - name: space2park.org.uk
 
 nginx_sites_enabled:
   - default
   - davison.io
   - space2stay.com
   - flimr.com
+  - space2park.org.uk
 
 jekyll_sites:
   - name: davisonio
     path: /var/www/davison.io
     repo: https://github.com/davisonio/davison.io
+  - name: space2parkorguk
+    path: /var/www/space2park.org.uk
+    repo: git@bitbucket.org:davisonio/space2park.org.uk.git
 
 letsencrypt_sites:
   - davison.io
   - flimr.com
   - space2stay.com
+  - space2park.org.uk
 
 duplicity_profiles:
   - name: main
