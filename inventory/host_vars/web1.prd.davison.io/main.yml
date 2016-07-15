@@ -4,6 +4,7 @@ nginx_sites:
   - name: space2stay.com
   - name: flimr.com
   - name: space2park.org.uk
+  - name: tutoring.co.uk
 
 nginx_sites_enabled:
   - default
@@ -11,6 +12,7 @@ nginx_sites_enabled:
   - space2stay.com
   - flimr.com
   - space2park.org.uk
+  - tutoring.co.uk
 
 jekyll_sites:
   - name: davisonio
@@ -19,12 +21,22 @@ jekyll_sites:
   - name: space2parkorguk
     path: /var/www/space2park.org.uk
     repo: git@bitbucket.org:davisonio/space2park.org.uk.git
+  - name: flimrcom
+    path: /var/www/flimr.com
+    repo: git@bitbucket.org:davisonio/flimr.com.git
+  - name: space2staycom
+    path: /var/www/space2stay.com
+    repo: git@bitbucket.org:davisonio/space2stay.com.git
+  - name: tutoringcouk
+    path: /var/www/tutoring.co.uk
+    repo: git@bitbucket.org:davisonio/tutoring.co.uk.git
 
 letsencrypt_sites:
   - davison.io
   - flimr.com
   - space2stay.com
   - space2park.org.uk
+  - tutoring.co.uk
 
 duplicity_profiles:
   - name: main
