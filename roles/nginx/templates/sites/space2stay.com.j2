@@ -95,4 +95,10 @@ server {
   location ~ /\. {
     return 403;
   }
+  location ~ /\. {
+    return 403;
+  }
+  location ^~ /.well-known/ {
+    allow all;
+  }
 }

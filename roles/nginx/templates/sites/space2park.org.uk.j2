@@ -113,9 +113,15 @@ server {
   location /contact-us.php {
       return 301 https://space2park.org.uk/contact-us/;
   }
-  
+
   # Deny access to .git
   location ~ /\. {
     return 403;
+  }
+  location ~ /\. {
+    return 403;
+  }
+  location ^~ /.well-known/ {
+    allow all;
   }
 }
