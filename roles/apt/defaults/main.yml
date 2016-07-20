@@ -12,6 +12,7 @@ apt_install:
   - zip
   - unzip
   - screen
+  - make
 
 apt_install_host: []
 

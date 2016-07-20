@@ -6,7 +6,7 @@ This guide will show you how to setup a host on Ubuntu so that it can be control
 
 - [Ubuntu Server](http://www.ubuntu.com/server) >= **14.04**
 - Logged in via SSH - [instructions](https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh) (using **root** user with a **password**)
-- [Python](https://www.python.org)
+- [Python](https://www.python.org) (`apt-get install python`)
 
 ## 3. Set up DNS
 
