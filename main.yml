@@ -7,6 +7,9 @@
     - name: Ansible environment - user
       debug:
         var: ansible_env.USER
+    - name: Ansible environment - home
+      debug:
+        var: ansible_env.HOME
 
 - name: Apply base tasks
   hosts: app-base
