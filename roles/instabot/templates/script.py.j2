@@ -9,6 +9,7 @@ bot = InstaBot(login="{{ item.login }}", password="{{ item.password }}",
     follow_per_day={{ item.follow_per_day }},
     follow_time={{ item.follow_time }},
     media_max_like={{ item.media_max_like }},
+    unfollow_per_day={{ item.unfollow_per_day }},
     log_mod=1)
 
 bot.new_auto_mod()
