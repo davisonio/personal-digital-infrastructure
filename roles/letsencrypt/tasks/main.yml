@@ -42,7 +42,7 @@
 - name: Add renew cronjob
   cron:
     name: "letsencrypt-renew-{{item}}"
-    job: "cd /etc/letsencrypt/letsencrypt ./certbot-auto certonly -c /etc/letsencrypt/cli-{{item}}.ini"
+    job: "cd /etc/letsencrypt/letsencrypt && ./certbot-auto certonly -c /etc/letsencrypt/cli-{{item}}.ini"
     special_time: monthly
     state: present
   with_items: letsencrypt_sites
