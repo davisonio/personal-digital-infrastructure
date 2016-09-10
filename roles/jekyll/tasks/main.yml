@@ -9,7 +9,7 @@
     dest: "{{item.path}}"
     force: yes
     accept_hostkey: yes
-    key_file: /etc/ssh/ssh_host_rsa_key
+    key_file: "{{item.key|default('/etc/ssh/ssh_host_rsa_key')}}"
   with_items: jekyll_sites
   notify: restart jekyll
 

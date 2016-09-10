@@ -20,16 +20,20 @@ jekyll_sites:
     repo: https://github.com/davisonio/davison.io
   - name: space2parkorguk
     path: /var/www/space2park.org.uk
-    repo: git@bitbucket.org:davisonio/space2park.org.uk.git
+    repo: git@github.com:davisonio/space2park.org.uk.git
+    key: /etc/ssh/ssh_host_rsa_key_space2parkorguk
   - name: flimrcom
     path: /var/www/flimr.com
-    repo: git@bitbucket.org:davisonio/flimr.com.git
+    repo: git@github.com:davisonio/flimr.com.git
+    key: /etc/ssh/ssh_host_rsa_key_flimrcom
   - name: space2staycom
     path: /var/www/space2stay.com
-    repo: git@bitbucket.org:davisonio/space2stay.com.git
+    repo: git@github.com:davisonio/space2stay.com.git
+    key: /etc/ssh/ssh_host_rsa_key_space2staycom
   - name: tutoringcouk
     path: /var/www/tutoring.co.uk
-    repo: git@bitbucket.org:davisonio/tutoring.co.uk.git
+    repo: git@github.com:davisonio/tutoring.co.uk.git
+    key: /etc/ssh/ssh_host_rsa_key_tutoringcouk
 
 letsencrypt_sites:
   - davison.io
