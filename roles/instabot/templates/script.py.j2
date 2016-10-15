@@ -1,6 +1,12 @@
 # {{ ansible_managed }}
+# Based off https://github.com/LevPasha/instabot.py/blob/master/example.py
 {% for item in instabot_scripts %}
 from instabot import InstaBot
+from check_status import check_status
+from feed_scanner import feed_scanner
+from unfollow_protocol import unfollow_protocol
+from follow_protocol import follow_protocol
+import time
 
 bot = InstaBot(login="{{ item.login }}", password="{{ item.password }}",
     tag_list={{ item.tag_list }},
@@ -12,6 +18,55 @@ bot = InstaBot(login="{{ item.login }}", password="{{ item.password }}",
     unfollow_per_day={{ item.unfollow_per_day }},
     log_mod=1)
 
-bot.new_auto_mod()
+while True:
+
+    print("# MODE 0 = ORIGINAL MODE BY LEVPASHA")
+    print("## MODE 1 = MODIFIED MODE BY KEMONG")
+    print("### MODE 2 = ORIGINAL MODE + UNFOLLOW WHO DON'T FOLLOW BACK")
+    print("#### MODE 3 = MODIFIED MODE : UNFOLLOW PEOPLE WHO DON'T FOLLOW BACK BASED ON RECENT FEED ONLY")
+    print("##### MODE 4 = MODIFIED MODE : FOLLOW PEOPLE BASED ON RECENT FEED ONLY")
+    print("###### MODE 5 = MODIFIED MODE : JUST UNFOLLOW EVERYBODY, EITHER YOUR FOLLOWER OR NOT")
+
+    mode = {{ item.mode }}
+
+    print("You choose mode : %i" %(mode))
+
+    if mode == 0 :
+        bot.new_auto_mod()
+
+    elif mode == 1 :
+        check_status(bot)
+        while bot.self_following - bot.self_follower > 200:
+            unfollow_protocol(bot)
+            time.sleep(10*60)
+            check_status(bot)
+        while bot.self_following - bot.self_follower < 400:
+            while len(bot.user_info_list) <50 :
+                feed_scanner(bot)
+                time.sleep(5*60)
+                follow_protocol(bot)
+                time.sleep(10*60)
+                check_status(bot)
+
+    elif mode == 2 :
+        bot.bot_mode = 1
+        bot.new_auto_mod()
+
+    elif mode == 3 :
+        unfollow_protocol(bot)
+        time.sleep(10*60)
+
+    elif mode == 4 :
+        feed_scanner(bot)
+        time.sleep(60)
+        follow_protocol(bot)
+        time.sleep(10*60)
+
+    elif mode == 5 :
+        bot.bot_mode=2
+        unfollow_protocol(bot)
+
+    else :
+        print ("You give me wrong mode!!!")
 
 {% endfor -%}
