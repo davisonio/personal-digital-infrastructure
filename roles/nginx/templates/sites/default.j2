@@ -5,5 +5,7 @@ server {
   listen [::]:80 default_server;
   listen 80 default_server;
 
+  include /etc/nginx/include-basic.conf;
+
   return 444;
 }

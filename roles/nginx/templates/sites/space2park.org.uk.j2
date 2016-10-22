@@ -5,123 +5,62 @@ server {
   listen 80;
   server_name space2park.org.uk www.space2park.org.uk;
 
+  include /etc/nginx/include-basic.conf;
+
   return 301 https://space2park.org.uk$request_uri;
 }
 
 server {
-  listen [::]:443 ssl;
-  listen 443 ssl;
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
   server_name www.space2park.org.uk;
 
+  include /etc/nginx/include-ssl.conf;
+  include /etc/nginx/include-basic.conf;
+
   ssl on;
-
-  # Cache certificate for one year, connect exclusively using HTTPS
-  add_header Strict-Transport-Security "max-age=31536000;";
-
-  # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
-  add_header X-Frame-Options DENY;
-
   ssl_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/space2park.org.uk/privkey.pem;
-
-  ssl_session_cache shared:SSL:100m;
-  ssl_session_timeout 24h;
-  ssl_session_tickets on;
-  ssl_session_ticket_key /etc/nginx/ssl/ticket.key;
-
-  ssl_dhparam /etc/nginx/ssl/dhparam.pem;
-
-  ssl_ecdh_curve secp384r1;
-
-  ssl_stapling on;
-  ssl_stapling_verify on;
   ssl_trusted_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
-
-  # Google DNS <3
-  resolver 8.8.8.8 8.8.4.4 valid=60s;
-  resolver_timeout 2s;
-
-  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_prefer_server_ciphers on;
-
-  # Uses the modern set from:
-  # https://mozilla.github.io/server-side-tls/ssl-config-generator/
-  ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK';
 
   return 301 https://space2park.org.uk$request_uri;
 }
 
 server {
-  listen [::]:443 ssl;
-  listen 443 ssl;
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
   server_name space2park.org.uk;
 
   root /var/www/space2park.org.uk/_site;
 
+  include /etc/nginx/include-ssl.conf;
+  include /etc/nginx/include-basic.conf;
+
   ssl on;
-
-  # Cache certificate for one year, connect exclusively using HTTPS
-  add_header Strict-Transport-Security "max-age=31536000;";
-
-  # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
-  add_header X-Frame-Options DENY;
-
   ssl_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/space2park.org.uk/privkey.pem;
-
-  ssl_session_cache shared:SSL:100m;
-  ssl_session_timeout 24h;
-  ssl_session_tickets on;
-  ssl_session_ticket_key /etc/nginx/ssl/ticket.key;
-
-  ssl_dhparam /etc/nginx/ssl/dhparam.pem;
-
-  ssl_stapling on;
-  ssl_stapling_verify on;
   ssl_trusted_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
-
-  # Google DNS <3
-  resolver 8.8.8.8 8.8.4.4 valid=60s;
-  resolver_timeout 2s;
-
-  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_prefer_server_ciphers on;
-
-  # Uses the modern set from:
-  # https://mozilla.github.io/server-side-tls/ssl-config-generator/
-  ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK';
 
   # Redirects for migrating from space2park.yolasite.com -> space2park.org.uk
   location /bramblys-close-car-park---basingstoke.php {
-      return 301 https://space2park.org.uk/bramblys-close-car-park-basingstoke/;
+      return 301 /bramblys-close-car-park-basingstoke/;
   }
   location /peak-parking-applications.php {
-      return 301 https://space2park.org.uk/peak-parking-application/;
+      return 301 /peak-parking-application/;
   }
   location /peak-application-payments.php {
-      return 301 https://space2park.org.uk/peak-application-payments/;
+      return 301 /peak-application-payments/;
   }
   location /off-peak-parking-application.php {
-      return 301 https://space2park.org.uk/off-peak-parking-application/;
+      return 301 /off-peak-parking-application/;
   }
   location /off-peak-application-payments.php {
-      return 301 https://space2park.org.uk/off-peak-application-payments/;
+      return 301 /off-peak-application-payments/;
   }
   location /parking-regulations.php {
-      return 301 https://space2park.org.uk/assets/doc/parking-regulations.pdf;
+      return 301 /assets/doc/parking-regulations.pdf;
   }
   location /contact-us.php {
-      return 301 https://space2park.org.uk/contact-us/;
-  }
-
-  # Deny access to .git
-  location ~ /\. {
-    return 403;
-  }
-  location ~ /\. {
-    return 403;
-  }
-  location ^~ /.well-known/ {
-    allow all;
+      return 301 /contact-us/;
   }
 }

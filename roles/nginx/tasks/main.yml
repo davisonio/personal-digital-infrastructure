@@ -21,6 +21,18 @@
     dest: /etc/nginx/mime.types
   notify: restart nginx
 
+- name: Add nginx include-ssl.conf
+  template:
+    src: include-ssl.conf.j2
+    dest: /etc/nginx/include-ssl.conf
+  notify: restart nginx
+
+- name: Add nginx include-basic.conf
+  template:
+    src: include-basic.conf.j2
+    dest: /etc/nginx/include-basic.conf
+  notify: restart nginx
+
 - name: Add sites
   template:
     src: "sites/{{item.name}}.j2"
