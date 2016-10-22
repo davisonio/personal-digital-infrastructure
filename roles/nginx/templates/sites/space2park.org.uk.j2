@@ -41,26 +41,28 @@ server {
   ssl_certificate_key /etc/letsencrypt/live/space2park.org.uk/privkey.pem;
   ssl_trusted_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
 
+  #
   # Redirects for migrating from space2park.yolasite.com -> space2park.org.uk
-  location /bramblys-close-car-park---basingstoke.php {
+  #
+  location = /bramblys-close-car-park---basingstoke.php {
       return 301 /bramblys-close-car-park-basingstoke/;
   }
-  location /peak-parking-applications.php {
+  location = /peak-parking-applications.php {
       return 301 /peak-parking-application/;
   }
-  location /peak-application-payments.php {
+  location = /peak-application-payments.php {
       return 301 /peak-application-payments/;
   }
-  location /off-peak-parking-application.php {
+  location = /off-peak-parking-application.php {
       return 301 /off-peak-parking-application/;
   }
-  location /off-peak-application-payments.php {
+  location = /off-peak-application-payments.php {
       return 301 /off-peak-application-payments/;
   }
-  location /parking-regulations.php {
-      return 301 /assets/doc/parking-regulations.pdf;
-  }
-  location /contact-us.php {
+  location = /contact-us.php {
       return 301 /contact-us/;
+  }
+  location = /parking-regulations.php {
+      return 301 /assets/doc/parking-regulations.pdf;
   }
 }

@@ -3,7 +3,7 @@
 server {
   listen [::]:80;
   listen 80;
-  server_name cranleys.co.uk www.cranleys.co.uk;
+  server_name cranleys.co.uk www.cranleys.co.uk cranleysaccountants.co.uk www.cranleysaccountants.co.uk;
 
   include /etc/nginx/include-basic.conf;
 
@@ -40,4 +40,669 @@ server {
   ssl_certificate /etc/letsencrypt/live/cranleys.co.uk/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/cranleys.co.uk/privkey.pem;
   ssl_trusted_certificate /etc/letsencrypt/live/cranleys.co.uk/fullchain.pem;
+
+  #
+  # Redirects for migrating from old cranleys.co.uk -> new cranleys.co.uk (2016)
+  #
+  location = /index.php {
+      return 301 /;
+  }
+  location /why_us/ {
+      return 301 /about/;
+  }
+  location /a_to_z_of_services/ {
+      return 301 /services/;
+  }
+  location /cranleys_legal/ {
+      return 301 /services/;
+  }
+  location /resources_and_freebies/ {
+      return 301 /resources/;
+  }
+  location /news/ {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location /events/ {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location /vacancies/ {
+      return 301 /about/;
+  }
+  location /alliances/ {
+      return 301 /about/;
+  }
+  location /client_area/ {
+      return 301 /;
+  }
+  location /games_and_fun/ {
+      return 301 /;
+  }
+  location /contact_us/ {
+      return 301 /contact/;
+  }
+  location /partners_wanted/ {
+      return 301 /contact/;
+  }
+  location /service_packages/ {
+      return 301 /services/;
+  }
+  location /business_secrets_chest/ {
+      return 301 /resources/;
+  }
+  location = capital-allowances.php {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location /poll/ {
+      return 301 /;
+  }
+  location = /property/flyer_propertyweekend.pdf {
+      return 301 /;
+  }
+  location /about_you/ {
+      return 301 /;
+  }
+  location /legal/ {
+      return 301 /;
+  }
+  location /sole_trader/ {
+      return 301 /services/;
+  }
+  location /login/ {
+      return 301 /;
+  }
+  location /email_a_friend/ {
+      return 301 /;
+  }
+  location /site_help/ {
+      return 301 /;
+  }
+  location /site_map/ {
+      return 301 /;
+  }
+  location /search/ {
+      return 301 /;
+  }
+
+  #
+  # Redirects for migrating from cranleysaccountants.co.uk -> new cranleys.co.uk (2016)
+  #
+  location = /Abdul-Raham.aspx {
+      return 301 /about/;
+  }
+  location = /Accounting-Software.aspx {
+      return 301 /resources/;
+  }
+  location = /Annual-Accounts-Preparation.aspx {
+      return 301 /services/;
+  }
+  location = /Articles.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Article.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /AttentionturnstoMicrosoftintaxrowaftertheStarbucksdisputehasbeensettled.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /AutumnStatement2012.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Bank-Accounts.aspx {
+      return 301 /services/;
+  }
+  location = /Book-keeping-Healthcheck.aspx {
+      return 301 /services/;
+  }
+  location = /Book-keeping.aspx {
+      return 301 /services/;
+  }
+  location = /Brilliant-business-books.aspx {
+      return 301 /resources/;
+  }
+  location = /Budget-22nd-April-2009.aspx {
+      return 301 /resources/;
+  }
+  location = /Budget-22nd-June-2010.aspx {
+      return 301 /resources/;
+  }
+  location = /Budget-23rd-March-2011.aspx {
+      return 301 /resources/;
+  }
+  location = /Budget-24th-March-2010.aspx {
+      return 301 /resources/;
+  }
+  location = /Budgets.aspx {
+      return 301 /resources/;
+  }
+  location = /Business-Address-Package.aspx {
+      return 301 /services/;
+  }
+  location = /Business-Growth.aspx {
+      return 301 /services/;
+  }
+  location = /Business-Healthcheck.aspx {
+      return 301 /services/;
+  }
+  location = /Business-Plans.aspx {
+      return 301 /services/;
+  }
+  location = /Business-Support-Sessions.aspx {
+      return 301 /services/;
+  }
+  location = /Business-Valuations.aspx {
+      return 301 /services/;
+  }
+  location = /Call-Answering-Package.aspx {
+      return 301 /services/;
+  }
+  location = /Capital-Allowances.aspx {
+      return 301 /resources/;
+  }
+  location = /Capital-Gains-Tax.aspx {
+      return 301 /resources/;
+  }
+  location = /Captcha.aspx {
+      return 301 /;
+  }
+  location = /Car-And-Fuel-Benefits.aspx {
+      return 301 /resources/;
+  }
+  location = /Charitable-Gifts.aspx {
+      return 301 /resources/;
+  }
+  location = /Colin-Davison.aspx {
+      return 301 /about/;
+  }
+  location = /Company-Formation.aspx {
+      return 301 /resources/;
+  }
+  location = /Company-Secretarial.aspx {
+      return 301 /resources/;
+  }
+  location = /ConstantContact.aspx {
+      return 301 /contact/;
+  }
+  location = /ContactUs.aspx {
+      return 301 /contact/;
+  }
+  location = /contactus.aspx {
+      return 301 /contact/;
+  }
+  location = /Contractors-IR35.aspx {
+      return 301 /resources/;
+  }
+  location = /Corporation-Tax.aspx {
+      return 301 /services/;
+  }
+  location = /CranleysAppLaunch.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /CranleysCharteredAccountantshavebeennominatedfortopaward.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Deals.aspx {
+      return 301 /resources/;
+  }
+  location = /December-2006-Pre-Budget.aspx {
+      return 301 /resources/;
+  }
+  location = /Emma-Crawford.aspx {
+      return 301 /about/;
+  }
+  location = /Employee-Remuneration-Planning.aspx {
+      return 301 /services/;
+  }
+  location = /Employment-Status.aspx {
+      return 301 /services/;
+  }
+  location = /FixedFeeQuote.aspx {
+      return 301 /;
+  }
+  location = /ForgotPassword.aspx	 {
+      return 301 /;
+  }
+  location = /FreeConsultation.aspx {
+      return 301 /contact/;
+  }
+  location = /Fuel-Rates.aspx	 {
+      return 301 /resources/;
+  }
+  location = /GeorgeOsborneannouncesnewCanadianbossforBankofEngland.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /HMRCissueacalltoallSelf-Assessmentnewcomers.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /HMRCpublishguidanceforpenaltiesonPAYEinrealtime.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /HMRCremindbusinessestosendtaxreturnsonlinefromNovember.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /HMRCtogiveextratimetosmallbusinesseswherethenewPAYEchangesaredifficulttoimplement.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /HMRevenueandCustomswarnUKresidentswithSwissbankaccountsofchanges.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Heather-Bull.aspx {
+      return 301 /about/;
+  }
+  location = /HowCanWeHelp.aspx {
+      return 301 /;
+  }
+  location = /IT-Support.aspx	 {
+      return 301 /services/;
+  }
+  location = /Income-Tax-Allowances.aspx {
+      return 301 /resources/;
+  }
+  location = /Income-Tax-Bands-And-Rates.aspx {
+      return 301 /resources/;
+  }
+  location = /Individual-Savings-Accounts.aspx {
+      return 301 /resources/;
+  }
+  location = /Inheritance-Tax-Planning.aspx {
+      return 301 /services/;
+  }
+  location = /Inheritance-Tax.aspx {
+      return 301 /resources/;
+  }
+  location = /International-Property-Tax-Advice.aspx {
+      return 301 /services/;
+  }
+  location = /JoeAngliss.aspx {
+      return 301 /about/;
+  }
+  location = /Katherine-Leigh.aspx {
+      return 301 /about/;
+  }
+  location = /Key-Tax-Dates.aspx {
+      return 301 /resources/;
+  }
+  location = /Locations.aspx {
+      return 301 /locations/;
+  }
+  location = /Management-Accounts-Information.aspx {
+      return 301 /resources/;
+  }
+  location = /Management-Systems.aspx {
+      return 301 /resources/;
+  }
+  location = /March-2006-Budget.aspx {
+      return 301 /resources/;
+  }
+  location = /March-2007-Budget.aspx {
+      return 301 /resources/;
+  }
+  location = /March-2008-Budget.aspx {
+      return 301 /resources/;
+  }
+  location = /Meeting-Venue.aspx {
+      return 301 /services/;
+  }
+  location = /Minimum-Wage.aspx {
+      return 301 /resources/;
+  }
+  location = /National-Insurance.aspx {
+      return 301 /resources/;
+  }
+  location = /Non-domicile-status.aspx {
+      return 301 /resources/;
+  }
+  location = /October-2007-Pre-Budget-Report.aspx {
+      return 301 /resources/;
+  }
+  location = /Online-Marketing-Support.aspx {
+      return 301 /services/;
+  }
+  location = /PA-Secretarial-Support.aspx {
+      return 301 /services/;
+  }
+  location = /PAYE-Healthcheck.aspx {
+      return 301 /services/;
+  }
+  location = /PartnerLocator.aspx {
+      return 301 /locations/;
+  }
+  location = /Partners.aspx {
+      return 301 /locations/;
+  }
+  location = /Payroll-PAYE-Returns.aspx {
+      return 301 /services/;
+  }
+  location = /Pension-Premiums.aspx {
+      return 301 /resources/;
+  }
+  location = /Personal-Tax-Organiser.aspx {
+      return 301 /assets/doc/personal-tax-organiser.pdf;
+  }
+  location = /Personal-Tax.aspx {
+      return 301 /services/;
+  }
+  location = /Pre-Budget-December-9-2009.aspx {
+      return 301 /resources/;
+  }
+  location = /Pre-Budget-November-24-2008.aspx {
+      return 301 /resources/;
+  }
+  location = /Property-Tax.aspx {
+      return 301 /services/;
+  }
+  location = /Publication.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Publications.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /QuarterofsmallfirmsunawareofchangesinPAYEsystem.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Raising-Finance.aspx {
+      return 301 /services/;
+  }
+  location = /Registered-Office.aspx {
+      return 301 /locations/;
+  }
+  location = /Registration.aspx {
+      return 301 /;
+  }
+  location = /ReportABadLink.aspx {
+      return 301 /;
+  }
+  location = /Serviced-Offices.aspx {
+      return 301 /locations/;
+  }
+  location = /SignUpForNewsletters.aspx {
+      return 301 /;
+  }
+  location = /Sitemap.aspx {
+      return 301 /;
+  }
+  location = /SmallfirmsfacefurtherscrutinyfromtheHMRC.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Social-Security-Benefits.aspx {
+      return 301 /resources/;
+  }
+  location = /Stamp-Duty.aspx {
+      return 301 /resources/;
+  }
+  location = /StarbucksdenytaxavoidanceafteritemergedthattheyreavoidingtaxacrossEurope.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Starbucksfacedwithlargebacklashaftertaxavoidanceclaims.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Strategic-Planning.aspx {
+      return 301 /services/;
+  }
+  location = /Tax-Busting-Checklist.aspx {
+      return 301 /resources/;
+  }
+  location = /Tax-Credits-And-Child-Benefit.aspx {
+      return 301 /resources/;
+  }
+  location = /Tax-Disputes.aspx {
+      return 301 /;
+  }
+  location = /Tax-Enquiries-Investigations.aspx {
+      return 301 /;
+  }
+  location = /Tax-Investigation-Fee-Protection.aspx {
+      return 301 /;
+  }
+  location = /Tax-Planning.aspx	 {
+      return 301 /;
+  }
+  location = /tax-planning.aspx	 {
+      return 301 /;
+  }
+  location = /Tax-Rates-and-Allowances.aspx {
+      return 301 /resources/;
+  }
+  location = /Tax-Returns.aspx {
+      return 301 /services/;
+  }
+  location = /Tax-Shelters.aspx {
+      return 301 /;
+  }
+  location = /TheChancellorsAutumnStatement2012.aspx {
+      return 301 /resources/;
+  }
+  location = /Trusts.aspx {
+      return 301 /;
+  }
+  location = /UKOffice.aspx {
+      return 301 /locations/;
+  }
+  location = /UKandGermanyjoinforcestofightagainsttaxloopholesusedbylargefirms.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /USregulatorsshowthatApplepaidlessthan2percentcorporationtaxoutsidetheUSlastyear.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /VAT-Healthcheck.aspx {
+      return 301 /services/;
+  }
+  location = /VAT-Planning-Disputes.aspx {
+      return 301 /services/;
+  }
+  location = /VAT-Registration.aspx	 {
+      return 301 /services/;
+  }
+  location = /VAT-Returns.aspx {
+      return 301 /services/;
+  }
+  location = /Value-Added-Tax.aspx {
+      return 301 /services/;
+  }
+  location = /Van-Benefits.aspx {
+      return 301 /;
+  }
+  location = /Video-Testimonials.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /Virtual-Executive-Support.aspx {
+      return 301 /services/;
+  }
+  location = /Virtual-Offices.aspx {
+      return 301 /services/;
+  }
+  location = /Volker-Heinemann.aspx {
+      return 301 /about/;
+  }
+  location = /accounting-services.aspx {
+      return 301 /services/;
+  }
+  location = /accounting.aspx	 {
+      return 301 /services/;
+  }
+  location = /average-earnings.aspx {
+      return 301 /resources/;
+  }
+  location = /base-rates.aspx {
+      return 301 /resources/;
+  }
+  location = /bookkeeping.aspx {
+      return 301 /services/;
+  }
+  location = /business-centre.aspx {
+      return 301 /resources/;
+  }
+  location = /business-development.aspx {
+      return 301 /services/;
+  }
+  location = /business-sector.aspx {
+      return 301 /industries/;
+  }
+  location = /business-services.aspx {
+      return 301 /services/;
+  }
+  location = /careers.aspx {
+      return 301 /about/;
+  }
+  location = /companies-house-forms.aspx {
+      return 301 /resources/;
+  }
+  location = /company-searches.aspx{
+      return 301 /;
+  }
+  location = /consumer-market.aspx {
+      return 301 /industries/;
+  }
+  location = /environmental-energy-and-sustainability.aspx {
+      return 301 /industries/;
+  }
+  location = /exchange-rates.aspx {
+      return 301 /resources/;
+  }
+  location = /financial-advisors.aspx	 {
+      return 301 /services/;
+  }
+  location = /ftse.aspx {
+      return 301 /resources/;
+  }
+  location = /government-and-public-sector.aspx {
+      return 301 /industries/;
+  }
+  location = /health-services.aspx {
+      return 301 /industries/;
+  }
+  location = /hmrc-forms.aspx {
+      return 301 /resources/;
+  }
+  location = /industrial.aspx {
+      return 301 /industries/;
+  }
+  location = /inflation.aspx {
+      return 301 /resources/;
+  }
+  location = /ir35-fact-sheets.aspx {
+      return 301 /resources/;
+  }
+  location = /legals-and-disclaimer.aspx {
+      return 301 /;
+  }
+  location = /lindataylordewsbury.aspx {
+      return 301 /about/;
+  }
+  location = /login.aspx {
+      return 301 /;
+  }
+  location = /Login.aspx {
+      return 301 /;
+  }
+  location = /make-more-keep-more-work-less.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /management-information-systems.aspx {
+      return 301 /resources/;
+  }
+  location = /market-data.aspx {
+      return 301 /resources/;
+  }
+  location = /media.aspx {
+      return 301 /industries/;
+  }
+  location = /not-for-profit.aspx	 {
+      return 301 /industries/;
+  }
+  location = /privacy-policy.aspx {
+      return 301 /;
+  }
+  location = /real-estate-and-construction.aspx {
+      return 301 /industries/;
+  }
+  location = /rpi.aspx {
+      return 301 /;
+  }
+  location = /sectors.aspx {
+      return 301 /industries/;
+  }
+  location = /service-package-fees-bronze.aspx {
+      return 301 /services/;
+  }
+  location = /service-package-fees-gold.aspx{
+      return 301 /services/;
+  }
+  location = /service-package-fees-platinum.aspx {
+      return 301 /services/;
+  }
+  location = /service-package-fees-silver.aspx {
+      return 301 /services/;
+  }
+  location = /services.aspx {
+      return 301 /services/;
+  }
+  location = /site-help.aspx {
+      return 301 /;
+  }
+  location = /tax-calendar.aspx {
+      return 301 /resources/;
+  }
+  location = /tax-centre.aspx	 {
+      return 301 /resources/;
+  }
+  location = /tax-ebooks.aspx {
+      return 301 /resources/;
+  }
+  location = /tax.aspx {
+      return 301 /services/;
+  }
+  location = /technology-and-communications.aspx {
+      return 301 /resources/;
+  }
+  location = /testimonials.aspx {
+      return 301 https://blog.cranleys.co.uk;
+  }
+  location = /travel-tourism-leisure.aspx {
+      return 301 /industries/;
+  }
+  location = /useful-business-links.aspx	 {
+      return 301 /resources/;
+  }
+  location = /useful-office-software.aspx	 {
+      return 301 /resources/;
+  }
+  location = /useful-tax-links.aspx {
+      return 301 /resources/;
+  }
+  location = /vat.aspx {
+      return 301 /resources/;
+  }
+  location = /Documents/CopyofIR35calculator.xls {
+      return 301 /resources/;
+  }
+  location = /Documents/DirectorsGuide.pdf {
+      return 301 /assets/doc/directors-guide.pdf;
+  }
+  location = /Documents/IR35Contract.doc {
+      return 301 /resources/;
+  }
+  location = /Documents/non-domicile.pdf {
+      return 301 /resources/;
+  }
+  location = /Documents/personal_tax_organiser.pdf {
+      return 301 /assets/doc/personal-tax-organiser.pdf;
+  }
+  location = /Documents/personal_tax_organiser_py.pdf {
+      return 301 /assets/doc/personal-tax-organiser.pdf;
+  }
+  location = /Documents/tax_checklist.pdf {
+      return 301 /assets/doc/tax-busting-checklist.pdf;
+  }
+  location = /index.aspx {
+      return 301 /;
+  }
+  location = /NGLSScheme.aspx {
+      return 301 /;
+  }
+  location = /deals.aspx {
+      return 301 /;
+  }
+  location = /Feed/newsfeed.asp {
+      return 301 https://blog.cranleys.co.uk;
+  }
 }
