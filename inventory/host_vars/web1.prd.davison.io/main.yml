@@ -5,6 +5,7 @@ nginx_sites:
   - name: flimr.com
   - name: space2park.org.uk
   - name: tutoring.co.uk
+  - name: cranleys.co.uk
 
 nginx_sites_enabled:
   - default
@@ -13,6 +14,7 @@ nginx_sites_enabled:
   - flimr.com
   - space2park.org.uk
   - tutoring.co.uk
+  - cranleys.co.uk
 
 jekyll_sites:
   - name: davisonio
@@ -34,6 +36,10 @@ jekyll_sites:
     path: /var/www/tutoring.co.uk
     repo: git@github.com:davisonio/tutoring.co.uk.git
     key: /etc/ssh/ssh_host_rsa_key_tutoringcouk
+  - name: cranleyscouk
+    path: /var/www/cranleys.co.uk
+    repo: git@github.com:davisonio/cranleys.co.uk.git
+    key: /etc/ssh/ssh_host_rsa_key_cranleyscouk
 
 letsencrypt_sites:
   - davison.io
@@ -41,6 +47,7 @@ letsencrypt_sites:
   - space2stay.com
   - space2park.org.uk
   - tutoring.co.uk
+  - cranleys.co.uk
 
 duplicity_profiles:
   - name: main
