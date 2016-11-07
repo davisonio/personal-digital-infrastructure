@@ -7,6 +7,4 @@
     - openssh
   post_tasks:
     - name: Lock down root user (suicide!)
-      user:
-        name: root
-        password: !
+      command: "usermod -p '!' root"
