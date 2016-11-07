@@ -12,6 +12,7 @@ apt_install:
   - zip
   - unzip
   - screen
+  - language-pack-en
   - make
 
 apt_install_host: []
