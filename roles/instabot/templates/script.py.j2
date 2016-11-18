@@ -1,6 +1,5 @@
 # {{ ansible_managed }}
 # Based off https://github.com/LevPasha/instabot.py/blob/master/example.py
-{% for item in instabot_scripts %}
 import sys, os
 sys.path.append(os.path.join(sys.path[0],'src'))
 from instabot import InstaBot
@@ -10,18 +9,18 @@ from unfollow_protocol import unfollow_protocol
 from follow_protocol import follow_protocol
 import time
 
-bot = InstaBot(login="{{ item.login }}", password="{{ item.password }}",
-    tag_list={{ item.tag_list }},
-    like_per_day={{ item.like_per_day }},
-    max_like_for_one_tag={{ item.max_like_for_one_tag }},
-    follow_per_day={{ item.follow_per_day }},
-    follow_time={{ item.follow_time }},
-    media_max_like={{ item.media_max_like }},
-    unfollow_per_day={{ item.unfollow_per_day }},
+bot = InstaBot(login="{{ item.value.login }}", password="{{ item.value.password }}",
+    tag_list={{ item.value.tag_list }},
+    like_per_day={{ item.value.like_per_day }},
+    max_like_for_one_tag={{ item.value.max_like_for_one_tag }},
+    follow_per_day={{ item.value.follow_per_day }},
+    follow_time={{ item.value.follow_time }},
+    media_max_like={{ item.value.media_max_like }},
+    unfollow_per_day={{ item.value.unfollow_per_day }},
     log_mod=1)
 
 while True:
-    mode = {{ item.mode }}
+    mode = {{ item.value.mode }}
 
     if mode == 0 :
         bot.new_auto_mod()
@@ -60,5 +59,3 @@ while True:
 
     else :
         print ("Wrong mode!")
-
-{% endfor -%}

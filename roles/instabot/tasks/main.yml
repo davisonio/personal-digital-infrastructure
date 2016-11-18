@@ -18,8 +18,8 @@
 - name: Add configs
   template:
     src: script.py.j2
-    dest: "/etc/instabot/{{item.login}}.py"
-  with_items: instabot_scripts
+    dest: "/etc/instabot/{{item.key}}.py"
+  with_dict: "{{ instabot_scripts }}"
 #  notify:
 #    - stop scripts
 #    - start scripts
