@@ -6,6 +6,7 @@ nginx_sites:
   - name: space2park.org.uk
   - name: tutoring.co.uk
   - name: cranleys.co.uk
+  - name: askben.co.uk
 
 nginx_sites_enabled:
   - default
@@ -15,6 +16,7 @@ nginx_sites_enabled:
   - space2park.org.uk
   - tutoring.co.uk
   - cranleys.co.uk
+  - askben.co.uk
 
 jekyll_sites:
   - name: davisonio
@@ -40,6 +42,10 @@ jekyll_sites:
     path: /var/www/cranleys.co.uk
     repo: git@github.com:davisonio/cranleys.co.uk.git
     key: /etc/ssh/ssh_host_rsa_key_cranleyscouk
+  - name: askbencouk
+    path: /var/www/askben.co.uk
+    repo: git@github.com:davisonio/askben.co.uk.git
+    key: /etc/ssh/ssh_host_rsa_key_askbencouk
 
 letsencrypt_sites:
   - davison.io
@@ -48,6 +54,7 @@ letsencrypt_sites:
   - space2park.org.uk
   - tutoring.co.uk
   - cranleys.co.uk
+  - askben.co.uk
 
 duplicity_profiles:
   - name: main

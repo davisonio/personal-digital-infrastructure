@@ -20,9 +20,9 @@
     state: absent
   with_items: apt_remove_repositories
 
-- name: Upgrade packages
-  apt:
-    upgrade: safe
+#- name: Upgrade packages
+#  apt:
+#    upgrade: safe
 
 - name: Install packages
   apt:
