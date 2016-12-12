@@ -4,7 +4,7 @@
 #  ignore_errors: yes
 
 #- name: start scripts
-#  command: "nohup python /etc/instabot/{{item.login}}.py &"
+#  command: "python /etc/instabot/{{item.login}}.py &"
 #  with_items: instabot_scripts
 #  ignore_errors: yes
 #  async: 10
