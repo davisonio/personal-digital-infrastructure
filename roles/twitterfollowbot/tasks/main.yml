@@ -29,9 +29,9 @@
     dest: "/etc/twitterfollowbot/{{ item.key }}-config.txt"
   with_dict: "{{ twitterfollowbot_scripts }}"
 
-#- name: Set script to re-run daily
-#  cron:
-#    name: "twitterfollowbot"
-#    job: "pkill -f twitterfollowbot.py & python /etc/twitterfollowbot/twitterfollowbot.py >> /etc/twitterfollowbot/twitterfollowbot.log"
-#    special_time: reboot
-#  with_items: twitterfollowbot_scripts
+- name: Set script to re-run daily
+  cron:
+    name: "twitterfollowbot"
+    job: "pkill -f twitterfollowbot.py ; python /etc/twitterfollowbot/twitterfollowbot.py"
+    special_time: daily
+  with_items: twitterfollowbot_scripts

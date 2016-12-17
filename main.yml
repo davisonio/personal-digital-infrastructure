@@ -50,3 +50,9 @@
   roles:
     - python
     - instabot
+
+- name: Apply twitterfollowbot tasks
+  hosts: app-twitterfollowbot
+  roles:
+    - python
+    - twitterfollowbot
