@@ -1,0 +1,104 @@
+# {{ ansible_managed }}
+
+server {
+  listen [::]:80;
+  listen 80;
+  server_name accountantsteam.co.uk www.accountantsteam.co.uk;
+
+  include /etc/nginx/include-basic.conf;
+
+  return 301 https://accountantsteam.co.uk$request_uri;
+}
+
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  server_name www.accountantsteam.co.uk;
+
+  include /etc/nginx/include-ssl.conf;
+  include /etc/nginx/include-basic.conf;
+
+  ssl on;
+  ssl_certificate /etc/letsencrypt/live/accountantsteam.co.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/accountantsteam.co.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/accountantsteam.co.uk/fullchain.pem;
+
+  return 301 https://accountantsteam.co.uk$request_uri;
+}
+
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  server_name accountantsteam.co.uk;
+
+  root /var/www/accountantsteam.co.uk/_site;
+
+  include /etc/nginx/include-ssl.conf;
+  include /etc/nginx/include-basic.conf;
+
+  ssl on;
+  ssl_certificate /etc/letsencrypt/live/accountantsteam.co.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/accountantsteam.co.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/accountantsteam.co.uk/fullchain.pem;
+
+  #
+  # Redirects for migrating from old Fasthosts-hosted website -> accountantsteam.co.uk
+  #
+  location = /index.php {
+      return 301 /;
+  }
+  location = /AT.PricingModel.pdf {
+      return 301 /assets/doc/pricing-model.pdf;
+  }
+  location = /accountants.php {
+      return 301 /benefits/;
+  }
+  location = /agents-partners.php {
+      return 301 /franchise/;
+  }
+  location = /become-an-agent.php {
+      return 301 /franchise/;
+  }
+  location = /benefit-accountants-bookkeepers.php {
+      return 301 /benefits/;
+  }
+  location = /bookkeepers.php {
+      return 301 /benefits/;
+  }
+  location = /contact-head-office.php {
+      return 301 /contact/;
+  }
+  location = /contact-leeds.php {
+      return 301 /contact/;
+  }
+  location = /contact-maida-vale.php {
+      return 301 /contact/;
+  }
+  location = /contact-northampton.php {
+      return 301 /contact/;
+  }
+  location = /contact-us-accountants.php {
+      return 301 /contact/;
+  }
+  location = /hire-us-accountants.php {
+      return 301 /contact/;
+  }
+  location = /legal-accountants.php {
+      return 301 /;
+  }
+  location = /online-accounting-software.php {
+      return 301 /;
+  }
+  location = /partner-with-us.php {
+      return 301 /franchise/;
+  }
+  location = /privacy-accountants.php {
+      return 301 /;
+  }
+  location = /terms-accountants.php {
+      return 301 /;
+  }
+  location = /who-are-we-accountants.php {
+      return 301 /team/;
+  }
+}
