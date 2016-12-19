@@ -1,0 +1,86 @@
+# {{ ansible_managed }}
+
+server {
+  listen [::]:80;
+  listen 80;
+  server_name basingstokeoffice.co.uk www.basingstokeoffice.co.uk;
+
+  include /etc/nginx/include-basic.conf;
+
+  return 301 https://basingstokeoffice.co.uk$request_uri;
+}
+
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  server_name www.basingstokeoffice.co.uk;
+
+  include /etc/nginx/include-ssl.conf;
+  include /etc/nginx/include-basic.conf;
+
+  ssl on;
+  ssl_certificate /etc/letsencrypt/live/basingstokeoffice.co.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/basingstokeoffice.co.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/basingstokeoffice.co.uk/fullchain.pem;
+
+  return 301 https://basingstokeoffice.co.uk$request_uri;
+}
+
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  server_name basingstokeoffice.co.uk;
+
+  root /var/www/basingstokeoffice.co.uk/_site;
+
+  include /etc/nginx/include-ssl.conf;
+  include /etc/nginx/include-basic.conf;
+
+  ssl on;
+  ssl_certificate /etc/letsencrypt/live/basingstokeoffice.co.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/basingstokeoffice.co.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/basingstokeoffice.co.uk/fullchain.pem;
+
+  #
+  # Redirects for migrating from old Weebly-hosted website -> basingstokeoffice.co.uk
+  #
+  location = /offices.html {
+      return 301 /offices/;
+  }
+  location = /parking.html {
+      return 301 /parking/;
+  }
+  location = /gallery.html {
+      return 301 /gallery/;
+  }
+  location = /virtual-solutions.html {
+      return 301 /solutions/;
+  }
+  location = /mailing-services.html {
+      return 301 /solutions/mailing/;
+  }
+  location = /why-here.html {
+      return 301 /why-here/;
+  }
+  location = /telephone-solutions.html {
+      return 301 /solutions/telephone/;
+  }
+  location = /contact-us.html {
+      return 301 /contact/;
+  }
+  location = /meeting-room-hire.html {
+      return 301 /solutions/meeting-room/;
+  }
+  location = /complete-office-solutions.html {
+      return 301 /solutions/complete-office/;
+  }
+  location = /uploads/1/3/8/5/13852975/wintonhouseavailabilityupdated.pdf {
+      return 301 /assets/doc/availability-schedule.pdf;
+  }
+  location = /uploads/1/3/8/5/13852975/winton_house_brochure_2012.pdf {
+      return 301 /assets/doc/winton-house-brochure-2012.pdf;
+  }
+  location = /uploads/1/3/8/5/13852975/wintonhouseavailabilityschedule_0912.pdf {
+      return 301 /assets/doc/winton-house-brochure-2012.pdf;
+  }
+}
