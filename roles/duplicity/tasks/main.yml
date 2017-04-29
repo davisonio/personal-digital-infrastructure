@@ -50,8 +50,3 @@
     special_time: "{{item.special_time}}"
     state: present
   with_items: duplicity_profiles
-
-- name: Add b2backend (bugfix)
-  template:
-    src: b2backend.py.j2
-    dest: /usr/lib/python2.7/dist-packages/duplicity/backends/b2backend.py
