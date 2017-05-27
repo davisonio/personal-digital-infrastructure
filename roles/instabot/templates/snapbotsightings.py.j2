@@ -1,0 +1,40 @@
+# {{ ansible_managed }}
+# https://github.com/instagrambot/instabot
+
+import sys
+import os
+import argparse
+
+sys.path.append(os.path.join(sys.path[0], '../'))
+
+from instabot import Bot
+
+bot = Bot(
+	max_likes_per_day=1000,
+	max_unlikes_per_day=1000,
+	max_follows_per_day=500,
+	max_unfollows_per_day=500,
+	max_comments_per_day=0,
+	max_likes_to_like=20,
+	filter_users=True,
+	max_followers_to_follow=10000,
+	min_followers_to_follow=10,
+	max_following_to_follow=7500,
+	min_following_to_follow=10,
+	max_followers_to_following_ratio=50,
+	max_following_to_followers_ratio=50,
+	max_following_to_block=7500,
+	min_media_count_to_follow=6,
+	like_delay=15,
+	unlike_delay=15,
+	follow_delay=30,
+	unfollow_delay=30,
+	comment_delay=60,
+	whitelist=False,
+	blacklist=False,
+	comments_file=False,
+	stop_words=False
+)
+bot.login()
+
+bot.unfollow_non_followers()

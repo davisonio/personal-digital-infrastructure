@@ -1,6 +1,6 @@
-- name: Install dependancies
+- name: Install instabot
   pip:
-    name: requests
+    name: instabot
     state: latest
 
 - name: Create directory
@@ -8,16 +8,16 @@
     path: /etc/instabot
     state: directory
 
-- name: Install InstaBot
+- name: Clone examples
   git:
-    repo: https://github.com/LevPasha/instabot.py
+    repo: https://github.com/instagrambot/instabot
     dest: /etc/instabot
     force: yes
     accept_hostkey: yes
 
 - name: Add configs
   template:
-    src: script.py.j2
+    src: "{{item.key}}.py.j2"
     dest: "/etc/instabot/{{item.key}}.py"
   with_dict: "{{ instabot_scripts }}"
 #  notify:
