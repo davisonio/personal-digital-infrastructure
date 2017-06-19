@@ -41,6 +41,11 @@ server {
   ssl_certificate_key /etc/letsencrypt/live/cranleys.co.uk/privkey.pem;
   ssl_trusted_certificate /etc/letsencrypt/live/cranleys.co.uk/fullchain.pem;
 
+  # Other redirects
+  location = /locations {
+      return 301 /;
+  }
+
   #
   # Redirects for migrating from old cranleys.co.uk -> new cranleys.co.uk (2016)
   #
