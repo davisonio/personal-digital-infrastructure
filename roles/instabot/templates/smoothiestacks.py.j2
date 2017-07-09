@@ -1,9 +1,12 @@
 # {{ ansible_managed }}
 # https://github.com/instagrambot/instabot
 
+import schedule
 import sys
 import os
 import argparse
+import threading
+import time
 
 sys.path.append(os.path.join(sys.path[0], '../'))
 
@@ -35,6 +38,35 @@ bot = Bot(
 	comments_file=False,
 	stop_words=False
 )
-bot.login()
+bot.login(username="smoothiestacks", password="{{instabot_scripts.smoothiestacks.password}}")
 
-bot.unfollow_non_followers()
+#fn to return random value for separate jobs
+def get_random(from_list):
+    _random=random.choice(from_list)
+    print("Random from ultimate.py script is chosen: \n" + _random + "\n")
+    return _random
+
+#function to make threads -> details here http://bit.ly/faq_schedule
+def run_threaded(job_fn):
+    job_thread=threading.Thread(target=job_fn)
+    job_thread.start()
+
+def job1():
+    bot.unfollow_non_followers()
+
+def job2():
+    for hashtag in ['smoothie', 'smoothies', 'smoothiestack', 'smoothiestacks', 'layeredsmoothie', 'layeredsmoothies', 'smoothiebowl', 'smoothiebowls']:
+    	bot.like_hashtag(hashtag)
+
+def job3():
+    for hashtag in ['smoothie', 'smoothies', 'smoothiestack', 'smoothiestacks', 'layeredsmoothie', 'layeredsmoothies', 'smoothiebowl', 'smoothiebowls']:
+        bot.follow_users(bot.get_hashtag_users(hashtag))
+
+
+schedule.every(7).days.do(run_threaded, job1)
+schedule.every(1).hours.do(run_threaded, job2)
+schedule.every(2).hours.do(run_threaded, job3)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
