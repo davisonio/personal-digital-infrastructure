@@ -9,6 +9,7 @@ nginx_sites:
   - name: accountantsteam.co.uk
   - name: basingstokeoffice.co.uk
   - name: worldwithout.work
+  - name: ridearoundhook.org.uk
 
 nginx_sites_enabled:
   - default
@@ -21,6 +22,7 @@ nginx_sites_enabled:
   - accountantsteam.co.uk
   - basingstokeoffice.co.uk
   - worldwithout.work
+  - ridearoundhook.org.uk
 
 jekyll_sites:
   - name: davisonio
@@ -54,6 +56,10 @@ jekyll_sites:
     path: /var/www/basingstokeoffice.co.uk
     repo: git@github.com:davisonio/basingstokeoffice.co.uk.git
     key: /etc/ssh/ssh_host_rsa_key_basingstokeofficecouk
+  - name: ridearoundhookorguk
+    path: /var/www/ridearoundhook.org.uk
+    repo: git@github.com:davisonio/ridearoundhook.org.uk.git
+    key: /etc/ssh/ssh_host_rsa_key_github
 
 letsencrypt_sites:
   - davison.io
@@ -65,6 +71,7 @@ letsencrypt_sites:
   - accountantsteam.co.uk
   - basingstokeoffice.co.uk
   - worldwithout.work
+  - ridearoundhook.org.uk
 
 duplicity_profiles:
   - name: main
