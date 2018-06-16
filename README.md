@@ -35,7 +35,7 @@ ansible-playbook main.yml
 
 **[Craig Davison](https://davison.io)**
 
-[![GitHub](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![Twitter](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
+[![GitHub](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20@davisonio)](https://github.com/davisonio) [![Twitter](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
 
 ...and [contributors](https://github.com/davisonio/personal-digital-infrastructure/graphs/contributors).
 
