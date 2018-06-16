@@ -17,7 +17,7 @@ macOS control machine:
 git clone https://github.com/davisonio/personal-digital-infrastructure
 brew install terraform
 pip install ansible
-wget https://github.com/nbering/terraform-provider-ansible/releases/download/v0.0.2/terraform-provider-ansible-linux_amd64.zip -O /tmp/tfpa
+wget https://github.com/nbering/terraform-provider-ansible/releases/download/v0.0.4/terraform-provider-ansible-darwin_amd64.zip -O /tmp/tfpa
 mkdir -p ~/.terraform.d/plugins
 unzip -d ~/.terraform.d/plugins /tmp/tfpa     
 rm /tmp/tfpa
