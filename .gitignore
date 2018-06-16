@@ -1,3 +1,4 @@
 *.retry
 .terraform
-*.tfstate
+*.tfstate*
+secrets.auto.tfvars

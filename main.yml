@@ -1,0 +1,4 @@
+- name: Apply nginx tasks
+  hosts: nginx
+  roles:
+    - nginx
