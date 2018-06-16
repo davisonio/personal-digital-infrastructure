@@ -1,65 +1,47 @@
-# [davison.io Devops](https://davison.io/davison.io-devops/) :computer: [![](https://img.shields.io/travis/davisonio/davison.io-devops.svg?style=flat-square)](https://travis-ci.org/davisonio/davison.io-devops) [![](https://img.shields.io/gitter/room/davisonio/bacon.svg)](https://gitter.im/davisonio/bacon)
+# Personal Digital Infrastructure
 
-> [Ansible](https://www.ansible.com)-powered DevOps and deployment for [davison.io](https://davison.io) and related sites
+> Personal Digital Infrastructure
 
-<p align="center">
-<b><a href="#install">Install</a></b>
-·
-<b><a href="#use">Use</a></b>
-·
-<b><a href="#further-reading">Further Reading</a></b>
-·
-<b><a href="#authors">Authors</a></b>
-·
-<b><a href="#license--credits">License & Credits</a></b>
-</p>
+My server automation and other digital tools.
 
-This contains the roles and things used to deploy and generally check everything is working on davison.io-esque websites.
-
-![](https://davison.io/assets/img/davison-io-devops-logo.png)
+* DigitalOcean - cloud servers, DNS
+* Terraform - infrastructure automation
+* Ansible - configuration automation
+* [terraform-inventory](https://github.com/nbering/terraform-inventory) with [terraform-provider-ansible](https://github.com/nbering/terraform-provider-ansible)
 
 ## Install
 
-*[See Setup Controller on Ubuntu](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller-ubuntu.md)*
+macOS control machine:
 
-## Use
+```
+git clone https://github.com/davisonio/personal-digital-infrastructure
+brew install terraform
+pip install ansible
+wget https://github.com/nbering/terraform-provider-ansible/releases/download/v0.0.2/terraform-provider-ansible-linux_amd64.zip -O /tmp/tfpa
+mkdir -p ~/.terraform.d/plugins
+unzip -d ~/.terraform.d/plugins /tmp/tfpa     
+rm /tmp/tfpa
+terraform init
+```
 
-- [Setup Host on Ubuntu](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-host-ubuntu.md)
-- [Setup Controller on Ubuntu](https://github.com/davisonio/davison.io-devops/blob/master/docs/setup-controller-ubuntu.md)
+## Run
 
-## Further reading
+```
+terraform apply
+ansible-playbook main.yml
+```
 
-#### Articles
-
-- [Official Ansible Documentation](https://docs.ansible.com/ansible/index.html)
-- [Ansible Best Practices](https://docs.ansible.com/ansible/playbooks_best_practices.html)
-- [6 practices for super smooth Ansible experience](http://hakunin.com/six-ansible-practices)
-- [Ansible (Real Life) Good Practices](https://www.reinteractive.net/posts/167-ansible-real-life-good-practices)
-- [A short tutorial on how to use Vault in your Ansible workflow](https://gist.github.com/tristanfisher/e5a306144a637dc739e7)
-
-#### Inspiration
-
-- [webmat/devopsmtl.com](https://github.com/webmat/devopsmtl.com)
-- [openaustralia/infrastructure](https://github.com/openaustralia/infrastructure)
-- [CenterForOpenScience/cos-ansible-base](https://github.com/CenterForOpenScience/cos-ansible-base)
-- [henrysher/fedora-infra-ansible](https://github.com/henrysher/fedora-infra-ansible)
-- [galaxyproject/usegalaxy-playbook](https://github.com/galaxyproject/usegalaxy-playbook)
-- [ceph/ceph-cm-ansible](https://github.com/ceph/ceph-cm-ansible)
-- [Orain/ansible-playbook](https://github.com/Orain/ansible-playbook)
-- [edunham/ansible-rust-infra](https://github.com/edunham/ansible-rust-infra)
-
-## Authors
+## Credits
 
 **[Craig Davison](https://davison.io)**
 
-[![](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
+[![GitHub](https://img.shields.io/github/followers/davisonio.svg?style=social&label=Follow%20davisonio)](https://github.com/davisonio) [![Twitter](https://img.shields.io/twitter/follow/davisonio.svg?style=social)](https://twitter.com/davisonio)
 
-With many thanks to the [contributors](https://github.com/davisonio/davison.io-devops/graphs/contributors). :clap:
+...and [contributors](https://github.com/davisonio/personal-digital-infrastructure/graphs/contributors).
 
-**Contributions are welcome!** Check out the [Contributing Guidelines](https://github.com/davisonio/davison.io-devops/blob/master/CONTRIBUTING.md). :raised_hands:
+**[Contributions are welcome!](https://github.com/davisonio/personal-digital-infrastructure/blob/master/contributing.md)**
 
-## License & Credits
+## License
 
 Unless otherwise stated:
-
-- Copyright © 2015+ [Craig Davison](https://davison.io). Released under the [MIT License](http://davisonio.mit-license.org/2015).
+- Copyright © 2015+ [Craig Davison](https://davison.io). Licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
