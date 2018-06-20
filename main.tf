@@ -31,8 +31,14 @@ resource "digitalocean_droplet" "minetest1" {
     ]
     ssh_keys = ["${digitalocean_ssh_key.default.fingerprint}"]
     #volume_ids = ["${digitalocean_volume.minetest1-world.id}"]
+    connection {
+        type     = "ssh"
+        user     = "root"
+        private_key = "${file("~/.ssh/id_rsa")}"
+    }
     provisioner "remote-exec" {
         inline = [
+            "sleep 30",
             "apt install -y python",
         ]
     }
