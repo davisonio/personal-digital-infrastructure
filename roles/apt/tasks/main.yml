@@ -16,7 +16,7 @@
   with_flattened:
     - "{{ apt_install }}"
     - "{{ apt_install_group }}"
-    #- "{{ apt_install_host }}"
+    - "{{ apt_install_host }}"
 
 - name: Upgrade packages
   apt:
