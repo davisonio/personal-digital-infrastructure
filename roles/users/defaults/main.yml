@@ -1,8 +1,1 @@
-users_groups:
-  - name: sudo
-    system: yes
-
-users_groups_removed: []
-users_users_removed: []
-
 users_users: []

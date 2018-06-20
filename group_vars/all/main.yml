@@ -1,0 +1,12 @@
+apt_install_group:
+  - rsync
+  - curl
+  - git
+  - nano-tiny
+  - wget
+  - zip
+  - unzip
+  - screen
+  - language-pack-en
+  - make
+  - aptitude

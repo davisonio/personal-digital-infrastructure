@@ -1,0 +1,20 @@
+- name: Deny all incoming
+  ufw:
+    direction: incoming
+    policy: deny
+
+- name: Allow SSH in ufw
+  ufw:
+    rule: allow
+    name: OpenSSH
+    log: yes
+
+- name: Allow all outgoing
+  ufw:
+    direction: outgoing
+    policy: allow
+
+- name: Enable UFW with logging
+  ufw:
+    state: enabled
+    logging: yes

@@ -1,4 +1,16 @@
-- name: Apply nginx tasks
-  hosts: nginx
+- name: Create users
+  hosts: all
   roles:
-    - nginx
+      - users
+
+- name: Base roles
+  hosts: all
+  roles:
+      - ssh
+      - apt
+      - ufw
+
+- name: Minetest roles
+  hosts: minetest
+  roles:
+      - minetest

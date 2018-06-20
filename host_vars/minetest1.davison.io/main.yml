@@ -1,0 +1,6 @@
+apt_install_host:
+  - lua-socket
+
+minetest_instances:
+  - name: server
+    map: /mnt/minetest-srv1-prd/minetest-worlds/server/

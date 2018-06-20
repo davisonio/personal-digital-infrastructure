@@ -1,41 +1,27 @@
-- name: Install apt
-  apt:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - apt
-    - apt-utils
-    - python-apt
-    - aptitude
-
 - name: Install repositories
   apt_repository:
     repo: "{{ item }}"
     state: present
-  with_items: apt_install_repositories
+  with_items: "{{ apt_install_repositories }}"
 
-- name: Remove repositories
-  apt_repository:
-    repo: "{{ item }}"
-    state: absent
-  with_items: apt_remove_repositories
-
-#- name: Upgrade packages
-#  apt:
-#    upgrade: safe
+- name: Update packages
+  apt:
+      update_cache: yes
+      allow_unauthenticated: yes
 
 - name: Install packages
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_flattened:
-    - apt_install
-    - apt_install_host
+    - "{{ apt_install }}"
+    - "{{ apt_install_group }}"
+    #- "{{ apt_install_host }}"
 
-- name: Remove packages
+- name: Upgrade packages
   apt:
-    name: "{{ item }}"
-    state: absent
-  with_flattened:
-    - apt_remove
-    - apt_remove_host
+    upgrade: safe
+
+- name: Autoremove packages
+  apt:
+      autoremove: yes

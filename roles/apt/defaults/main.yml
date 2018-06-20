@@ -1,22 +1,3 @@
 apt_install_repositories: []
 
-apt_remove_repositories: []
-
-apt_install:
-  - rsync
-  - curl
-  - git
-  - python
-  - nano-tiny
-  - wget
-  - zip
-  - unzip
-  - screen
-  - language-pack-en
-  - make
-
-apt_install_host: []
-
-apt_remove: []
-
-apt_remove_host: []
+apt_install: []
