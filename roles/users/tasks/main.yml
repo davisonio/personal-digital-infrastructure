@@ -1,3 +1,9 @@
+- name: Create SSH directory
+  file:
+    path: "/home/{{ item.name }}/.ssh"
+    state: directory
+  with_items: "{{ users_users }}"
+
 - name: Add users
   user:
     name: "{{ item.name }}"
