@@ -31,6 +31,8 @@ terraform apply
 ansible-playbook main.yml
 ```
 
+If running ansible on newly created resources `-u root` may have to be used.
+
 ## Credits
 
 **[Craig Davison](https://davison.io)**
