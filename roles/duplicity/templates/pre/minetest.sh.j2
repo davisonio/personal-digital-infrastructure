@@ -1,6 +1,0 @@
-# {{ ansible_managed }}
-
-# Stop minetest servers
-{% for item in minetest_instances %}
-systemctl stop minetest-server-{{item.name}}
-{% endfor -%}

@@ -1,8 +1,0 @@
-- name: Update hostname
-  hostname:
-    name: "{{inventory_hostname}}"
-
-- name: Update hosts
-  template:
-    src: hosts.j2
-    dest: /etc/hosts

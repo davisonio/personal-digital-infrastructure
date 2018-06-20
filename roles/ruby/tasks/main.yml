@@ -1,4 +1,0 @@
-- name: Install ruby
-  apt:
-    name: ruby-full
-    state: latest

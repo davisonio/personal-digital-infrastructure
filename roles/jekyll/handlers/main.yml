@@ -1,8 +1,0 @@
-- name: reload systemd
-  shell: systemctl daemon-reload
-
-- name: restart jekyll
-  service:
-    name: "jekyll-{{item.name}}"
-    state: restarted
-  with_items: jekyll_sites
