@@ -41,7 +41,7 @@
   with_items: "{{ minetest_instances }}"
 
 
- - name: Allow minetest in ufw
-    ufw:
-      rule: allow
-      port: 30000
+- name: Allow minetest in ufw
+  ufw:
+    rule: allow
+    port: 30000

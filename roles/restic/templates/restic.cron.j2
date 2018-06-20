@@ -1,0 +1,13 @@
+# {{ ansible_managed }}
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+RESTIC_REPOSITORY="{{ item.url | trim }}"
+RESTIC_PASSWORD="{{ item.password | trim }}"
+B2_ACCOUNT_ID="{{ item.b2_account_id | trim }}"
+B2_ACCOUNT_KEY="{{ item.b2_account_key | trim }}"
+
+{% if restic_jobs is defined %}
+{% for job in restic_jobs %}
+{{ job.job }}
+{% endfor %}
+{% endif %}

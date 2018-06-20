@@ -14,3 +14,4 @@
   hosts: minetest
   roles:
       - minetest
+      - restic
