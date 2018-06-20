@@ -10,7 +10,7 @@
 - name: Install games
   git:
     repo: "{{ item.url }}"
-    dest: "/usr/share/games/minetest/games/{{ item.name }}"
+    dest: "/usr/share/minetest/games/{{ item.name }}"
     force: yes
     accept_hostkey: yes
   with_items: "{{ minetest_games }}"
@@ -18,7 +18,7 @@
 - name: Add configs
   template:
     src: "configs/{{item.name}}.conf.j2"
-    dest: "/usr/share/games/minetest/minetest-{{item.name}}.conf"
+    dest: "/usr/share/minetest/minetest-{{item.name}}.conf"
   with_items: "{{ minetest_instances }}"
 
 - name: Create logging directory
