@@ -39,3 +39,9 @@
     state: started
     enabled: yes
   with_items: "{{ minetest_instances }}"
+
+
+ - name: Allow minetest in ufw
+    ufw:
+      rule: allow
+      port: 30000
