@@ -2,19 +2,7 @@
   hosts: all
   roles:
     - apt
-    - dns
-    - duplicity
-    - hostname
-    - instabot
-    - jekyll
     - minetest
-    - nginx
-    - nodejs
-    - ntp
-    - openssh
-    - python
-    - ruby
-    - timezone
-    - twitterfollowbot
-    - updates
     - users
+    - ufw
+    - ssh
