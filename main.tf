@@ -22,7 +22,7 @@ resource "digitalocean_droplet" "minetest1" {
     name = "minetest1.davison.io"
     image = "ubuntu-18-04-x64"
     size = "512mb"
-    region = "lon1"
+    region = "fra1"
     ipv6 = true
     private_networking = true
     monitoring = true
