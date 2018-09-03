@@ -27,6 +27,7 @@ terraform init
 ## Run
 
 ```
+terraform plan
 terraform apply
 ansible-playbook main.yml
 ```
