@@ -10,3 +10,4 @@ apt_install_group:
   - language-pack-en
   - make
   - aptitude
+  - ncdu
