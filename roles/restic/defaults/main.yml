@@ -4,9 +4,11 @@ restic_url: ''
 restic_download_path: '/opt/restic'
 restic_install_path: '/usr/local/bin'
 
-restic_repos: []
-
 restic_jobs: []
+
+restic_b2_account_id: ''
+restic_b2_account_key: ''
+restic_password: ''
 
 _platform_map:
   i386: 386

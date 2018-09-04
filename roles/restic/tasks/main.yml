@@ -18,5 +18,31 @@
   include: 'install.yml'
   when: not restic_executable.stat.exists
 
-- name: Configure restic jobs
-  include: 'configure.yml'
+- name: Create B2_ACCOUNT_ID
+  cronvar:
+    name: B2_ACCOUNT_ID
+    value: "{{ restic_b2_account_id }}"
+
+- name: Create B2_ACCOUNT_KEY
+  cronvar:
+    name: B2_ACCOUNT_KEY
+    value: "{{ restic_b2_account_key }}"
+
+- name: Create RESTIC_PASSWORD
+  cronvar:
+    name: RESTIC_PASSWORD
+    value: "{{ restic_password }}"
+
+- name: Configuring restic jobs
+  cron:
+    day: "{{ item.day | default(omit) }}"
+    hour: "{{ item.hour | default(omit) }}"
+    job: "{{ item.job | default(omit) }}"
+    minute: "{{ item.minute | default(omit) }}"
+    month: "{{ item.month | default(omit) }}"
+    name: "{{ item.name | default(item) }}"
+    special_time: "{{ item.special_time | default(omit) }}"
+    state: "{{ item.state | default(omit) }}"
+    user: "{{ item.user | default(omit) }}"
+    weekday: "{{ item.weekday | default(omit) }}"
+  with_items: "{{ restic_jobs }}"
