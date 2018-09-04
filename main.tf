@@ -38,6 +38,8 @@ resource "digitalocean_droplet" "minetest1" {
         "${digitalocean_tag.minetest.id}"
     ]
     ssh_keys = ["${digitalocean_ssh_key.default.fingerprint}"]
+    volume_ids = ["8e5ebeb1-a42a-11e6-a9b4-000f53306cc0"]
+    #volume_ids = ["minetest-srv1-prd"]
     #volume_ids = ["${digitalocean_volume.minetest1-world.id}"]
     connection {
         type     = "ssh"
