@@ -9,13 +9,18 @@
       - ssh
       - apt
       - ufw
-
-- name: Set timezone
-  timezone:
-    name: Europe/London
+  tasks:
+  - name: Set timezone
+    timezone:
+      name: Europe/London
 
 - name: Minetest roles
   hosts: minetest
   roles:
       - minetest
+      - restic
+
+- name: EuroDiscover roles
+  hosts: eurodiscover
+  roles:
       - restic
