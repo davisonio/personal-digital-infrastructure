@@ -1,3 +1,5 @@
 apt_install_repositories: []
 
 apt_install: []
+apt_install_host: []
+apt_install_group: []
