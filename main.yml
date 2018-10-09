@@ -20,7 +20,7 @@
       - minetest
       - restic
 
-- name: EuroDiscover roles
-  hosts: eurodiscover
+- name: Discourse roles
+  hosts: discourse
   roles:
       - restic
