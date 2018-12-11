@@ -24,3 +24,8 @@
   hosts: discourse
   roles:
       - restic
+
+- name: WordPress roles
+  hosts: wordpress
+  roles:
+      - wordpress
