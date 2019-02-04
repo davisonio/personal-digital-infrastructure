@@ -42,6 +42,7 @@ resource "digitalocean_droplet" "minetest1" {
     ipv6 = true
     private_networking = true
     monitoring = true
+    image = "34629387"
     tags = [
         "${digitalocean_tag.minetest.id}"
     ]
@@ -75,6 +76,7 @@ resource "digitalocean_droplet" "eurodiscover" {
     ipv6 = true
     private_networking = true
     monitoring = true
+    image = "34629387"
     tags = [
         "${digitalocean_tag.discourse.id}"
     ]
@@ -106,6 +108,7 @@ resource "digitalocean_droplet" "wp1" {
     ipv6 = true
     private_networking = true
     monitoring = true
+    image = "41122605"
     tags = [
         "${digitalocean_tag.wordpress.id}"
     ]
