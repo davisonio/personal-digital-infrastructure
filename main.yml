@@ -28,4 +28,9 @@
 - name: WordPress roles
   hosts: wordpress
   roles:
+      - mariadb
+      - memcached
+      - php
+      - letsencrypt
+      - nginx
       - wordpress

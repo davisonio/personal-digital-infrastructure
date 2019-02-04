@@ -1,0 +1,48 @@
+- name: Create install directory
+  file:
+    path: /etc/letsencrypt
+    state: directory
+
+- name: Download letsencrypt
+  git:
+    repo: https://github.com/certbot/certbot
+    dest: /etc/letsencrypt/certbot
+    force: yes
+    accept_hostkey: yes
+
+- name: Create nginx ssl directory
+  file:
+    path: /etc/nginx/ssl
+    state: directory
+
+- name: Check if ticket.key exists
+  stat:
+    path: /etc/nginx/ssl/ticket.key
+  register: ticketkey
+
+- name: Generate ticket.key
+  command: openssl rand -out /etc/nginx/ssl/ticket.key 48
+  when: not ticketkey.stat.exists
+
+- name: Check if dhparam.pem exists
+  stat:
+    path: /etc/nginx/ssl/dhparam.pem
+  register: dhparampem
+
+- name: Generate dhparam.pem
+  command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
+  when: not dhparampem.stat.exists
+
+- name: Add site configurations
+  template:
+    src: "sites/cli-{{item}}.ini"
+    dest: "/etc/letsencrypt/cli-{{item}}.ini"
+  with_items: "{{letsencrypt_sites}}"
+
+- name: Add renew cronjob
+  cron:
+    name: "letsencrypt-renew-{{item}}"
+    job: "cd /etc/letsencrypt/certbot && ./certbot-auto certonly -c /etc/letsencrypt/cli-{{item}}.ini"
+    special_time: weekly
+    state: present
+  with_items: {{letsencrypt_sites}}
