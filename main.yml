@@ -33,4 +33,5 @@
       - php
       - letsencrypt
       - nginx
+      - wp-cli
       - wordpress
