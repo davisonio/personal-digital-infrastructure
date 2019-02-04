@@ -45,4 +45,4 @@
     job: "cd /etc/letsencrypt/certbot && ./certbot-auto certonly -c /etc/letsencrypt/cli-{{item}}.ini"
     special_time: weekly
     state: present
-  with_items: {{letsencrypt_sites}}
+  with_items: "{{ letsencrypt_sites }}"
