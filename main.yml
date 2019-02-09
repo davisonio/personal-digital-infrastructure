@@ -38,4 +38,5 @@
 - name: MediaWiki roles
   hosts: mediawiki
       - restic
+      - letsencrypt
       - nginx
