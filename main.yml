@@ -34,3 +34,8 @@
       - letsencrypt
       - nginx
       - wp-cli
+
+- name: MediaWiki roles
+  hosts: mediawiki
+      - restic
+      - nginx

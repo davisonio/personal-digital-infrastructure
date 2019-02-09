@@ -1,5 +1,12 @@
 nginx_sites:
   - davison.io
+  - sapienswiki.com
 
 letsencrypt_sites:
   - davison.io
+  - sapienswiki.com
+
+mediawiki_sites:
+  - name: sapienswiki
+    path: /var/www/sapienswiki.com
+    domain: sapienswiki.com

@@ -1,0 +1,5 @@
+- name: Create sitemap generation cronjob
+  cron:
+    special_time: daily
+    job: "/usr/bin/php {{ item.path }}/maintenance/generateSitemap.php --fspath={{ item.path }}/ --urlpath= --server=https://{{ item.domain }} --skip-redirects --compress=no"
+  with_items: "{{ mediawiki_sites }}"
