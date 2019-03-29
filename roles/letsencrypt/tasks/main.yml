@@ -32,12 +32,12 @@
   when: not dhparampem.stat.exists
 
 - name: Register certificates
-  command: {{ letsencrypt_certs.command }}
-  with_items: {{ letsencrypt_certs }}
+  command: "{{ letsencrypt_certs.command }}"
+  with_items: "{{ letsencrypt_certs }}"
 
 - name: Add renew cronjob
   cron:
     name: "letsencrypt-renew"
-    job: "/usr/bin/certbot renew --pre-hook "{{ letsencrypt_pre_renew }}" --post-hook "{{ letsencrypt_post_renew }}""
+    job: '/usr/bin/certbot renew --pre-hook "{{ letsencrypt_pre_renew }}" --post-hook "{{ letsencrypt_post_renew }}"'
     special_time: weekly
     state: present
