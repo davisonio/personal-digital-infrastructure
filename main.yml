@@ -33,13 +33,15 @@
       - wp-cli
 
 - name: MediaWiki roles
-  hosts: mediawiki
+  hosts: wp1.davison.io
+  roles:
       - restic
       - letsencrypt
       - nginx
 
 - name: Jekyll roles
   hosts: wp1.davison.io
-      - letsencrypt
-      - nginx
-      - jekyll
+  roles:
+     - letsencrypt
+     - nginx
+     - jekyll

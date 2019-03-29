@@ -31,9 +31,9 @@
   command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
   when: not dhparampem.stat.exists
 
-- name: Register certificates
-  command: "{{ letsencrypt_certs.command }}"
-  with_items: "{{ letsencrypt_certs }}"
+#- name: Register certificates
+#  command: "{{ item.command }}"
+#  with_items: "{{ letsencrypt_certs }}"
 
 - name: Add renew cronjob
   cron:

@@ -10,8 +10,8 @@
     force: yes
     accept_hostkey: yes
     key_file: "{{item.key|default('/etc/ssh/ssh_host_rsa_key')}}"
-  with_items: {{ jekyll_sites }}
+  with_items: "{{ jekyll_sites }}"
 
 - name: Build jekyll sites
-  command: cd {{ item.path }} && /usr/local/bin/jekyll build
-  with_items: {{ jekyll_sites }}
+  command: "cd {{ item.path }} && /usr/local/bin/jekyll build"
+  with_items: "{{ jekyll_sites }}"
