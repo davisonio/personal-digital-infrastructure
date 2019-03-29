@@ -18,3 +18,8 @@ mediawiki_sites:
 
 letsencrypt_pre_renew: service nginx stop
 letsencrypt_post_renew: service nginx restart
+
+jekyll_sites:
+  - name: davison.io
+    repo: https://github.com/davisonio/davison.io
+    path: /var/www/davison.io

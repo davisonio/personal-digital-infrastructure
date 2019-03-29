@@ -28,9 +28,6 @@
 - name: WordPress roles
   hosts: wordpress
   roles:
-      - mariadb
-      - memcached
-      - php
       - letsencrypt
       - nginx
       - wp-cli
@@ -40,3 +37,9 @@
       - restic
       - letsencrypt
       - nginx
+
+- name: Jekyll roles
+  hosts: wp1.davison.io
+      - letsencrypt
+      - nginx
+      - jekyll
