@@ -54,12 +54,6 @@
   with_items: "{{nginx_sites}}"
   notify: reload nginx
 
-- name: Add simple pages
-  template:
-    src: "simple/{{ item.type }}.j2"
-    dest: "{{ item.path }}"
-  with_items: "{{ nginx_index_pages }}"
-
 - name: Enable Nginx to start on boot
   service:
     name: nginx

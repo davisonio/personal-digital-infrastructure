@@ -3,16 +3,18 @@ nginx_sites:
   - sapienswiki.com
   - tutoring.uk
 
-letsencrypt_sites:
-  - davison.io
-  - sapienswiki.com
-  - tutoring.uk
+letsencrypt_certs:
+  - name: davison.io
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name davison.io -d davison.io,www.davison.io --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos
+  - name: sapienswiki.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name sapienswiki.com -d sapienswiki.com,www.sapienswiki.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos
+  - name: tutoring.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name tutoring.uk -d tutoring.uk,www.tutoring.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos
 
 mediawiki_sites:
   - name: sapienswiki
     path: /var/www/sapienswiki.com
     domain: sapienswiki.com
 
-simple_pages:
-    - name: tutoring.uk
-      path: /var/www/tutoring.co.uk
+letsencrypt_pre_renew: service nginx stop
+letsencrypt_post_renew: service nginx restart
