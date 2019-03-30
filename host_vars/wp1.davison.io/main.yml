@@ -2,14 +2,144 @@ nginx_sites:
   - davison.io
   - sapienswiki.com
   - tutoring.uk
+  - ridearoundhook.org.uk
+  - basingstokeoffice.co.uk
+  - cranleys.co.uk
+  - askben.uk
+  - colindavison.uk
+  - cranleysproperties.uk
+  - enactusreading.com
+  - taxtipsforum.com
 
 letsencrypt_certs:
   - name: davison.io
-    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name davison.io -d davison.io,www.davison.io --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name davison.io -d davison.io,www.davison.io --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
   - name: sapienswiki.com
-    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name sapienswiki.com -d sapienswiki.com,www.sapienswiki.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name sapienswiki.com -d sapienswiki.com,www.sapienswiki.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
   - name: tutoring.uk
-    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name tutoring.uk -d tutoring.uk,www.tutoring.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name tutoring.uk -d tutoring.uk,www.tutoring.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: ridearoundhook.org.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name ridearoundhook.org.uk -d ridearoundhook.org.uk,www.ridearoundhook.org.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: basingstokeoffice.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name basingstokeoffice.co.uk -d basingstokeoffice.co.uk,www.basingstokeoffice.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleys.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleys.co.uk -d cranleys.co.uk,www.cranleys.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountancyfranchise.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountancyfranchise.com -d accountancyfranchise.com,www.accountancyfranchise.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountantsfranchise.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountantsfranchise.co.uk -d accountantsfranchise.co.uk,www.accountantsfranchise.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountantsfranchise.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountantsfranchise.com -d accountantsfranchise.com,www.accountantsfranchise.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountantsfranchise.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountantsfranchise.uk -d accountantsfranchise.uk,www.accountantsfranchise.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountantsteam.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountantsteam.co.uk -d accountantsteam.co.uk,www.accountantsteam.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountantsteam.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountantsteam.com -d accountantsteam.com,www.accountantsteam.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: accountantsteam.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name accountantsteam.uk -d accountantsteam.uk,www.accountantsteam.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: askben.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name askben.co.uk -d askben.co.uk,www.askben.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: basingstokeoffice.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name basingstokeoffice.com -d basingstokeoffice.com,www.basingstokeoffice.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: basingstokeoffices.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name basingstokeoffices.co.uk -d basingstokeoffices.co.uk,www.basingstokeoffices.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: basingstokeoffices.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name basingstokeoffices.com -d basingstokeoffices.com,www.basingstokeoffices.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: basingstokeoffice.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name basingstokeoffice.uk -d basingstokeoffice.uk,www.basingstokeoffice.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: business-secrets.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name business-secrets.co.uk -d business-secrets.co.uk,www.business-secrets.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: business-secrets.net
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name business-secrets.net-d business-secrets.net,www.business-secrets.net --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: business-secrets.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name business-secrets.uk -d business-secrets.uk,www.business-secrets.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: business-tax-secrets.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name business-tax-secrets.co.uk -d business-tax-secrets.co.uk,www.business-tax-secrets.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: businesstaxsecrets.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name businesstaxsecrets.co.uk -d businesstaxsecrets.co.uk,www.businesstaxsecrets.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: businesstaxsecrets.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name businesstaxsecrets.com -d businesstaxsecrets.com,www.businesstaxsecrets.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: businesstaxsecrets.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name businesstaxsecrets.uk -d businesstaxsecrets.uk,www.businesstaxsecrets.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: consultants-accountant.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name consultants-accountant.co.uk -d consultants-accountant.co.uk,www.consultants-accountant.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: consultantsaccountant.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name consultantsaccountant.co.uk -d consultantsaccountant.co.uk,www.consultantsaccountant.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: consultantsaccountant.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name consultantsaccountant.com -d consultantsaccountant.com,www.consultantsaccountant.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: contractorsaccountant.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name contractorsaccountant.co.uk -d contractorsaccountant.co.uk,www.contractorsaccountant.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleys.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleys.uk -d cranleys.uk,www.cranleys.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleysaccountants.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleysaccountants.co.uk -d cranleysaccountants.co.uk,www.cranleysaccountants.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleysaccountants.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleysaccountants.com -d cranleysaccountants.com,www.cranleysaccountants.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleysaccountants.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleysaccountants.uk -d cranleysaccountants.uk,www.cranleysaccountants.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleyslegal.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleyslegal.co.uk -d cranleyslegal.co.uk,www.cranleyslegal.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleysplus.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleysplus.co.uk -d cranleysplus.co.uk,www.cranleysplus.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleysplus.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleysplus.com -d cranleysplus.com,www.cranleysplus.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleyspropertybuyers.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleyspropertybuyers.co.uk -d cranleyspropertybuyers.co.uk,www.cranleyspropertybuyers.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleyspropertybuyers.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleyspropertybuyers.com -d cranleyspropertybuyers.com,www.cranleyspropertybuyers.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleyspropertyinvestors.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleyspropertyinvestors.co.uk -d cranleyspropertyinvestors.co.uk,www.cranleyspropertyinvestors.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleyspropertyinvestors.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleyspropertyinvestors.com -d cranleyspropertyinvestors.com,www.cranleyspropertyinvestors.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: enactusreading.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name enactusreading.com -d enactusreading.com,www.enactusreading.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: heinemannconsulting.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name heinemannconsulting.co.uk -d heinemannconsulting.co.uk,www.heinemannconsulting.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: help2prosper.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name help2prosper.co.uk -d help2prosper.co.uk,www.help2prosper.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: help2prosper.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name help2prosper.com -d help2prosper.com,www.help2prosper.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: profitaccountant.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name profitaccountant.co.uk -d profitaccountant.co.uk,www.profitaccountant.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: profitaccountant.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name profitaccountant.com -d profitaccountant.com,www.profitaccountant.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: profitaccountant.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name profitaccountant.uk -d profitaccountant.uk,www.profitaccountant.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: property-accountant.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name property-accountant.co.uk -d property-accountant.co.uk,www.property-accountant.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: property-accountant.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name property-accountant.com -d property-accountant.com,www.property-accountant.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: property-accountant.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name property-accountant.uk -d property-accountant.uk,www.property-accountant.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: space2park.org.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name space2park.org.uk -d space2park.org.uk,www.space2park.org.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: space2prosper.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name space2prosper.co.uk -d space2prosper.co.uk,www.space2prosper.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: space2prosper.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name space2prosper.com -d space2prosper.com,www.space2prosper.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: space2prosper.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name space2prosper.uk -d space2prosper.uk,www.space2prosper.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: space2stay.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name space2stay.com -d space2stay.com,www.space2stay.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: tax-secrets.net
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name tax-secrets.net -d tax-secrets.net,www.tax-secrets.net --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: taxtipsforum.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name taxtipsforum.co.uk -d taxtipsforum.co.uk,www.taxtipsforum.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: taxtipsforum.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name taxtipsforum.uk -d taxtipsforum.uk,www.taxtipsforum.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: taxtipsforums.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name taxtipsforums.co.uk -d taxtipsforums.co.uk,www.taxtipsforums.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: taxtipsforums.com
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name taxtipsforums.com -d taxtipsforums.com,www.taxtipsforums.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: taxtipsforums.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name taxtipsforums.uk -d taxtipsforums.uk,www.taxtipsforums.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: tutoring.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name tutoring.co.uk -d tutoring.co.uk,www.tutoring.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: colindavison.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name colindavison.co.uk -d colindavison.co.uk,www.colindavison.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+  - name: cranleysproperties.co.uk
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name cranleysproperties.co.uk -d cranleysproperties.co.uk,www.cranleysproperties.co.uk --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
 
 mediawiki_sites:
   - name: sapienswiki
@@ -23,3 +153,12 @@ jekyll_sites:
   - name: davison.io
     repo: https://github.com/davisonio/davison.io
     path: /var/www/davison.io
+  - name: cranleys.co.uk
+    repo: git@github.com:davisonio/cranleys.co.uk.git
+    path: /var/www/cranleys.co.uk
+  - name: basingstokeoffice.co.uk
+    repo: git@github.com:davisonio/basingstokeoffice.co.uk.git
+    path: /var/www/basingstokeoffice.co.uk
+  - name: ridearoundhook.org.uk
+    repo: git@github.com:davisonio/ridearoundhook.org.uk.git
+    path: /var/www/ridearoundhook.org.uk
