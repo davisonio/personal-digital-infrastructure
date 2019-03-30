@@ -3,9 +3,24 @@
 server {
   listen [::]:80;
   listen 80;
-  server_name tutoring.uk www.tutoring.uk;
+  server_name tutoring.uk www.tutoring.uk tutoring.co.uk www.tutoring.co.uk;
 
   include /etc/nginx/h5bp/include-basic.conf;
+
+  return 301 https://tutoring.uk$request_uri;
+}
+
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  server_name tutoring.co.uk www.tutoring.co.uk;
+
+  include /etc/nginx/h5bp/include-basic.conf;
+  include /etc/nginx/h5bp/include-ssl.conf;
+
+  ssl_certificate /etc/letsencrypt/live/tutoring.co.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/tutoring.co.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/tutoring.co.uk/fullchain.pem;
 
   return 301 https://tutoring.uk$request_uri;
 }

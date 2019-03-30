@@ -1,0 +1,13 @@
+# {{ ansible_managed }}
+
+server {
+  listen [::]:80;
+  listen 80;
+  server_name cranleysproperties.co.uk www.cranleysproperties.co.uk cranleyspropertybuyers.co.uk www.cranleyspropertybuyers.co.uk cranleyspropertybuyers.com www.cranleyspropertybuyers.com cranleyspropertyinvestors.co.uk www.cranleyspropertyinvestors.co.uk cranleyspropertyinvestors.com www.cranleyspropertyinvestors.com space2stay.com www.space2stay.com;
+
+  include /etc/nginx/h5bp/include-basic.conf;
+
+  return 301 https://basingstokeoffice.co.uk$request_uri;
+}
+
+# todo: HTTPS redirects for - cranleysproperties.co.uk www.cranleysproperties.co.uk cranleyspropertybuyers.co.uk www.cranleyspropertybuyers.co.uk cranleyspropertybuyers.com www.cranleyspropertybuyers.com cranleyspropertyinvestors.co.uk www.cranleyspropertyinvestors.co.uk cranleyspropertyinvestors.com www.cranleyspropertyinvestors.com space2stay.com www.space2stay.com

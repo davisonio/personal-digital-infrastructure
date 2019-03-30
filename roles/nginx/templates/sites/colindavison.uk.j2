@@ -1,0 +1,28 @@
+# {{ ansible_managed }}
+
+server {
+  listen [::]:80;
+  listen 80;
+  server_name colindavison.co.uk www.colindavison.co.uk business-secrets.co.uk www.business-secrets.co.uk business-tax-secrets.co.uk www.business-tax-secrets.co.uk businesstaxsecrets.co.uk www.businesstaxsecrets.co.uk businesstaxsecrets.com www.businesstaxsecrets.com businesstaxsecrets.uk www.businesstaxsecrets.uk tax-secrets.net www.tax-secrets.net;
+
+  include /etc/nginx/h5bp/include-basic.conf;
+
+  return 301 https://colindavison.uk$request_uri;
+}
+
+# todo: HTTPS redirects for - business-secrets.co.uk www.business-secrets.co.uk business-tax-secrets.co.uk www.business-tax-secrets.co.uk businesstaxsecrets.co.uk www.businesstaxsecrets.co.uk businesstaxsecrets.com www.businesstaxsecrets.com businesstaxsecrets.uk www.businesstaxsecrets.uk tax-secrets.net www.tax-secrets.net
+
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+  server_name colindavison.co.uk www.colindavison.co.uk;
+
+  include /etc/nginx/h5bp/include-basic.conf;
+  include /etc/nginx/h5bp/include-ssl.conf;
+
+  ssl_certificate /etc/letsencrypt/live/colindavison.co.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/colindavison.co.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/colindavison.co.uk/fullchain.pem;
+
+  return 301 https://colindavison.uk$request_uri;
+}

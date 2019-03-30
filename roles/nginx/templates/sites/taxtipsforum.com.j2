@@ -1,0 +1,13 @@
+# {{ ansible_managed }}
+
+server {
+  listen [::]:80;
+  listen 80;
+  server_name taxtipsforum.co.uk www.taxtipsforum.co.uk taxtipsforum.uk www.taxtipsforum.uk taxtipsforums.co.uk www.taxtipsforums.co.uk taxtipsforums.com www.taxtipsforums.com taxtipsforums.uk www.taxtipsforums.uk;
+
+  include /etc/nginx/h5bp/include-basic.conf;
+
+  return 301 https://taxtipsforum.com$request_uri;
+}
+
+# todo: HTTPS redirect for taxtipsforum.co.uk www.taxtipsforum.co.uk taxtipsforum.uk www.taxtipsforum.uk taxtipsforums.co.uk www.taxtipsforums.co.uk taxtipsforums.com www.taxtipsforums.com taxtipsforums.uk www.taxtipsforums.uk
