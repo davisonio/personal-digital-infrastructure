@@ -20,7 +20,7 @@ server {
 
   include /etc/nginx/h5bp/include-basic.conf;
 
-  return 301 https://basingstokeoffice.co.uk/parking/$request_uri;
+  return 301 https://basingstokeoffice.co.uk/parking/;
 }
 
 server {
@@ -31,11 +31,11 @@ server {
   include /etc/nginx/h5bp/include-basic.conf;
   include /etc/nginx/h5bp/include-ssl.conf;
 
-  ssl_certificate /etc/letsencrypt/live/basingstokeoffice.co.uk/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/basingstokeoffice.co.uk/privkey.pem;
-  ssl_trusted_certificate /etc/letsencrypt/live/basingstokeoffice.co.uk/fullchain.pem;
+  ssl_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/space2park.org.uk/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/space2park.org.uk/fullchain.pem;
 
-  return 301 https://basingstokeoffice.co.uk/parking/$request_uri;
+  return 301 https://basingstokeoffice.co.uk/parking/;
 }
 
 server {
