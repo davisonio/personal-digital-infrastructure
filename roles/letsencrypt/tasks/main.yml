@@ -34,6 +34,7 @@
 #- name: Register certificates
 #  command: "{{ item.command }}"
 #  with_items: "{{ letsencrypt_certs }}"
+#  ignore_errors: yes
 
 - name: Add renew cronjob
   cron:
