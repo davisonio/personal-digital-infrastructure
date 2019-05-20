@@ -8,6 +8,7 @@
   apt:
       update_cache: yes
       allow_unauthenticated: yes
+  changed_when: False
 
 - name: Install packages
   apt:
