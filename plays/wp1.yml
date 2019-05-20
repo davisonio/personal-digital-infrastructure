@@ -3,6 +3,6 @@
   roles:
       - letsencrypt
       - nginx
-      - wp-cli
+#      - wp-cli
       - jekyll
       - restic
