@@ -1,0 +1,5 @@
+- name: minetest1.davison.io
+  hosts: minetest1.davison.io
+  roles:
+      - minetest
+      - restic

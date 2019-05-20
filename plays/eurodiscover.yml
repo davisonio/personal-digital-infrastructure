@@ -1,0 +1,4 @@
+- name: eurodiscover.davison.io
+  hosts: eurodiscover.davison.io
+  roles:
+      - restic

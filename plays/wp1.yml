@@ -1,0 +1,8 @@
+- name: wp1.davison.io
+  hosts: wp1.davison.io
+  roles:
+      - letsencrypt
+      - nginx
+      - wp-cli
+      - jekyll
+      - restic

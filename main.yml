@@ -1,11 +1,7 @@
-- name: Create users
+- name: All hosts
   hosts: all
   roles:
       - users
-
-- name: Base roles
-  hosts: all
-  roles:
       - ssh
       - apt
       - ufw
@@ -13,35 +9,8 @@
   - name: Set timezone
     timezone:
       name: Europe/London
+  remote_user: root
 
-- name: Minetest roles
-  hosts: minetest
-  roles:
-      - minetest
-      - restic
-
-- name: Discourse roles
-  hosts: discourse
-  roles:
-      - restic
-
-- name: WordPress roles
-  hosts: wordpress
-  roles:
-      - letsencrypt
-      - nginx
-      - wp-cli
-
-- name: MediaWiki roles
-  hosts: wp1.davison.io
-  roles:
-      - restic
-      - letsencrypt
-      - nginx
-
-- name: Jekyll roles
-  hosts: wp1.davison.io
-  roles:
-     - letsencrypt
-     - nginx
-     - jekyll
+- import_playbook: plays/minetest1.yml
+- import_playbook: plays/wp1.yml
+- import_playbook: plays/eurodiscover.yml
