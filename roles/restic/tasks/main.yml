@@ -18,20 +18,20 @@
   include: 'install.yml'
   when: not restic_executable.stat.exists
 
-- name: Create B2_ACCOUNT_ID
-  cronvar:
-    name: B2_ACCOUNT_ID
-    value: "{{ restic_b2_account_id }}"
+#- name: Create B2_ACCOUNT_ID
+#  cronvar:
+#    name: B2_ACCOUNT_ID
+#    value: "{{ restic_b2_account_id }}"
 
-- name: Create B2_ACCOUNT_KEY
-  cronvar:
-    name: B2_ACCOUNT_KEY
-    value: "{{ restic_b2_account_key }}"
+#- name: Create B2_ACCOUNT_KEY
+#  cronvar:
+#    name: B2_ACCOUNT_KEY
+#    value: "{{ restic_b2_account_key }}"
 
-- name: Create RESTIC_PASSWORD
-  cronvar:
-    name: RESTIC_PASSWORD
-    value: "{{ restic_password }}"
+#- name: Create RESTIC_PASSWORD
+#  cronvar:
+#    name: RESTIC_PASSWORD
+#    value: "{{ restic_password }}"
 
 - name: Configuring restic jobs
   cron:
