@@ -1,0 +1,5 @@
+- name: ghost.davison.io
+  hosts: ghost.davison.io
+  roles:
+      - letsencrypt
+      - nginx

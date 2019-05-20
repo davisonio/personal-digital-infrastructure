@@ -6,4 +6,5 @@
       private: no
   roles:
       - users
+      - ssh
   remote_user: root

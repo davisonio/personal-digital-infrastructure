@@ -33,7 +33,13 @@ server {
   include /etc/nginx/h5bp/include-basic.conf;
   include /etc/nginx/h5bp/include-ssl.conf;
 
-  root /var/www/davison.io/_site;
+  location / {
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header HOST $http_host;
+      proxy_set_header X-NginX-Proxy true;
+      proxy_pass http://127.0.0.1:2368;
+      proxy_redirect off;
+  }
 
   ssl_certificate /etc/letsencrypt/live/davison.io/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/davison.io/privkey.pem;

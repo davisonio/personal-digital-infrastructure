@@ -13,3 +13,4 @@
 - import_playbook: plays/minetest1.yml
 - import_playbook: plays/wp1.yml
 - import_playbook: plays/eurodiscover.yml
+- import_playbook: plays/ghost.yml

@@ -1,5 +1,4 @@
 nginx_sites:
-  - davison.io
   - sapienswiki.com
   - tutoring.uk
   - ridearoundhook.org.uk
@@ -12,8 +11,6 @@ nginx_sites:
   - taxtipsforum.com
 
 letsencrypt_certs:
-  - name: davison.io
-    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name davison.io -d davison.io,www.davison.io --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
   - name: sapienswiki.com
     command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name sapienswiki.com -d sapienswiki.com,www.sapienswiki.com --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
   - name: tutoring.uk
@@ -150,9 +147,6 @@ letsencrypt_pre_renew: service nginx stop
 letsencrypt_post_renew: service nginx restart
 
 jekyll_sites:
-  - name: davison.io
-    repo: https://github.com/davisonio/davison.io
-    path: /var/www/davison.io
   - name: cranleys.co.uk
     repo: git@github.com:davisonio/cranleys.co.uk.git
     path: /var/www/cranleys.co.uk

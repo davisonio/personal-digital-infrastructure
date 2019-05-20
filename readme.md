@@ -5,9 +5,7 @@
 My server automation and other digital tools.
 
 * DigitalOcean - cloud servers, DNS
-* Terraform - infrastructure automation
 * Ansible - configuration automation
-* [terraform-inventory](https://github.com/nbering/terraform-inventory) with [terraform-provider-ansible](https://github.com/nbering/terraform-provider-ansible)
 
 ## Install
 
@@ -15,24 +13,26 @@ macOS control machine:
 
 ```
 git clone https://github.com/davisonio/personal-digital-infrastructure
-brew install terraform
 pip install ansible
-wget https://github.com/nbering/terraform-provider-ansible/releases/download/v0.0.4/terraform-provider-ansible-darwin_amd64.zip -O /tmp/tfpa
-mkdir -p ~/.terraform.d/plugins
-unzip -d ~/.terraform.d/plugins /tmp/tfpa     
-rm /tmp/tfpa
-terraform init
 ```
 
 ## Run
 
 ```
-terraform plan
-terraform apply
 ansible-playbook main.yml
 ```
 
-If running ansible on newly created resources `-u root` may have to be used.
+Other playbooks:
+* For new hosts `new.yml` with ``--ask-pass`` if needed
+
+New DigitalOcean Droplets:
+* latest Ubuntu
+* private networking
+* monitoring
+* IPv6
+* craig SSH key
+* based in LON1
+* add volume if necessary
 
 ## Credits
 

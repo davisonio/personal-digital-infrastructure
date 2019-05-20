@@ -1,0 +1,6 @@
+letsencrypt_certs:
+  - name: davison.io
+    command: /usr/bin/certbot certonly --standalone -m webmaster@davison.io --cert-name davison.io -d davison.io,www.davison.io --rsa-key-size 4096 --pre-hook "service nginx stop" --post-hook "service nginx start" --agree-tos --keep-until-expiring
+
+nginx_sites:
+  - davison.io
