@@ -1,0 +1,9 @@
+- name: New
+  hosts: {{ hosts }}
+  vars_prompt:
+    - name: hosts
+      prompt: Hosts?
+      private: no
+  roles:
+      - users
+  remote_user: root

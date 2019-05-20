@@ -1,4 +1,4 @@
-- name: All hosts
+- name: Base
   hosts: all
   roles:
       - users
@@ -9,7 +9,6 @@
   - name: Set timezone
     timezone:
       name: Europe/London
-  remote_user: root
 
 - import_playbook: plays/minetest1.yml
 - import_playbook: plays/wp1.yml
