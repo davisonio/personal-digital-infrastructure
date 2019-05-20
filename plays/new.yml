@@ -1,7 +1,7 @@
 - name: New
-  hosts: {{ hosts }}
+  hosts: "{{ h }}"
   vars_prompt:
-    - name: hosts
+    - name: h
       prompt: Hosts?
       private: no
   roles:
