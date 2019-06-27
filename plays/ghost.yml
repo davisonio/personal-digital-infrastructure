@@ -1,5 +1,19 @@
 - name: ghost.davison.io
   hosts: ghost.davison.io
   roles:
+      - apt
       - letsencrypt
       - nginx
+
+# register davison.io cert
+# ufw allow 80/443
+# sudo apt install mariadb-server mariadb-client
+# sudo mysql_secure_installation
+# install nvm
+# install node using nvm
+# npm i -g ghost-cli
+# mkdir /var/www/davison.io
+# chown craig:craig /var/www/davison.io
+# chmod 775 /var/www/davison.io
+# mkdir / chown ~/.ghost
+# ghost install

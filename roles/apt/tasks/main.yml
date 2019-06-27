@@ -1,3 +1,8 @@
+- name: Install packages
+  apt:
+    name: aptitude
+    state: present
+
 - name: Install repositories
   apt_repository:
     repo: "{{ item }}"
@@ -12,12 +17,8 @@
 
 - name: Install packages
   apt:
-    name: "{{ item }}"
+    name: "{{ query('flattened', ['{{ apt_install }}', '{{ apt_install_group }}', '{{ apt_install_host }}']) }}"
     state: present
-  with_flattened:
-    - "{{ apt_install }}"
-    - "{{ apt_install_group }}"
-    - "{{ apt_install_host }}"
 
 - name: Upgrade packages
   apt:
