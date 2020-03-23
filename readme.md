@@ -17,6 +17,25 @@ git clone https://github.com/davisonio/personal-digital-infrastructure
 pip3 install ansible
 brew install terraform terraform-inventory
 ```
+Set this in your `.zshrc`
+```sh
+export TF_STATE=.
+```
+
+## Usage
+
+To change infrastructure:
+```
+terraform apply
+```
+Newly created/changed infrastructure will run provisions which may include changing configuration.
+
+To change configuration:
+```
+ansible-playbook plays/<name>.yml
+```
+
+Secrets are stored in `secrets.auto.tfvars`.
 
 ## Credits
 
