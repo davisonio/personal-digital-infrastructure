@@ -8,6 +8,11 @@
     name: nginx
     state: latest
 
+- name: Allow Nginx in UFW
+  ufw:
+    rule: allow
+    name: Nginx Full
+
 - name: Copy h5bp configs
   copy:
     src: templates/h5bp
