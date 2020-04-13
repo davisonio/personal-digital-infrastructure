@@ -1,57 +1,24 @@
 - hosts: panda
-  vars:
-    create_user: craig
-    base_packages:
-      - zsh
   tasks:
-  - name: Update and upgrade apt packages
-    apt:
-      upgrade: "yes"
-      update_cache: yes
-  - name: Create wheel group
-    group:
-      name: wheel
-  - name: Allow wheel group to have passwordless sudo
-    lineinfile:
-      path: /etc/sudoers
-      regexp: '^%wheel'
-      line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-      validate: '/usr/sbin/visudo -cf %s'
-  - name: Create base user in wheel group
-    user:
-      name: "{{ create_user }}"
-      groups: wheel
-      append: true
-      shell: /bin/zsh
-  - name: Get root authorized keys
-    command: cat /root/.ssh/authorized_keys
-    register: root_authorized_keys
-  - name: Set authorized key for base user
-    authorized_key:
-      user: "{{ create_user }}"
-      key: "{{ root_authorized_keys.stdout }}"
-  - name: Disable root login
-    lineinfile:
-      path: /etc/ssh/sshd_config
-      regexp: '^#?PermitRootLogin'
-      line: 'PermitRootLogin no'
-  - name: Install base packages
-    apt:
-      name: "{{ base_packages }}"
-  - name: Allow SSH in UFW
-    ufw:
-      rule: allow
-      name: OpenSSH
-  - name: Deny incoming traffic by default
-    ufw:
-      state: enabled
-      policy: deny
-      direction: incoming
-  - name: Touch .zshrc for base user
-    file:
-      path: /home/{{ create_user }}/.zshrc
-      state: touch
-  - name: Change root shell to zsh
-    user:
-      name: root
-      shell: /bin/zsh
+  - include_role:
+      name: common
+  - include_role:
+      name: certbot
+  - include_role:
+      name: nginx
+
+
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# nvm install --lts
+# sudo apt install nginx
+# sudo ufw allow 'Nginx Full'
+# sudo apt install mariadb-server mariadb-client
+# npm i -g ghost-cli
+# mkdir /var/www/davison.io
+# chown craig:craig /var/www/davison.io
+# chmod 777 /var/www/davison.io
+
+
+# might have nvm permissions errors
+# regular stuff to sort out: dist upgrades, reboots, ghost updates, node updates, npm updates using npm install -g npm
+# manage bashrc
