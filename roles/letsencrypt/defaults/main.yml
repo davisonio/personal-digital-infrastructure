@@ -1,4 +1,0 @@
-letsencrypt_certs: []
-
-letsencrypt_pre_renew: ""
-letsencrypt_post_renew: ""
