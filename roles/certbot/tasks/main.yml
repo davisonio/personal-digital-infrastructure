@@ -1,0 +1,34 @@
+- name: Add Certbot PPA
+  apt_repository:
+    repo: ppa:certbot/certbot
+    update_cache: yes
+
+- name: Install Certbot
+  apt:
+    name: certbot
+    state: latest
+
+- name: Create nginx ssl directory
+  file:
+    path: /etc/nginx/ssl
+    state: directory
+
+- name: Check if dhparam.pem exists
+  stat:
+    path: /etc/nginx/ssl/dhparam.pem
+  register: dhparampem
+
+- name: Generate dhparam.pem
+  command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 4096
+  when: not dhparampem.stat.exists
+
+# Todo, If cert doesn't exist, run certbot
+# certbot certonly -n --standalone
+# open port for it, non-interactive
+
+- name: Add renew cronjob
+  cron:
+    name: "certbot-renew"
+    job: '/usr/bin/certbot renew'
+    special_time: weekly
+    state: present
