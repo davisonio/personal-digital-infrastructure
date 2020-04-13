@@ -1,6 +1,6 @@
-- name: Add Nginx PPA
+- name: Add stable Nginx PPA
   apt_repository:
-    repo: ppa:nginx/development
+    repo: ppa:nginx/stable
     update_cache: yes
 
 - name: Install Nginx
@@ -11,52 +11,30 @@
 - name: Copy h5bp configs
   copy:
     src: templates/h5bp
-    dest: "{{ nginx_path }}"
-  notify: reload nginx
+    dest: /etc/nginx
+  notify: restart nginx
 
-- name: Create nginx.conf
+- name: Add nginx.conf
   template:
     src: "nginx.conf"
-    dest: "{{ nginx_path }}/nginx.conf"
-  notify: reload nginx
+    dest: /etc/nginx/nginx.conf
+  notify: restart nginx
 
-- name: Disable default server
-  file:
-    path: "{{ nginx_path }}/sites-enabled/default"
-    state: absent
-  notify: reload nginx
+- name: Add mime.types
+  template:
+    src: "mime.types"
+    dest: /etc/nginx/mime.types
+  notify: restart nginx
 
 - name: Add unknown site
   template:
-    src: "sites/unknown.j2"
-    dest: "/etc/nginx/sites-available/unknown"
-  notify: reload nginx
-
-- name: Enable unknown site
-  file:
-    path: "/etc/nginx/sites-enabled/unknown"
-    src: "/etc/nginx/sites-available/unknown"
-    state: link
-  notify: reload nginx
+    src: "conf.d/unknown.conf"
+    dest: "/etc/nginx/conf.d/unknown.conf"
+  notify: restart nginx
 
 - name: Add sites
   template:
-    src: "sites/{{item}}.j2"
-    dest: "/etc/nginx/sites-available/{{item}}"
-  with_items: "{{nginx_sites}}"
-  notify: reload nginx
-
-- name: Enable sites
-  file:
-    path: "/etc/nginx/sites-enabled/{{item}}"
-    src: "/etc/nginx/sites-available/{{item}}"
-    state: link
-  with_items: "{{nginx_sites}}"
-  notify: reload nginx
-
-- name: Enable Nginx to start on boot
-  service:
-    name: nginx
-    enabled: yes
-    state: started
-    use: service
+    src: "conf.d/{{ item }}.conf"
+    dest: "/etc/nginx/conf.d/{{ item }}.conf"
+  with_items: "{{ nginx_sites }}"
+  notify: restart nginx

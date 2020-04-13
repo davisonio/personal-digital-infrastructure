@@ -1,3 +1,2 @@
-nginx_path: /etc/nginx
-
-nginx_sites: []
+nginx_sites:
+  - davison.io
