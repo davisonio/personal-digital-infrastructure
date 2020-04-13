@@ -14,6 +14,6 @@
 # npm i -g ghost-cli
 # mkdir /var/www/davison.io
 # chown craig:craig /var/www/davison.io
-# chmod 775 /var/www/davison.io
+# chmod 777 /var/www/davison.io
 # mkdir / chown ~/.ghost
 # ghost install
