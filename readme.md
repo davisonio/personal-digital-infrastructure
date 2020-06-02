@@ -17,7 +17,7 @@ git clone https://github.com/davisonio/personal-digital-infrastructure
 pip3 install ansible
 brew install terraform terraform-inventory
 ```
-Set this in your `.zshrc`
+Set this in your `.zshrc` if ya like
 ```sh
 export TF_STATE=.
 ```
