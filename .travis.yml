@@ -7,7 +7,7 @@ install:
   - pip install ansible
 
 script:
-  - "cd tests && ansible-playbook test.yml --syntax-check"
+  - "cd tests && ansible-playbook test.yml --syntax-check" 
 
 notifications:
   email: false
